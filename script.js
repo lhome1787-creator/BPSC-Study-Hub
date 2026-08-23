@@ -473,3 +473,4 @@ function searchContent() {
         }
     });
 }
+console.log("BPSC Study Hub Quiz Ready");
