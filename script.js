@@ -382,6 +382,7 @@ function nextQuestion() {
         loadQuestion();
 
     } else {
+        clearInterval(timer);
 
         document.getElementById("questionNumber").innerHTML =
             "🎉 Quiz समाप्त";
