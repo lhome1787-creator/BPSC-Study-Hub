@@ -458,21 +458,4 @@ function searchContent() {
         alert("❌ ऐसा कोई topic नहीं मिला!");
     }
 }
-function searchContent() {
-    const searchText = document.getElementById("searchInput").value
-        .trim()
-        .toLowerCase();
-
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(function(card) {
-        const text = card.innerText.toLowerCase();
-
-        if (searchText === "" || text.includes(searchText)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-}
 console.log("BPSC Study Hub Quiz Ready");
