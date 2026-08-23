@@ -412,11 +412,12 @@ document.getElementById("options").appendChild(restartButton);
     }
 }
 
+let timer
 
 loadQuestion();
 let timeLeft = 15 * 60;
 
-const timer = setInterval(function () {
+timer = setInterval(function () {
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
 
