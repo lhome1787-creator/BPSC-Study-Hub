@@ -443,19 +443,27 @@ timer = setInterval(function () {
     }
 }, 1000);
 function searchContent() {
-    const search = document.getElementById("searchInput").value.toLowerCase();
+    const searchText = document.getElementById("searchInput").value.trim().toLowerCase();
 
-    if (search.includes("bihar") || search.includes("gk")) {
+    if (searchText === "") {
+        alert("⚠️ कृपया कुछ खोजें");
+        return;
+    }
+
+    if (searchText.includes("bihar") || searchText.includes("बिहार") || searchText.includes("gk")) {
         window.location.href = "quiz.html";
     } 
-    else if (search.includes("mock")) {
+    else if (searchText.includes("mock") || searchText.includes("मॉक")) {
         window.location.href = "mock-test.html";
     } 
-    else if (search.includes("study")) {
+    else if (searchText.includes("study") || searchText.includes("plan") || searchText.includes("पढ़ाई")) {
         window.location.href = "study-plan.html";
     } 
+    else if (searchText.includes("note") || searchText.includes("notes") || searchText.includes("नोट्स")) {
+        window.location.href = "notes.html";
+    } 
     else {
-        alert("❌ ऐसा कोई topic नहीं मिला!");
+        alert("❌ ऐसा कोई topic नहीं मिला");
     }
 }
 console.log("BPSC Study Hub Quiz Ready");
