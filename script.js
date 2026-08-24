@@ -383,11 +383,16 @@ function nextQuestion() {
 
     } else {
         clearInterval(timer);
+        document.getElementById("timer").innerHTML = "⏱️ Quiz समाप्त";
+
+document.querySelectorAll("button").forEach(function(button) {
+    if (button.innerText.includes("Next Question")) {
+        button.remove();
+    }
+});
 
         document.getElementById("questionNumber").innerHTML =
             "🎉 Quiz समाप्त";
-        const nextBtn = document.querySelector('button[onclick="nextQuestion()"]');
-if (nextBtn) nextBtn.remove();
 
         const percentage = (score / questions.length) * 100;
 
