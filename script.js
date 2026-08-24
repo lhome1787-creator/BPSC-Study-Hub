@@ -386,6 +386,8 @@ function nextQuestion() {
 
         document.getElementById("questionNumber").innerHTML =
             "🎉 Quiz समाप्त";
+        const nextBtn = document.querySelector('button[onclick="nextQuestion()"]');
+if (nextBtn) nextBtn.remove();
 
         const percentage = (score / questions.length) * 100;
 
