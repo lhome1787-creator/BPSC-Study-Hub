@@ -400,6 +400,7 @@ restartButton.onclick = function() {
     currentQuestion = 0;
     score = 0;
     answered = false;
+    timeLeft = 15 * 60;
 
     restartButton.remove();
     loadQuestion();
@@ -412,10 +413,11 @@ document.getElementById("options").appendChild(restartButton);
     }
 }
 
-let timer
+let timer;
+let timeLeft = 15 * 60;
 
 loadQuestion();
-let timeLeft = 15 * 60;
+timeLeft = 15 * 60;
 
 timer = setInterval(function () {
     let minutes = Math.floor(timeLeft / 60);
