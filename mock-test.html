@@ -277,60 +277,53 @@
 
 
 <script>
-
 function calculateScore() {
 
     const answers = {
-        q1: "B",
+        q1: "A",
         q2: "A",
         q3: "A",
-        q4: "C",
+        q4: "A",
         q5: "A"
     };
 
     let score = 0;
     let attempted = 0;
-    let notAttempted = 0;
     let wrong = 0;
+    let notAttempted = 0;
 
-    for (let question in answers) {
+    for (const question in answers) {
 
         const selected = document.querySelector(
             'input[name="' + question + '"]:checked'
         );
 
         if (!selected) {
-
-            score -= 1 / 3;
+            notAttempted++;
             continue;
-
         }
 
         if (selected.value === "E") {
-
             notAttempted++;
-
-        } else if (selected.value === answers[question]) {
-
+        }
+        else if (selected.value === answers[question]) {
             score += 1;
             attempted++;
-
-        } else {
-
+        }
+        else {
             score -= 1 / 3;
+            attempted++;
             wrong++;
         }
     }
 
     document.getElementById("result").innerHTML =
-        "🎯 आपका Score: " + score.toFixed(2) +
-        " / 5<br><br>" +
-        "सही उत्तर: " + attempted +
-        "<br>गलत उत्तर: " + wrong +
-        "<br>Not Attempted (E): " + notAttempted;
-
+        "<h3>🎯 Test Result</h3>" +
+        "<p><b>प्राप्त Score:</b> " + score.toFixed(2) + "</p>" +
+        "<p><b>सही उत्तर:</b> " + (attempted - wrong) + "</p>" +
+        "<p><b>गलत उत्तर:</b> " + wrong + "</p>" +
+        "<p><b>Not Attempted:</b> " + notAttempted + "</p>";
 }
-
 </script>
 
 </body>
