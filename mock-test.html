@@ -149,9 +149,121 @@ const questions=[
 // Safety: exactly 100 questions only.
 const questions100=questions.slice(0,100);
 let timeLeft=7200, submitted=false;
-function renderQuestions(){const box=document.getElementById('mockTest');box.innerHTML='';questions100.forEach((item,i)=>{let n=i+1,d=document.createElement('div');d.className='question';let h='<h3>'+n+'. '+item[0]+'</h3>';item[1].forEach((o,j)=>{let L=String.fromCharCode(65+j);h+='<label class="option"><input type="radio" name="q'+n+'" value="'+L+'"> '+L+'. '+o+'</label>'});h+='<label class="option"><input type="radio" name="q'+n+'" value="E"> E. Not Attempted</label>';d.innerHTML=h;box.appendChild(d)})}
-function calculateScore(){let score=0,correct=0,wrong=0,skip=0,review='';questions100.forEach((item,i)=>{let n=i+1,s=document.querySelector('input[name="q'+n+'"]:checked');if(!s||s.value==='E'){skip++;review+='<div class="review"><b>'+n+'. '+item[0]+'</b><br>⭕ Not Attempted<br>सही उत्तर: '+item[2]+'. '+item[1][item[2].charCodeAt(0)-65]+'</div>'}else if(s.value===item[2]){score++;correct++;review+='<div class="review"><b>'+n+'. '+item[0]+'</b><br>✅ सही उत्तर</div>'}else{score-=1/3;wrong++;review+='<div class="review"><b>'+n+'. '+item[0]+'</b><br>❌ गलत उत्तर<br>सही उत्तर: '+item[2]+'. '+item[1][item[2].charCodeAt(0)-65]+'</div>'}});document.getElementById('result').innerHTML='<div class="result"><h2>🎯 Test Result</h2><h3>प्राप्त Score: '+score.toFixed(2)+' / 100</h3><p>✅ सही उत्तर: '+correct+'</p><p>❌ गलत उत्तर: '+wrong+'</p><p>⭕ Not Attempted: '+skip+'</p><div class="review"><h2>📖 Answer Review</h2>'+review+'</div><br><button onclick="location.reload()">🔄 Retry Mock Test</button></div>';submitted=true;window.scrollTo({top:document.getElementById('result').offsetTop,behavior:'smooth'})}
-document.getElementById('submitBtn').onclick=calculateScore;
-setInterval(()=>{if(submitted)return;if(timeLeft<=0){calculateScore();return}timeLeft--;let h=Math.floor(timeLeft/3600),m=Math.floor(timeLeft%3600/60),s=timeLeft%60;document.getElementById('timer').textContent='समय बाकी: '+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')},1000);
+function renderQuestions() {
+    const box = document.getElementById("mockTest");
+    box.innerHTML = "";
+
+    questions100.forEach((item, i) => {
+        const n = i + 1;
+
+        let html = `
+            <div class="question">
+                <h3>${n}. ${item[0]}</h3>
+        `;
+
+        item[1].forEach((option, j) => {
+            const letter = String.fromCharCode(65 + j);
+
+            html += `
+                <label>
+                    <input type="radio" name="q${n}" value="${letter}">
+                    ${letter}. ${option}
+                </label>
+            `;
+        });
+
+        html += `
+            <label>
+                <input type="radio" name="q${n}" value="E">
+                E. Not Attempted
+            </label>
+            </div>
+        `;
+
+        box.innerHTML += html;
+    });
+}
+
+
+function calculateScore() {
+    let score = 0;
+    let correct = 0;
+    let wrong = 0;
+    let skip = 0;
+    let review = "";
+
+    questions100.forEach((item, i) => {
+        const n = i + 1;
+
+        const selected = document.querySelector(
+            'input[name="q' + n + '"]:checked'
+        );
+
+        if (!selected || selected.value === "E") {
+            skip++;
+        }
+        else if (selected.value === item[2]) {
+            score += 1;
+            correct++;
+        }
+        else {
+            score -= 1 / 3;
+            wrong++;
+        }
+    });
+
+    document.getElementById("result").innerHTML = `
+        <div class="result">
+            <h2>🎯 Test Result</h2>
+
+            <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+
+            <p>✅ सही उत्तर: ${correct}</p>
+            <p>❌ गलत उत्तर: ${wrong}</p>
+            <p>⭕ Not Attempted: ${skip}</p>
+
+            <hr>
+
+            <h2>📖 Answer Review</h2>
+
+            <button onclick="location.reload()">
+                🔄 Retry Mock Test
+            </button>
+        </div>
+    `;
+
+    submitted = true;
+
+    window.scrollTo({
+        top: document.getElementById("result").offsetTop,
+        behavior: "smooth"
+    });
+}
+
+
+document.getElementById("submitBtn").onclick = calculateScore;
+
+setInterval(() => {
+    if (submitted) return;
+
+    if (timeLeft <= 0) {
+        calculateScore();
+        return;
+    }
+
+    timeLeft--;
+
+    const hours = Math.floor(timeLeft / 3600);
+    const minutes = Math.floor((timeLeft % 3600) / 60);
+    const seconds = timeLeft % 60;
+
+    document.getElementById("timer").innerHTML =
+        "समय बाकी: " +
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+}, 1000);
+
+
 renderQuestions();
 </script></body></html>
