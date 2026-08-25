@@ -12,7 +12,7 @@ body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;color:#222}header{
 <nav><a href="index.html">Home</a><a href="notes.html">Notes</a><a href="quiz.html">Quiz</a><a href="mock-test.html">Mock Test</a><a href="study-plan.html">Study Plan</a><a href="about.html">About</a></nav>
 <div class="container">
 <div class="box"><h2>📌 Mock Test Instructions</h2><ul><li>कुल प्रश्न: <b>100</b></li><li>सही उत्तर: <b>+1 अंक</b></li><li>गलत उत्तर: <b>-1/3 अंक</b></li><li>Not Attempted: <b>0 अंक</b></li><li>समय: <b>2 घंटे</b></li></ul><div id="timer"><b>समय बाकी: 02:00:00</b></div></div>
-<div id="mockTest"></div><button id="submitBtn">Submit Test</button><div id="result"></div></div>
+<div id="questionPalette"></div><div id="mockTest"></div><button id="submitBtn">Submit Test</button><div id="result"></div></div>
 <footer>© 2026 BPSC Study Hub | BPSC Preparation</footer>
 <script>
 const questions=[
@@ -148,6 +148,23 @@ const questions=[
 
 // Safety: exactly 100 questions only.
 const questions100=questions.slice(0,100);
+    // Question Palette
+const palette = document.getElementById("questionPalette");
+
+questions100.forEach((item, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = i + 1;
+    btn.className = "palette-btn";
+
+    btn.onclick = () => {
+        const question = document.getElementById("question-" + i);
+        if (question) {
+            question.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    };
+
+    palette.appendChild(btn);
+});
 let timeLeft=7200, submitted=false;
 function renderQuestions() {
     const box = document.getElementById("mockTest");
