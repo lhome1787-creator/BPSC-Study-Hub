@@ -5,193 +5,333 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BPSC Mock Test</title>
+    <title>BPSC Mock Test - BPSC Study Hub</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .mock-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .instructions {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .question h3 {
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #f0f4ff;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 14px 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🎯 BPSC Study Hub</h1>
-    <p>BPSC Mock Test</p>
+    <h1>📝 BPSC Mock Test</h1>
+    <p>72वीं BPSC Prelims Pattern पर आधारित Practice Test</p>
 </header>
 
 <nav>
     <a href="index.html">Home</a>
     <a href="notes.html">Notes</a>
     <a href="quiz.html">Quiz</a>
+    <a href="history.html">History</a>
+    <a href="geography.html">Geography</a>
+    <a href="polity.html">Polity</a>
+    <a href="economy.html">Economy</a>
+    <a href="current-affairs.html">Current Affairs</a>
     <a href="mock-test.html">Mock Test</a>
     <a href="study-plan.html">Study Plan</a>
     <a href="about.html">About</a>
 </nav>
 
-<main>
+<main class="mock-container">
 
-    <section class="hero">
+    <div class="instructions">
 
-        <h2>📝 BPSC Mini Mock Test</h2>
+        <h2>📌 Mock Test Instructions</h2>
 
-        <p>कुल प्रश्न: 5</p>
+        <ul>
+            <li>कुल प्रश्न: 150</li>
+            <li>कुल अंक: 150</li>
+            <li>समय: 2 घंटे</li>
+            <li>सही उत्तर: +1 अंक</li>
+            <li>गलत A/B/C/D उत्तर: −1/3 अंक</li>
+            <li>Option E = Not Attempted</li>
+            <li>A–E में कुछ भी न चुनने पर: −1/3 अंक</li>
+        </ul>
 
-        <hr>
+        <p>
+            <strong>महत्वपूर्ण:</strong>
+            वास्तविक परीक्षा के अंतिम नियमों के लिए BPSC की official notification को ही मानें।
+        </p>
 
-        <!-- Question 1 -->
+    </div>
+
+    <form id="mockTest">
+
         <div class="question">
+            <h3>1. बिहार की राजधानी कौन-सी है?</h3>
 
-            <h3>1. बिहार की राजधानी क्या है?</h3>
-
-            <label>
-                <input type="radio" name="q1" value="Patna">
-                पटना
+            <label class="option">
+                <input type="radio" name="q1" value="A">
+                A. गया
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q1" value="Gaya">
-                गया
+            <label class="option">
+                <input type="radio" name="q1" value="B">
+                B. पटना
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q1" value="Delhi">
-                दिल्ली
+            <label class="option">
+                <input type="radio" name="q1" value="C">
+                C. भागलपुर
             </label>
 
+            <label class="option">
+                <input type="radio" name="q1" value="D">
+                D. मुजफ्फरपुर
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="E">
+                E. Not Attempted
+            </label>
         </div>
 
-        <hr>
 
-        <!-- Question 2 -->
         <div class="question">
+            <h3>2. बिहार में स्थित प्राचीन विश्वविद्यालय कौन-सा था?</h3>
 
-            <h3>2. भारत का संविधान कब लागू हुआ?</h3>
-
-            <label>
-                <input type="radio" name="q2" value="1950">
-                26 जनवरी 1950
+            <label class="option">
+                <input type="radio" name="q2" value="A">
+                A. नालंदा
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q2" value="1947">
-                15 अगस्त 1947
+            <label class="option">
+                <input type="radio" name="q2" value="B">
+                B. तक्षशिला
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q2" value="1949">
-                26 नवंबर 1949
+            <label class="option">
+                <input type="radio" name="q2" value="C">
+                C. वल्लभी
             </label>
 
+            <label class="option">
+                <input type="radio" name="q2" value="D">
+                D. कांची
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="E">
+                E. Not Attempted
+            </label>
         </div>
 
-        <hr>
 
-        <!-- Question 3 -->
         <div class="question">
+            <h3>3. बिहार की प्रमुख नदी कौन-सी है?</h3>
 
-            <h3>3. भारत का राष्ट्रीय पशु कौन है?</h3>
-
-            <label>
-                <input type="radio" name="q3" value="Tiger">
-                बाघ
+            <label class="option">
+                <input type="radio" name="q3" value="A">
+                A. गंगा
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q3" value="Lion">
-                शेर
+            <label class="option">
+                <input type="radio" name="q3" value="B">
+                B. नर्मदा
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q3" value="Elephant">
-                हाथी
+            <label class="option">
+                <input type="radio" name="q3" value="C">
+                C. ताप्ती
             </label>
 
+            <label class="option">
+                <input type="radio" name="q3" value="D">
+                D. गोदावरी
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="E">
+                E. Not Attempted
+            </label>
         </div>
 
-        <hr>
 
-        <!-- Question 4 -->
         <div class="question">
+            <h3>4. भारत का संविधान कब लागू हुआ?</h3>
 
-            <h3>4. बिहार में कितने प्रमंडल हैं?</h3>
-
-            <label>
-                <input type="radio" name="q4" value="9">
-                9
+            <label class="option">
+                <input type="radio" name="q4" value="A">
+                A. 15 अगस्त 1947
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q4" value="10">
-                10
+            <label class="option">
+                <input type="radio" name="q4" value="B">
+                B. 26 नवंबर 1949
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q4" value="12">
-                12
+            <label class="option">
+                <input type="radio" name="q4" value="C">
+                C. 26 जनवरी 1950
             </label>
 
+            <label class="option">
+                <input type="radio" name="q4" value="D">
+                D. 2 अक्टूबर 1950
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="E">
+                E. Not Attempted
+            </label>
         </div>
 
-        <hr>
 
-        <!-- Question 5 -->
         <div class="question">
+            <h3>5. बिहार किस प्रकार की अर्थव्यवस्था के लिए जाना जाता है?</h3>
 
-            <h3>5. भारत का राष्ट्रीय फूल कौन है?</h3>
-
-            <label>
-                <input type="radio" name="q5" value="Lotus">
-                कमल
+            <label class="option">
+                <input type="radio" name="q5" value="A">
+                A. कृषि आधारित
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q5" value="Rose">
-                गुलाब
+            <label class="option">
+                <input type="radio" name="q5" value="B">
+                B. केवल खनन आधारित
             </label>
 
-            <br>
-
-            <label>
-                <input type="radio" name="q5" value="Sunflower">
-                सूरजमुखी
+            <label class="option">
+                <input type="radio" name="q5" value="C">
+                C. केवल समुद्री व्यापार आधारित
             </label>
 
+            <label class="option">
+                <input type="radio" name="q5" value="D">
+                D. केवल पर्यटन आधारित
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="E">
+                E. Not Attempted
+            </label>
         </div>
 
-        <br>
 
-        <button onclick="submitMockTest()">
+        <button type="button" class="submit-btn" onclick="calculateScore()">
             Submit Test
         </button>
 
-        <h2 id="score"></h2>
+    </form>
 
-    </section>
+    <div id="result"></div>
 
 </main>
 
 <footer>
-    <p>© 2026 BPSC Study Hub</p>
+    <p>© 2026 BPSC Study Hub | BPSC Preparation</p>
 </footer>
 
-<script src="js/script.js"></script>
+
+<script>
+
+function calculateScore() {
+
+    const answers = {
+        q1: "B",
+        q2: "A",
+        q3: "A",
+        q4: "C",
+        q5: "A"
+    };
+
+    let score = 0;
+    let attempted = 0;
+    let notAttempted = 0;
+    let wrong = 0;
+
+    for (let question in answers) {
+
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+
+            score -= 1 / 3;
+            continue;
+
+        }
+
+        if (selected.value === "E") {
+
+            notAttempted++;
+
+        } else if (selected.value === answers[question]) {
+
+            score += 1;
+            attempted++;
+
+        } else {
+
+            score -= 1 / 3;
+            wrong++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "🎯 आपका Score: " + score.toFixed(2) +
+        " / 5<br><br>" +
+        "सही उत्तर: " + attempted +
+        "<br>गलत उत्तर: " + wrong +
+        "<br>Not Attempted (E): " + notAttempted;
+
+}
+
+</script>
 
 </body>
-
 </html>
