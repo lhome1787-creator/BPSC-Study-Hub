@@ -1,326 +1,799 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPSC Study Hub - Mock Test</title>
 
-    <title>BPSC Mock Test - BPSC Study Hub</title>
+<style>
+*{
+    box-sizing:border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+    color:#222;
+}
 
-    <style>
-        .mock-container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+header{
+    background:#1266d6;
+    color:white;
+    padding:25px 15px;
+    text-align:center;
+}
 
-        .instructions {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-        }
+header h1{
+    margin:0;
+    font-size:30px;
+}
 
-        .question {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+header p{
+    margin:8px 0 0;
+}
 
-        .question h3 {
-            margin-bottom: 15px;
-        }
+nav{
+    background:white;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 8px #ddd;
+}
 
-        .option {
-            display: block;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+nav a{
+    color:#222;
+    text-decoration:none;
+    margin:0 10px;
+}
 
-        .option:hover {
-            background: #f0f4ff;
-        }
+.container{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px;
+}
 
-        .submit-btn {
-            display: block;
-            margin: 30px auto;
-            padding: 14px 30px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+.instructions{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    border-left:5px solid #1266d6;
+}
 
-        #result {
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            margin: 30px 0;
-        }
-    </style>
+.question{
+    background:white;
+    margin-bottom:18px;
+    padding:20px;
+    border-radius:10px;
+    border-left:4px solid #1266d6;
+    box-shadow:0 2px 8px #ddd;
+}
+
+.question h3{
+    margin-top:0;
+}
+
+.option{
+    display:block;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:7px;
+    cursor:pointer;
+    background:#fafafa;
+}
+
+.option:hover{
+    background:#eef5ff;
+}
+
+.option input{
+    margin-right:8px;
+}
+
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    background:#1266d6;
+    color:white;
+    border:none;
+    padding:14px 35px;
+    border-radius:7px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#0b4fae;
+}
+
+#result{
+    background:#1266d6;
+    color:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin:30px 0;
+    font-size:18px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>📝 BPSC Mock Test</h1>
-    <p>72वीं BPSC Prelims Pattern पर आधारित Practice Test</p>
+    <h1>🎯 BPSC Study Hub</h1>
+    <p>BPSC 100 Questions Mock Test</p>
 </header>
 
 <nav>
     <a href="index.html">Home</a>
     <a href="notes.html">Notes</a>
     <a href="quiz.html">Quiz</a>
-    <a href="history.html">History</a>
-    <a href="geography.html">Geography</a>
-    <a href="polity.html">Polity</a>
-    <a href="economy.html">Economy</a>
-    <a href="current-affairs.html">Current Affairs</a>
     <a href="mock-test.html">Mock Test</a>
     <a href="study-plan.html">Study Plan</a>
     <a href="about.html">About</a>
 </nav>
 
-<main class="mock-container">
+<div class="container">
 
-    <div class="instructions">
-
-        <h2>📌 Mock Test Instructions</h2>
-
-        <ul>
-            <li>कुल प्रश्न: 150</li>
-            <li>कुल अंक: 150</li>
-            <li>समय: 2 घंटे</li>
-            <li>सही उत्तर: +1 अंक</li>
-            <li>गलत A/B/C/D उत्तर: −1/3 अंक</li>
-            <li>Option E = Not Attempted</li>
-            <li>A–E में कुछ भी न चुनने पर: −1/3 अंक</li>
-        </ul>
-
-        <p>
-            <strong>महत्वपूर्ण:</strong>
-            वास्तविक परीक्षा के अंतिम नियमों के लिए BPSC की official notification को ही मानें।
-        </p>
-
-    </div>
-
-    <form id="mockTest">
-
-        <!-- Questions 1-10 -->
-
-<div class="question">
-<h3>1. बिहार की राजधानी कौन-सी है?</h3>
-<label><input type="radio" name="q1" value="A"> A. गया</label>
-<label><input type="radio" name="q1" value="B"> B. पटना</label>
-<label><input type="radio" name="q1" value="C"> C. भागलपुर</label>
-<label><input type="radio" name="q1" value="D"> D. मुजफ्फरपुर</label>
-<label><input type="radio" name="q1" value="E"> E. Not Attempted</label>
+<div class="instructions">
+    <h2>📌 Mock Test Instructions</h2>
+    <ul>
+        <li>कुल प्रश्न: 100</li>
+        <li>सही उत्तर: +1 अंक</li>
+        <li>गलत उत्तर: -1/3 अंक</li>
+        <li>Not Attempted: 0 अंक</li>
+        <li>प्रत्येक प्रश्न में E = Not Attempted</li>
+    </ul>
 </div>
 
-<div class="question">
-<h3>2. भारत का संविधान कब लागू हुआ?</h3>
-<label><input type="radio" name="q2" value="A"> A. 15 अगस्त 1947</label>
-<label><input type="radio" name="q2" value="B"> B. 26 नवंबर 1949</label>
-<label><input type="radio" name="q2" value="C"> C. 26 जनवरी 1950</label>
-<label><input type="radio" name="q2" value="D"> D. 2 अक्टूबर 1950</label>
-<label><input type="radio" name="q2" value="E"> E. Not Attempted</label>
+<form id="mockTest"></form>
+
+<button type="button" class="submit-btn" onclick="calculateScore()">
+    Submit Test
+</button>
+
+<div id="result"></div>
+
 </div>
-
-<div class="question">
-<h3>3. बिहार में स्थित प्राचीन विश्वविद्यालय कौन-सा था?</h3>
-<label><input type="radio" name="q3" value="A"> A. नालंदा</label>
-<label><input type="radio" name="q3" value="B"> B. तक्षशिला</label>
-<label><input type="radio" name="q3" value="C"> C. विक्रमशिला</label>
-<label><input type="radio" name="q3" value="D"> D. दोनों A और C</label>
-<label><input type="radio" name="q3" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>4. चंपारण सत्याग्रह किस वर्ष हुआ था?</h3>
-<label><input type="radio" name="q4" value="A"> A. 1915</label>
-<label><input type="radio" name="q4" value="B"> B. 1917</label>
-<label><input type="radio" name="q4" value="C"> C. 1920</label>
-<label><input type="radio" name="q4" value="D"> D. 1922</label>
-<label><input type="radio" name="q4" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>5. बिहार का राज्य पशु कौन-सा है?</h3>
-<label><input type="radio" name="q5" value="A"> A. गौर</label>
-<label><input type="radio" name="q5" value="B"> B. गंगा डॉल्फिन</label>
-<label><input type="radio" name="q5" value="C"> C. हाथी</label>
-<label><input type="radio" name="q5" value="D"> D. बाघ</label>
-<label><input type="radio" name="q5" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>6. भारतीय संविधान की प्रस्तावना में कितने प्रमुख आदर्शों का उल्लेख है?</h3>
-<label><input type="radio" name="q6" value="A"> A. 4</label>
-<label><input type="radio" name="q6" value="B"> B. 5</label>
-<label><input type="radio" name="q6" value="C"> C. 6</label>
-<label><input type="radio" name="q6" value="D"> D. 7</label>
-<label><input type="radio" name="q6" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>7. बिहार का सबसे महत्वपूर्ण नदी तंत्र कौन-सा है?</h3>
-<label><input type="radio" name="q7" value="A"> A. गंगा</label>
-<label><input type="radio" name="q7" value="B"> B. नर्मदा</label>
-<label><input type="radio" name="q7" value="C"> C. गोदावरी</label>
-<label><input type="radio" name="q7" value="D"> D. कावेरी</label>
-<label><input type="radio" name="q7" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>8. भारत के राष्ट्रपति का चुनाव कौन करता है?</h3>
-<label><input type="radio" name="q8" value="A"> A. केवल लोकसभा</label>
-<label><input type="radio" name="q8" value="B"> B. केवल राज्यसभा</label>
-<label><input type="radio" name="q8" value="C"> C. निर्वाचक मंडल</label>
-<label><input type="radio" name="q8" value="D"> D. जनता सीधे</label>
-<label><input type="radio" name="q8" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>9. बिहार दिवस कब मनाया जाता है?</h3>
-<label><input type="radio" name="q9" value="A"> A. 22 मार्च</label>
-<label><input type="radio" name="q9" value="B"> B. 15 अगस्त</label>
-<label><input type="radio" name="q9" value="C"> C. 26 जनवरी</label>
-<label><input type="radio" name="q9" value="D"> D. 2 अक्टूबर</label>
-<label><input type="radio" name="q9" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-<h3>10. भारतीय संविधान का संरक्षक किसे माना जाता है?</h3>
-<label><input type="radio" name="q10" value="A"> A. संसद</label>
-<label><input type="radio" name="q10" value="B"> B. राष्ट्रपति</label>
-<label><input type="radio" name="q10" value="C"> C. सर्वोच्च न्यायालय</label>
-<label><input type="radio" name="q10" value="D"> D. प्रधानमंत्री</label>
-<label><input type="radio" name="q10" value="E"> E. Not Attempted</label>
-</div>
-<div class="question">
-    <h3>11. बिहार का सबसे बड़ा जिला क्षेत्रफल की दृष्टि से कौन-सा है?</h3>
-    <label><input type="radio" name="q11" value="A"> A. पटना</label>
-    <label><input type="radio" name="q11" value="B"> B. पश्चिम चंपारण</label>
-    <label><input type="radio" name="q11" value="C"> C. गया</label>
-    <label><input type="radio" name="q11" value="D"> D. मुजफ्फरपुर</label>
-    <label><input type="radio" name="q11" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-    <h3>12. बिहार में गंगा नदी किस दिशा में बहती है?</h3>
-    <label><input type="radio" name="q12" value="A"> A. पश्चिम से पूर्व</label>
-    <label><input type="radio" name="q12" value="B"> B. पूर्व से पश्चिम</label>
-    <label><input type="radio" name="q12" value="C"> C. उत्तर से दक्षिण</label>
-    <label><input type="radio" name="q12" value="D"> D. दक्षिण से उत्तर</label>
-    <label><input type="radio" name="q12" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-    <h3>13. नालंदा विश्वविद्यालय की स्थापना किस काल में हुई थी?</h3>
-    <label><input type="radio" name="q13" value="A"> A. गुप्त काल</label>
-    <label><input type="radio" name="q13" value="B"> B. मौर्य काल</label>
-    <label><input type="radio" name="q13" value="C"> C. मुगल काल</label>
-    <label><input type="radio" name="q13" value="D"> D. पाल काल</label>
-    <label><input type="radio" name="q13" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-    <h3>14. बिहार का राजकीय वृक्ष कौन-सा है?</h3>
-    <label><input type="radio" name="q14" value="A"> A. पीपल</label>
-    <label><input type="radio" name="q14" value="B"> B. बरगद</label>
-    <label><input type="radio" name="q14" value="C"> C. नीम</label>
-    <label><input type="radio" name="q14" value="D"> D. आम</label>
-    <label><input type="radio" name="q14" value="E"> E. Not Attempted</label>
-</div>
-
-<div class="question">
-    <h3>15. चंपारण सत्याग्रह किस वर्ष हुआ था?</h3>
-    <label><input type="radio" name="q15" value="A"> A. 1915</label>
-    <label><input type="radio" name="q15" value="B"> B. 1917</label>
-    <label><input type="radio" name="q15" value="C"> C. 1920</label>
-    <label><input type="radio" name="q15" value="D"> D. 1930</label>
-    <label><input type="radio" name="q15" value="E"> E. Not Attempted</label>
-</div>
-  
-            
-        <button type="button" class="submit-btn" onclick="calculateScore()">
-            Submit Test
-        </butt
-
-    </form>
-
-    <div id="result"></div>
-
-</main>
 
 <footer>
-    <p>© 2026 BPSC Study Hub | BPSC Preparation</p>
+    © 2026 BPSC Study Hub | BPSC Preparation
 </footer>
 
-
 <script>
-function calculateScore() {
 
-    const answers = {
-    q1: "B",
-    q2: "C",
-    q3: "D",
-    q4: "B",
-    q5: "B",
-    q6: "C",
-    q7: "A",
-    q8: "C",
-    q9: "A",
-    q10: "C",
-    q11: "B",
-    q12: "A",
-    q13: "A",
-    q14: "A",
-    q15: "B"
-};
+const questions = [
+
+/* 1-10 */
+{
+q:"बिहार की राजधानी कौन-सी है?",
+o:["गया","पटना","भागलपुर","मुजफ्फरपुर"],
+a:"B"
+},
+{
+q:"बिहार दिवस कब मनाया जाता है?",
+o:["15 अगस्त","22 मार्च","26 जनवरी","2 अक्टूबर"],
+a:"B"
+},
+{
+q:"बिहार का सबसे बड़ा जिला क्षेत्रफल की दृष्टि से कौन-सा है?",
+o:["पटना","गया","पश्चिम चंपारण","मुजफ्फरपुर"],
+a:"C"
+},
+{
+q:"चंपारण सत्याग्रह किस वर्ष हुआ था?",
+o:["1915","1917","1920","1922"],
+a:"B"
+},
+{
+q:"बिहार का राज्य पशु कौन-सा है?",
+o:["गाय","गंगा डॉल्फिन","हाथी","बाघ"],
+a:"B"
+},
+{
+q:"बिहार का राज्य पक्षी कौन-सा है?",
+o:["गौरैया","मोर","गौरेया","तोता"],
+a:"C"
+},
+{
+q:"बिहार का सबसे महत्वपूर्ण नदी तंत्र कौन-सा है?",
+o:["गंगा","नर्मदा","गोदावरी","कावेरी"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय पशु कौन है?",
+o:["शेर","बाघ","हाथी","गैंडा"],
+a:"B"
+},
+{
+q:"भारत का राष्ट्रीय फूल कौन-सा है?",
+o:["गुलाब","कमल","चमेली","सूरजमुखी"],
+a:"B"
+},
+{
+q:"भारतीय संविधान का संरक्षक किसे माना जाता है?",
+o:["संसद","राष्ट्रपति","सर्वोच्च न्यायालय","प्रधानमंत्री"],
+a:"C"
+},
+
+/* 11-20 */
+{
+q:"बिहार में स्थित प्राचीन विश्वविद्यालय कौन-सा था?",
+o:["नालंदा","दिल्ली विश्वविद्यालय","बनारस हिंदू विश्वविद्यालय","इलाहाबाद विश्वविद्यालय"],
+a:"A"
+},
+{
+q:"विक्रमशिला विश्वविद्यालय की स्थापना किसने की थी?",
+o:["धर्मपाल","अशोक","समुद्रगुप्त","हर्षवर्धन"],
+a:"A"
+},
+{
+q:"नालंदा विश्वविद्यालय किस जिले में स्थित था?",
+o:["नालंदा","पटना","गया","भोजपुर"],
+a:"A"
+},
+{
+q:"गोलघर कहाँ स्थित है?",
+o:["गया","पटना","सासाराम","भागलपुर"],
+a:"B"
+},
+{
+q:"शेरशाह सूरी का मकबरा कहाँ स्थित है?",
+o:["पटना","सासाराम","गया","बक्सर"],
+a:"B"
+},
+{
+q:"बिहार में महाबोधि मंदिर कहाँ स्थित है?",
+o:["राजगीर","बोधगया","पटना","नालंदा"],
+a:"B"
+},
+{
+q:"बोधगया किस धर्म का प्रमुख तीर्थस्थल है?",
+o:["बौद्ध धर्म","सिख धर्म","जैन धर्म","पारसी धर्म"],
+a:"A"
+},
+{
+q:"भगवान बुद्ध को ज्ञान कहाँ प्राप्त हुआ?",
+o:["सारनाथ","बोधगया","कुशीनगर","लुंबिनी"],
+a:"B"
+},
+{
+q:"भगवान महावीर का जन्म किस क्षेत्र में हुआ था?",
+o:["वैशाली","पटना","गया","सासाराम"],
+a:"A"
+},
+{
+q:"वैशाली किसके लिए प्रसिद्ध है?",
+o:["प्राचीन गणराज्य","समुद्री बंदरगाह","चाय बागान","खनिज"],
+a:"A"
+},
+
+/* 21-30 */
+{
+q:"मौर्य साम्राज्य की राजधानी क्या थी?",
+o:["पाटलिपुत्र","दिल्ली","उज्जैन","कन्नौज"],
+a:"A"
+},
+{
+q:"सम्राट अशोक किस वंश से संबंधित थे?",
+o:["मौर्य","गुप्त","कुषाण","पाल"],
+a:"A"
+},
+{
+q:"चंद्रगुप्त मौर्य के गुरु कौन थे?",
+o:["चाणक्य","कालिदास","बाणभट्ट","आर्यभट्ट"],
+a:"A"
+},
+{
+q:"आर्यभट्ट का संबंध किस स्थान से माना जाता है?",
+o:["पटना क्षेत्र","गया","भागलपुर","सासाराम"],
+a:"A"
+},
+{
+q:"आर्यभट्ट किस क्षेत्र के प्रसिद्ध विद्वान थे?",
+o:["गणित और खगोल विज्ञान","राजनीति","चिकित्सा","संगीत"],
+a:"A"
+},
+{
+q:"बिहार में किस नदी को 'बिहार का शोक' कहा जाता था?",
+o:["कोसी","गंगा","सोन","पुनपुन"],
+a:"A"
+},
+{
+q:"कोसी नदी को किस नाम से भी जाना जाता है?",
+o:["बिहार का शोक","बिहार की जीवनरेखा","दक्षिण की गंगा","पूर्व की यमुना"],
+a:"A"
+},
+{
+q:"गंगा नदी बिहार में सामान्यतः किस दिशा में बहती है?",
+o:["पश्चिम से पूर्व","पूर्व से पश्चिम","उत्तर से दक्षिण","दक्षिण से उत्तर"],
+a:"A"
+},
+{
+q:"सोन नदी किस नदी की सहायक नदी है?",
+o:["गंगा","यमुना","नर्मदा","गोदावरी"],
+a:"A"
+},
+{
+q:"गंडक नदी किस नदी में मिलती है?",
+o:["गंगा","यमुना","सोन","कोसी"],
+a:"A"
+},
+
+/* 31-40 */
+{
+q:"बिहार में कुल कितने प्रमंडल हैं?",
+o:["7","8","9","10"],
+a:"C"
+},
+{
+q:"बिहार में कुल कितने जिले हैं?",
+o:["36","37","38","40"],
+a:"C"
+},
+{
+q:"बिहार का सबसे अधिक जनसंख्या वाला जिला कौन-सा है?",
+o:["पटना","गया","मुजफ्फरपुर","भागलपुर"],
+a:"A"
+},
+{
+q:"बिहार का प्रमुख औद्योगिक शहर कौन-सा है?",
+o:["बेगूसराय","पटना","गया","सीतामढ़ी"],
+a:"A"
+},
+{
+q:"भागलपुर किस उद्योग के लिए प्रसिद्ध है?",
+o:["रेशम","चाय","कोयला","हीरा"],
+a:"A"
+},
+{
+q:"मुजफ्फरपुर किस फल के लिए प्रसिद्ध है?",
+o:["लीची","आम","सेब","संतरा"],
+a:"A"
+},
+{
+q:"मधुबनी चित्रकला किस राज्य से संबंधित है?",
+o:["बिहार","उत्तर प्रदेश","झारखंड","पश्चिम बंगाल"],
+a:"A"
+},
+{
+q:"मधुबनी चित्रकला का दूसरा नाम क्या है?",
+o:["मिथिला चित्रकला","पटना चित्रकला","मगध चित्रकला","अंगिका चित्रकला"],
+a:"A"
+},
+{
+q:"सोनपुर मेला किस जिले में आयोजित होता है?",
+o:["सारण","पटना","गया","नालंदा"],
+a:"A"
+},
+{
+q:"सोनपुर मेला किस संगम के पास लगता है?",
+o:["गंगा और गंडक","गंगा और सोन","कोसी और गंगा","सोन और पुनपुन"],
+a:"A"
+},
+
+/* 41-50 */
+{
+q:"पटना का प्राचीन नाम क्या था?",
+o:["पाटलिपुत्र","इंद्रप्रस्थ","कौशांबी","उज्जैन"],
+a:"A"
+},
+{
+q:"पाटलिपुत्र का उल्लेख किस प्राचीन काल में मिलता है?",
+o:["मौर्य काल","मुगल काल","ब्रिटिश काल","मराठा काल"],
+a:"A"
+},
+{
+q:"पटना साहिब किस धर्म का प्रमुख तीर्थ है?",
+o:["सिख धर्म","बौद्ध धर्म","जैन धर्म","हिंदू धर्म"],
+a:"A"
+},
+{
+q:"गुरु गोबिंद सिंह का जन्म कहाँ हुआ था?",
+o:["पटना साहिब","अमृतसर","दिल्ली","लुधियाना"],
+a:"A"
+},
+{
+q:"राजगीर किस जिले में है?",
+o:["नालंदा","पटना","गया","नवादा"],
+a:"A"
+},
+{
+q:"राजगीर का प्राचीन नाम क्या था?",
+o:["राजगृह","पाटलिपुत्र","वैशाली","चंपा"],
+a:"A"
+},
+{
+q:"नालंदा किस कारण प्रसिद्ध है?",
+o:["प्राचीन शिक्षा केंद्र","समुद्री व्यापार","खनन","कपास"],
+a:"A"
+},
+{
+q:"बिहार में जैन धर्म से संबंधित प्रमुख स्थान कौन-सा है?",
+o:["पावापुरी","सासाराम","बक्सर","मोतिहारी"],
+a:"A"
+},
+{
+q:"भगवान महावीर का निर्वाण कहाँ हुआ?",
+o:["पावापुरी","वैशाली","राजगीर","बोधगया"],
+a:"A"
+},
+{
+q:"पावापुरी किस जिले में स्थित है?",
+o:["नालंदा","पटना","गया","भोजपुर"],
+a:"A"
+},
+
+/* 51-60 */
+{
+q:"बिहार के प्रथम मुख्यमंत्री कौन थे?",
+o:["श्रीकृष्ण सिंह","अनुग्रह नारायण सिंह","कर्पूरी ठाकुर","लालू प्रसाद यादव"],
+a:"A"
+},
+{
+q:"बिहार के प्रथम उपमुख्यमंत्री कौन थे?",
+o:["अनुग्रह नारायण सिंह","श्रीकृष्ण सिंह","कर्पूरी ठाकुर","जयप्रकाश नारायण"],
+a:"A"
+},
+{
+q:"जयप्रकाश नारायण का जन्म किस राज्य में हुआ था?",
+o:["बिहार","उत्तर प्रदेश","झारखंड","मध्य प्रदेश"],
+a:"A"
+},
+{
+q:"जयप्रकाश नारायण का जन्मस्थान कौन-सा है?",
+o:["सिताबदियारा","पटना","गया","बक्सर"],
+a:"A"
+},
+{
+q:"कर्पूरी ठाकुर किस राज्य के प्रसिद्ध नेता थे?",
+o:["बिहार","उत्तर प्रदेश","राजस्थान","मध्य प्रदेश"],
+a:"A"
+},
+{
+q:"कर्पूरी ठाकुर को भारत रत्न किस वर्ष मिला?",
+o:["2022","2023","2024","2025"],
+a:"C"
+},
+{
+q:"बिहार के किस नेता को 'बिहार केसरी' कहा जाता है?",
+o:["श्रीकृष्ण सिंह","कर्पूरी ठाकुर","जयप्रकाश नारायण","अनुग्रह नारायण सिंह"],
+a:"A"
+},
+{
+q:"'बिहार विभूति' के नाम से कौन प्रसिद्ध हैं?",
+o:["अनुग्रह नारायण सिंह","श्रीकृष्ण सिंह","राजेंद्र प्रसाद","कर्पूरी ठाकुर"],
+a:"A"
+},
+{
+q:"डॉ. राजेंद्र प्रसाद का जन्म किस राज्य में हुआ था?",
+o:["बिहार","उत्तर प्रदेश","झारखंड","मध्य प्रदेश"],
+a:"A"
+},
+{
+q:"डॉ. राजेंद्र प्रसाद भारत के कौन से राष्ट्रपति थे?",
+o:["प्रथम","द्वितीय","तृतीय","चतुर्थ"],
+a:"A"
+},
+
+/* 61-70 */
+{
+q:"भारतीय संविधान कब लागू हुआ?",
+o:["26 जनवरी 1950","15 अगस्त 1947","26 नवंबर 1949","2 अक्टूबर 1950"],
+a:"A"
+},
+{
+q:"भारतीय संविधान कब अपनाया गया?",
+o:["26 नवंबर 1949","26 जनवरी 1950","15 अगस्त 1947","9 दिसंबर 1946"],
+a:"A"
+},
+{
+q:"भारतीय संविधान सभा के अध्यक्ष कौन थे?",
+o:["डॉ. राजेंद्र प्रसाद","डॉ. भीमराव आंबेडकर","जवाहरलाल नेहरू","सरदार पटेल"],
+a:"A"
+},
+{
+q:"भारतीय संविधान की प्रारूप समिति के अध्यक्ष कौन थे?",
+o:["डॉ. भीमराव आंबेडकर","राजेंद्र प्रसाद","नेहरू","सरदार पटेल"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय ध्वज किसने डिजाइन किया था?",
+o:["पिंगली वेंकैया","महात्मा गांधी","रवींद्रनाथ टैगोर","बंकिम चंद्र"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय गीत कौन-सा है?",
+o:["वंदे मातरम्","जन गण मन","सारे जहाँ से अच्छा","ऐ मेरे वतन"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रगान कौन-सा है?",
+o:["जन गण मन","वंदे मातरम्","सारे जहाँ से अच्छा","जननी जन्मभूमि"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय पशु कौन है?",
+o:["बाघ","शेर","हाथी","गैंडा"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय पक्षी कौन है?",
+o:["मोर","तोता","हंस","गरुड़"],
+a:"A"
+},
+{
+q:"भारत का राष्ट्रीय वृक्ष कौन-सा है?",
+o:["बरगद","पीपल","नीम","आम"],
+a:"A"
+},
+
+/* 71-80 */
+{
+q:"भारत का राष्ट्रीय फल कौन-सा है?",
+o:["आम","सेब","केला","नारियल"],
+a:"A"
+},
+{
+q:"भारत की मुद्रा क्या है?",
+o:["रुपया","डॉलर","यूरो","पाउंड"],
+a:"A"
+},
+{
+q:"भारत का सर्वोच्च न्यायालय कहाँ स्थित है?",
+o:["नई दिल्ली","मुंबई","पटना","कोलकाता"],
+a:"A"
+},
+{
+q:"भारत की संसद कहाँ स्थित है?",
+o:["नई दिल्ली","मुंबई","पटना","लखनऊ"],
+a:"A"
+},
+{
+q:"भारत में गणतंत्र दिवस कब मनाया जाता है?",
+o:["26 जनवरी","15 अगस्त","2 अक्टूबर","14 नवंबर"],
+a:"A"
+},
+{
+q:"भारत में स्वतंत्रता दिवस कब मनाया जाता है?",
+o:["15 अगस्त","26 जनवरी","2 अक्टूबर","14 नवंबर"],
+a:"A"
+},
+{
+q:"महात्मा गांधी का जन्म कब हुआ था?",
+o:["2 अक्टूबर 1869","15 अगस्त 1870","26 जनवरी 1869","14 नवंबर 1889"],
+a:"A"
+},
+{
+q:"महात्मा गांधी को किस नाम से भी जाना जाता है?",
+o:["राष्ट्रपिता","लौह पुरुष","नेताजी","लोकमान्य"],
+a:"A"
+},
+{
+q:"भारत छोड़ो आंदोलन किस वर्ष शुरू हुआ?",
+o:["1942","1930","1919","1947"],
+a:"A"
+},
+{
+q:"दांडी मार्च किस आंदोलन से संबंधित था?",
+o:["नमक सत्याग्रह","भारत छोड़ो आंदोलन","असहयोग आंदोलन","चंपारण आंदोलन"],
+a:"A"
+},
+
+/* 81-90 */
+{
+q:"असहयोग आंदोलन किस वर्ष शुरू हुआ?",
+o:["1920","1919","1930","1942"],
+a:"A"
+},
+{
+q:"जलियांवाला बाग हत्याकांड किस वर्ष हुआ?",
+o:["1919","1920","1930","1942"],
+a:"A"
+},
+{
+q:"भारत में सविनय अवज्ञा आंदोलन किस वर्ष शुरू हुआ?",
+o:["1930","1920","1919","1942"],
+a:"A"
+},
+{
+q:"चंपारण सत्याग्रह का नेतृत्व किसने किया?",
+o:["महात्मा गांधी","जवाहरलाल नेहरू","सरदार पटेल","सुभाष चंद्र बोस"],
+a:"A"
+},
+{
+q:"बिहार में चंपारण आंदोलन किस फसल से संबंधित था?",
+o:["नील","गेहूँ","चावल","गन्ना"],
+a:"A"
+},
+{
+q:"'लोकनायक' के नाम से कौन प्रसिद्ध हैं?",
+o:["जयप्रकाश नारायण","राजेंद्र प्रसाद","कर्पूरी ठाकुर","श्रीकृष्ण सिंह"],
+a:"A"
+},
+{
+q:"'नेताजी' के नाम से कौन प्रसिद्ध थे?",
+o:["सुभाष चंद्र बोस","भगत सिंह","महात्मा गांधी","सरदार पटेल"],
+a:"A"
+},
+{
+q:"'लौह पुरुष' के नाम से कौन प्रसिद्ध हैं?",
+o:["सरदार वल्लभभाई पटेल","जवाहरलाल नेहरू","राजेंद्र प्रसाद","सुभाष चंद्र बोस"],
+a:"A"
+},
+{
+q:"भारत के पहले प्रधानमंत्री कौन थे?",
+o:["जवाहरलाल नेहरू","सरदार पटेल","राजेंद्र प्रसाद","लाल बहादुर शास्त्री"],
+a:"A"
+},
+{
+q:"भारत के पहले उपराष्ट्रपति कौन थे?",
+o:["डॉ. सर्वपल्ली राधाकृष्णन","राजेंद्र प्रसाद","जाकिर हुसैन","वी.वी. गिरि"],
+a:"A"
+},
+
+/* 91-100 */
+{
+q:"भारत का सबसे बड़ा राज्य क्षेत्रफल की दृष्टि से कौन-सा है?",
+o:["राजस्थान","मध्य प्रदेश","महाराष्ट्र","उत्तर प्रदेश"],
+a:"A"
+},
+{
+q:"भारत का सबसे अधिक जनसंख्या वाला राज्य कौन-सा है?",
+o:["उत्तर प्रदेश","महाराष्ट्र","बिहार","पश्चिम बंगाल"],
+a:"A"
+},
+{
+q:"भारत की सबसे लंबी नदी कौन-सी है?",
+o:["गंगा","यमुना","गोदावरी","नर्मदा"],
+a:"A"
+},
+{
+q:"भारत की सबसे ऊँची पर्वत चोटी कौन-सी है?",
+o:["कंचनजंघा","नंदा देवी","अनामुड़ी","धौलागिरी"],
+a:"A"
+},
+{
+q:"भारत का सबसे बड़ा मरुस्थल कौन-सा है?",
+o:["थार मरुस्थल","गोबी","सहारा","कालाहारी"],
+a:"A"
+},
+{
+q:"भारत में सबसे लंबी समुद्री तटरेखा वाला राज्य कौन-सा है?",
+o:["गुजरात","महाराष्ट्र","तमिलनाडु","आंध्र प्रदेश"],
+a:"A"
+},
+{
+q:"भारत में हरित क्रांति के जनक किसे कहा जाता है?",
+o:["एम. एस. स्वामीनाथन","वर्गीज कुरियन","नॉर्मन बोरलॉग","सी. सुब्रमण्यम"],
+a:"A"
+},
+{
+q:"भारत में श्वेत क्रांति के जनक किसे कहा जाता है?",
+o:["वर्गीज कुरियन","एम. एस. स्वामीनाथन","नॉर्मन बोरलॉग","होमी भाभा"],
+a:"A"
+},
+{
+q:"भारत का पहला उपग्रह कौन-सा था?",
+o:["आर्यभट्ट","रोहिणी","भास्कर","इनसैट"],
+a:"A"
+},
+{
+q:"भारतीय संविधान का संरक्षक कौन है?",
+o:["सर्वोच्च न्यायालय","संसद","राष्ट्रपति","प्रधानमंत्री"],
+a:"A"
+}
+
+];
+
+
+/* QUESTIONS PAGE PAR SHOW KARNA */
+const test = document.getElementById("mockTest");
+
+questions.forEach((item,index)=>{
+
+    const qNumber = index + 1;
+
+    const div = document.createElement("div");
+    div.className = "question";
+
+    div.innerHTML = `
+        <h3>${qNumber}. ${item.q}</h3>
+
+        <label class="option">
+            <input type="radio" name="q${qNumber}" value="A">
+            A. ${item.o[0]}
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q${qNumber}" value="B">
+            B. ${item.o[1]}
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q${qNumber}" value="C">
+            C. ${item.o[2]}
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q${qNumber}" value="D">
+            D. ${item.o[3]}
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q${qNumber}" value="E">
+            E. Not Attempted
+        </label>
+    `;
+
+    test.appendChild(div);
+});
+
+
+/* SCORE CALCULATE */
+function calculateScore(){
 
     let score = 0;
-    let attempted = 0;
+    let correct = 0;
     let wrong = 0;
     let notAttempted = 0;
 
-    for (const question in answers) {
+    questions.forEach((item,index)=>{
+
+        const qNumber = index + 1;
 
         const selected = document.querySelector(
-            'input[name="' + question + '"]:checked'
+            `input[name="q${qNumber}"]:checked`
         );
 
-        if (!selected) {
-            notAttempted++;
-            continue;
-        }
+        if(!selected || selected.value === "E"){
 
-        if (selected.value === "E") {
             notAttempted++;
+
         }
-        else if (selected.value === answers[question]) {
+        else if(selected.value === item.a){
+
             score += 1;
-            attempted++;
-        }
-        else {
-            score -= 1 / 3;
-            attempted++;
-            wrong++;
-        }
-    }
+            correct++;
 
-    document.getElementById("result").innerHTML =
-        "<h3>🎯 Test Result</h3>" +
-        "<p><b>प्राप्त Score:</b> " + score.toFixed(2) + "</p>" +
-        "<p><b>सही उत्तर:</b> " + (attempted - wrong) + "</p>" +
-        "<p><b>गलत उत्तर:</b> " + wrong + "</p>" +
-        "<p><b>Not Attempted:</b> " + notAttempted + "</p>";
+        }
+        else{
+
+            score -= 1/3;
+            wrong++;
+
+        }
+
+    });
+
+    document.getElementById("result").innerHTML = `
+        <h2>🎯 Test Result</h2>
+
+        <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+
+        <p>✅ सही उत्तर: ${correct}</p>
+
+        <p>❌ गलत उत्तर: ${wrong}</p>
+
+        <p>⭕ Not Attempted: ${notAttempted}</p>
+    `;
+
+    window.scrollTo({
+        top:document.getElementById("result").offsetTop,
+        behavior:"smooth"
+    });
 }
+
 </script>
 
 </body>
