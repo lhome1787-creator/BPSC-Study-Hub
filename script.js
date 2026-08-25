@@ -344,6 +344,7 @@ function checkQuizAnswer(selectedAnswer, button) {
     answered = true;
 
     const correctAnswer = questions[currentQuestion].answer;
+    console.log("Question:", questions[currentQuestion].question, "Selected:", selectedAnswer, "Correct:", correctAnswer);
 
     if (selectedAnswer === correctAnswer) {
 
