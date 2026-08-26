@@ -222,35 +222,67 @@ function calculateScore() {
         const n = i + 1;
 
         const selected = document.querySelector(
-            'input[name="q' + n + '"]:checked'
+            `input[name="q${n}"]:checked`
         );
+
+        const correctAnswer = item[2];
 
         if (!selected || selected.value === "E") {
             skip++;
-        }
-        else if (selected.value === item[2]) {
+
+            review += `
+                <div class="review-item">
+                    <h4>Q${n}. ${item[0]}</h4>
+                    <p>⭕ <b>Not Attempted</b></p>
+                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
+                </div>
+            `;
+        } 
+        else if (selected.value === correctAnswer) {
             score += 1;
             correct++;
-        }
+
+            review += `
+                <div class="review-item">
+                    <h4>Q${n}. ${item[0]}</h4>
+                    <p>🟢 आपका उत्तर: <b>${selected.value}</b> — सही</p>
+                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
+                </div>
+            `;
+        } 
         else {
             score -= 1 / 3;
             wrong++;
+
+            review += `
+                <div class="review-item">
+                    <h4>Q${n}. ${item[0]}</h4>
+                    <p>🔴 आपका उत्तर: <b>${selected.value}</b> — गलत</p>
+                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
+                </div>
+            `;
         }
     });
 
     document.getElementById("result").innerHTML = `
-        <div class="result">
+        <div class="result-box">
             <h2>🎯 Test Result</h2>
 
             <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
 
-            <p>✅ सही उत्तर: ${correct}</p>
-            <p>❌ गलत उत्तर: ${wrong}</p>
+            <p>🟢 सही उत्तर: ${correct}</p>
+            <p>🔴 गलत उत्तर: ${wrong}</p>
             <p>⭕ Not Attempted: ${skip}</p>
 
             <hr>
 
             <h2>📖 Answer Review</h2>
+
+            <div class="answer-review">
+                ${review}
+            </div>
+
+            <br>
 
             <button onclick="location.reload()">
                 🔄 Retry Mock Test
@@ -265,7 +297,6 @@ function calculateScore() {
         behavior: "smooth"
     });
 }
-
 
 document.getElementById("submitBtn").onclick = calculateScore;
 
