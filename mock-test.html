@@ -156,12 +156,20 @@ questions100.forEach((item, i) => {
     btn.textContent = i + 1;
     btn.className = "palette-btn";
 
-    btn.onclick = () => {
-        const question = document.getElementById("question-" + i);
-        if (question) {
-            question.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-    };
+  btn.type = "button";
+
+btn.onclick = (event) => {
+    event.preventDefault();
+
+    const question = document.getElementById("question-" + i);
+
+    if (question) {
+        question.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+};
 
     palette.appendChild(btn);
 });
