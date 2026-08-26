@@ -174,7 +174,7 @@ function renderQuestions() {
         const n = i + 1;
 
         let html = `
-            <div class="question">
+            <div class="question" id="question-${1}">
                 <h3>${n}. ${item[0]}</h3>
         `;
 
@@ -200,6 +200,28 @@ function renderQuestions() {
         box.innerHTML += html;
     });
 }
+    // Question Palette
+const palette = document.getElementById("questionPalette");
+
+questions100.forEach((item, i) => {
+    const btn = document.createElement("button");
+
+    btn.textContent = i + 1;
+    btn.className = "palette-btn";
+
+    btn.onclick = () => {
+        const question = document.getElementById("question-" + i);
+
+        if (question) {
+            question.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    };
+
+    palette.appendChild(btn);
+});
 
 
 function calculateScore() {
