@@ -322,6 +322,7 @@ function renderPalette(){
   questions100.forEach((item,i)=>{
     const btn=document.createElement("button");
     btn.type="button"; btn.textContent=i+1;
+      btn.className="palette-btn";
 btn.onclick=()=>{
     document.querySelectorAll(".palette-btn").forEach(b=>{
         b.classList.remove("current");
