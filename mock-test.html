@@ -322,7 +322,18 @@ function renderPalette(){
   questions100.forEach((item,i)=>{
     const btn=document.createElement("button");
     btn.type="button"; btn.textContent=i+1;
-    btn.onclick=()=>document.getElementById("question-"+i)?.scrollIntoView({behavior:"smooth",block:"start"});
+btn.onclick=()=>{
+    document.querySelectorAll(".palette-btn").forEach(b=>{
+        b.classList.remove("current");
+    });
+
+    btn.classList.add("current");
+
+    document.getElementById("question-"+i).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+};
     palette.appendChild(btn);
   });
 }
