@@ -84,6 +84,49 @@ footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:3
         grid-template-columns:repeat(5,1fr);
     }
 }
+    /* Professional Question Palette */
+#questionPalette{
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:8px;
+    background:#fff;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px #ddd;
+}
+
+.palette-btn{
+    background:#f1f3f5;
+    color:#333;
+    border:1px solid #ccc;
+    border-radius:6px;
+    padding:8px 4px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.palette-btn:hover{
+    background:#e3f0ff;
+}
+
+.palette-btn.answered{
+    background:#198754;
+    color:#fff;
+    border-color:#198754;
+}
+
+.palette-btn.current{
+    background:#0877d1;
+    color:#fff;
+    border-color:#0877d1;
+}
+
+@media(max-width:600px){
+    #questionPalette{
+        grid-template-columns:repeat(5,1fr);
+    }
+}
 </style>
 </head>
 <body>
@@ -341,6 +384,32 @@ setInterval(()=>{
   if(timeLeft<=600)timer.classList.add("warning");
 },1000);
 
+    // Professional Palette Status
+function updatePalette() {
+    questions100.forEach((item, i) => {
+        const n = i + 1;
+        const selected = document.querySelector(
+            `input[name="q${n}"]:checked`
+        );
+
+        const btn = document.querySelectorAll(".palette-btn")[i];
+
+        if (!btn) return;
+
+        btn.classList.remove("answered");
+
+        if (selected && selected.value !== "E") {
+            btn.classList.add("answered");
+        }
+    });
+}
+
+// Detect answer selection
+document.addEventListener("change", function(event) {
+    if (event.target.matches('input[type="radio"]')) {
+        updatePalette();
+    }
+});
 renderQuestions();
 renderPalette();
 </script>
