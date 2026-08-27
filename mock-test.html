@@ -331,6 +331,23 @@ nav.innerHTML = `
 `;
 
 q.appendChild(nav);
+      nav.querySelector(".prev-btn").onclick = () => {
+  if (i > 0) {
+    document.getElementById(`question-${i - 1}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+};
+
+nav.querySelector(".next-btn").onclick = () => {
+  if (i < questions100.length - 1) {
+    document.getElementById(`question-${i + 1}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+};
   });
 }
 
