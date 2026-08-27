@@ -2,20 +2,87 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BPSC Study Hub - 100 Questions Mock Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BPSC Study Hub | 100 Questions Mock Test</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;color:#222}header{background:#0877d1;color:#fff;text-align:center;padding:22px}nav{background:#fff;text-align:center;padding:14px}nav a{margin:0 10px;color:#333;text-decoration:none}.container{max-width:900px;margin:25px auto;padding:0 15px}.box,.question{background:#fff;border-radius:10px;padding:20px;margin-bottom:18px;box-shadow:0 2px 8px #ddd}.question{border-left:4px solid #0877d1}.option{display:block;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:7px}.option:hover{background:#eef6ff}button{background:#0877d1;color:#fff;border:0;border-radius:7px;padding:12px 24px;font-size:16px;cursor:pointer}#submitBtn{display:block;margin:25px auto}.result{background:#0877d1;color:#fff;padding:20px;border-radius:10px;text-align:center}.review{text-align:left;background:#fff;color:#222;padding:12px;margin:10px 0;border-radius:7px}footer{background:#111;color:#fff;text-align:center;padding:20px}
-</style></head>
+:root{--primary:#0b63ce;--primary2:#084b9a;--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#667085;--green:#138a4b;--red:#d92d20;--border:#e4e7ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+header{background:linear-gradient(135deg,var(--primary2),var(--primary));color:#fff;padding:24px 16px;text-align:center;box-shadow:0 3px 12px #0002}
+header h1{margin:0 0 5px;font-size:28px} header p{margin:0;opacity:.92}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:12px;text-align:center;box-shadow:0 2px 8px #0000000d}
+nav a{display:inline-block;margin:4px 8px;color:#344054;text-decoration:none;font-weight:600;font-size:14px}
+.container{max-width:980px;margin:24px auto;padding:0 14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 4px 14px #1018280d}
+.instructions{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.stat{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.timer{margin-top:16px;background:#111827;color:#fff;border-radius:10px;padding:13px;text-align:center;font-size:20px;font-weight:700}
+.timer.warning{background:#b42318}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px}
+.palette button{padding:9px 4px;border:1px solid #cbd5e1;background:#fff;color:#344054;border-radius:8px;cursor:pointer;font-weight:700}
+.palette button:hover{background:#eaf2ff;border-color:var(--primary)}
+.palette button.answered{background:#e8f7ee;border-color:#8bd5aa;color:var(--green)}
+.question{background:#fff;border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:13px;padding:20px;margin-bottom:16px;box-shadow:0 3px 12px #1018280b;scroll-margin-top:75px}
+.question h3{margin:0 0 14px;font-size:18px}
+.option{display:flex;align-items:flex-start;gap:10px;padding:12px;margin:8px 0;border:1px solid var(--border);border-radius:9px;cursor:pointer;background:#fff}
+.option:hover{background:#f5f9ff;border-color:#9cc2f5}
+.option input{margin-top:4px;accent-color:var(--primary)}
+.actions{text-align:center;margin:28px 0}
+#submitBtn,.retry{background:linear-gradient(135deg,var(--primary2),var(--primary));color:#fff;border:0;border-radius:9px;padding:13px 28px;font-size:16px;font-weight:700;cursor:pointer}
+#submitBtn:hover,.retry:hover{filter:brightness(1.08)}
+.result{display:none;background:linear-gradient(135deg,#0759b5,#0877d1);color:#fff;padding:24px;border-radius:14px;margin-bottom:24px}
+.result.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.result-stat{background:#ffffff1a;border:1px solid #ffffff33;border-radius:10px;padding:12px;text-align:center}
+.review-item{background:#fff;color:var(--text);border-radius:9px;padding:12px;margin:9px 0}
+.review-item.correct{border-left:4px solid var(--green)}
+.review-item.wrong{border-left:4px solid var(--red)}
+.review-item.skip{border-left:4px solid #98a2b3}
+footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:30px}
+.small{color:var(--muted);font-size:13px}
+@media(max-width:600px){header h1{font-size:23px}.result-grid{grid-template-columns:1fr} .question{padding:15px}nav a{margin:3px 5px}}
+</style>
+</head>
 <body>
-<header><h1>🎯 BPSC Study Hub</h1><p>BPSC 100 Questions Mock Test</p></header>
-<nav><a href="index.html">Home</a><a href="notes.html">Notes</a><a href="quiz.html">Quiz</a><a href="mock-test.html">Mock Test</a><a href="study-plan.html">Study Plan</a><a href="about.html">About</a></nav>
+<header>
+<h1>🎯 BPSC Study Hub</h1>
+<p>BPSC 100 Questions Mock Test</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a><a href="notes.html">Notes</a><a href="quiz.html">Quiz</a>
+<a href="mock-test.html">Mock Test</a><a href="study-plan.html">Study Plan</a><a href="about.html">About</a>
+</nav>
+
 <div class="container">
-<div class="box"><h2>📌 Mock Test Instructions</h2><ul><li>कुल प्रश्न: <b>100</b></li><li>सही उत्तर: <b>+1 अंक</b></li><li>गलत उत्तर: <b>-1/3 अंक</b></li><li>Not Attempted: <b>0 अंक</b></li><li>समय: <b>2 घंटे</b></li></ul><div id="timer"><b>समय बाकी: 02:00:00</b></div></div>
-<div id="questionPalette"></div><div id="mockTest"></div><button id="submitBtn">Submit Test</button><div id="result"></div></div>
+<section class="card">
+<h2>📌 Mock Test Instructions</h2>
+<div class="instructions">
+<div class="stat">📝 <b>100</b><br><span class="small">कुल प्रश्न</span></div>
+<div class="stat">✅ <b>+1</b><br><span class="small">सही उत्तर</span></div>
+<div class="stat">❌ <b>-1/3</b><br><span class="small">गलत उत्तर</span></div>
+<div class="stat">⭕ <b>0</b><br><span class="small">Not Attempted</span></div>
+</div>
+<div id="timer" class="timer">समय बाकी: 02:00:00</div>
+</section>
+
+<section class="card">
+<h3>🔢 प्रश्न नेविगेशन</h3>
+<p class="small">हरे नंबर उन प्रश्नों को दिखाते हैं जिनका उत्तर चुना गया है।</p>
+<div id="questionPalette" class="palette"></div>
+</section>
+
+<div id="mockTest"></div>
+<div class="actions"><button id="submitBtn" type="button">✅ Submit Test</button></div>
+<section id="result" class="result"></section>
+</div>
+
 <footer>© 2026 BPSC Study Hub | BPSC Preparation</footer>
+
 <script>
 const questions=[
+
 ['बिहार की राजधानी कौन-सी है?',['गया','पटना','भागलपुर','मुजफ्फरपुर'],'B'],
 ['बिहार दिवस कब मनाया जाता है?',['15 अगस्त','22 मार्च','26 जनवरी','2 अक्टूबर'],'B'],
 ['बिहार का गठन बंगाल से अलग होकर किस वर्ष हुआ?',['1905','1912','1936','1947'],'B'],
@@ -144,183 +211,96 @@ const questions=[
 ['श्वेत क्रांति के जनक किसे कहा जाता है?',['वर्गीज कुरियन','एम. एस. स्वामीनाथन','होमी भाभा','विक्रम साराभाई'],'A'],
 ['भारतीय अंतरिक्ष कार्यक्रम के जनक किसे कहा जाता है?',['विक्रम साराभाई','होमी भाभा','सतीश धवन','ए. पी. जे. अब्दुल कलाम'],'A'],
 ['भारतीय परमाणु कार्यक्रम के जनक किसे कहा जाता है?',['होमी जे. भाभा','विक्रम साराभाई','सी. वी. रमन','सतीश धवन'],'A']
+
 ];
 
-// Safety: exactly 100 questions only.
 const questions100=questions.slice(0,100);
-    // Question Palette
-const palette = document.getElementById("questionPalette");
+const palette=document.getElementById("questionPalette");
+let timeLeft=7200,submitted=false;
 
-questions100.forEach((item, i) => {
-    const btn = document.createElement("button");
-    btn.textContent = i + 1;
-    btn.className = "palette-btn";
+function renderQuestions(){
+  const box=document.getElementById("mockTest");
+  box.innerHTML="";
+  questions100.forEach((item,i)=>{
+    const n=i+1;
+    let html=`<div class="question" id="question-${i}"><h3>${n}. ${item[0]}</h3>`;
+    item[1].forEach((option,j)=>{
+      const letter=String.fromCharCode(65+j);
+      html+=`<label class="option"><input type="radio" name="q${n}" value="${letter}"><span><b>${letter}.</b> ${option}</span></label>`;
+    });
+    html+=`<label class="option"><input type="radio" name="q${n}" value="E"><span><b>E.</b> Not Attempted</span></label></div>`;
+    box.insertAdjacentHTML("beforeend",html);
+  });
+}
 
-  btn.type = "button";
-
-btn.onclick = (event) => {
-    event.preventDefault();
-
-    const question = document.getElementById("question-" + i);
-
-    if (question) {
-        question.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
-};
-
+function renderPalette(){
+  questions100.forEach((item,i)=>{
+    const btn=document.createElement("button");
+    btn.type="button"; btn.textContent=i+1;
+    btn.onclick=()=>document.getElementById("question-"+i)?.scrollIntoView({behavior:"smooth",block:"start"});
     palette.appendChild(btn);
+  });
+}
+
+document.addEventListener("change",e=>{
+  if(e.target.matches('input[type="radio"]')){
+    const n=parseInt(e.target.name.substring(1))-1;
+    if(palette.children[n]) palette.children[n].classList.add("answered");
+  }
 });
-let timeLeft=7200, submitted=false;
-function renderQuestions() {
-    const box = document.getElementById("mockTest");
-    box.innerHTML = "";
 
-    questions100.forEach((item, i) => {
-        const n = i + 1;
+function calculateScore(){
+  if(submitted)return;
+  let score=0,correct=0,wrong=0,skip=0,review="";
+  questions100.forEach((item,i)=>{
+    const n=i+1;
+    const selected=document.querySelector(`input[name="q${n}"]:checked`);
+    const correctAnswer=item[2];
+    const correctText=item[1][correctAnswer.charCodeAt(0)-65];
 
-        let html = `
-            <div class="question" id="question-${i}">
-                <h3>${n}. ${item[0]}</h3>
-        `;
-
-        item[1].forEach((option, j) => {
-            const letter = String.fromCharCode(65 + j);
-
-            html += `
-                <label>
-                    <input type="radio" name="q${n}" value="${letter}">
-                    ${letter}. ${option}
-                </label>
-            `;
-        });
-
-        html += `
-            <label>
-                <input type="radio" name="q${n}" value="E">
-                E. Not Attempted
-            </label>
-            </div>
-        `;
-
-        box.innerHTML += html;
-    });
-}
-
-
-
-function calculateScore() {
-    let score = 0;
-    let correct = 0;
-    let wrong = 0;
-    let skip = 0;
-    let review = "";
-
-    questions100.forEach((item, i) => {
-        const n = i + 1;
-
-        const selected = document.querySelector(
-            `input[name="q${n}"]:checked`
-        );
-
-        const correctAnswer = item[2];
-
-        if (!selected || selected.value === "E") {
-            skip++;
-
-            review += `
-                <div class="review-item">
-                    <h4>Q${n}. ${item[0]}</h4>
-                    <p>⭕ <b>Not Attempted</b></p>
-                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
-                </div>
-            `;
-        } 
-        else if (selected.value === correctAnswer) {
-            score += 1;
-            correct++;
-
-            review += `
-                <div class="review-item">
-                    <h4>Q${n}. ${item[0]}</h4>
-                    <p>🟢 आपका उत्तर: <b>${selected.value}</b> — सही</p>
-                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
-                </div>
-            `;
-        } 
-        else {
-            score -= 1 / 3;
-            wrong++;
-
-            review += `
-                <div class="review-item">
-                    <h4>Q${n}. ${item[0]}</h4>
-                    <p>🔴 आपका उत्तर: <b>${selected.value}</b> — गलत</p>
-                    <p>✅ सही उत्तर: <b>${correctAnswer}</b></p>
-                </div>
-            `;
-        }
-    });
-
-    document.getElementById("result").innerHTML = `
-        <div class="result-box">
-            <h2>🎯 Test Result</h2>
-
-            <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
-
-            <p>🟢 सही उत्तर: ${correct}</p>
-            <p>🔴 गलत उत्तर: ${wrong}</p>
-            <p>⭕ Not Attempted: ${skip}</p>
-
-            <hr>
-
-            <h2>📖 Answer Review</h2>
-
-            <div class="answer-review">
-                ${review}
-            </div>
-
-            <br>
-
-            <button onclick="location.reload()">
-                🔄 Retry Mock Test
-            </button>
-        </div>
-    `;
-
-    submitted = true;
-
-    window.scrollTo({
-        top: document.getElementById("result").offsetTop,
-        behavior: "smooth"
-    });
-}
-
-document.getElementById("submitBtn").onclick = calculateScore;
-
-setInterval(() => {
-    if (submitted) return;
-
-    if (timeLeft <= 0) {
-        calculateScore();
-        return;
+    if(!selected || selected.value==="E"){
+      skip++;
+      review+=`<div class="review-item skip"><b>Q${n}. ${item[0]}</b><br>⭕ Not Attempted<br>✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b></div>`;
+    }else if(selected.value===correctAnswer){
+      score++; correct++;
+      const selectedText=item[1][selected.value.charCodeAt(0)-65];
+      review+=`<div class="review-item correct"><b>Q${n}. ${item[0]}</b><br>🟢 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — सही</div>`;
+    }else{
+      score-=1/3; wrong++;
+      const selectedText=item[1][selected.value.charCodeAt(0)-65];
+      review+=`<div class="review-item wrong"><b>Q${n}. ${item[0]}</b><br>🔴 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — गलत<br>✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b></div>`;
     }
+  });
 
-    timeLeft--;
+  const result=document.getElementById("result");
+  result.innerHTML=`<h2>🎯 Test Result</h2>
+  <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+  <div class="result-grid">
+    <div class="result-stat">🟢<br><b>${correct}</b><br>सही</div>
+    <div class="result-stat">🔴<br><b>${wrong}</b><br>गलत</div>
+    <div class="result-stat">⭕<br><b>${skip}</b><br>Not Attempted</div>
+  </div>
+  <hr><h2>📖 Answer Review</h2>${review}
+  <div class="actions"><button class="retry" type="button" onclick="location.reload()">🔄 Retry Mock Test</button></div>`;
+  result.classList.add("show");
+  submitted=true;
+  result.scrollIntoView({behavior:"smooth",block:"start"});
+}
 
-    const hours = Math.floor(timeLeft / 3600);
-    const minutes = Math.floor((timeLeft % 3600) / 60);
-    const seconds = timeLeft % 60;
+document.getElementById("submitBtn").addEventListener("click",calculateScore);
 
-    document.getElementById("timer").innerHTML =
-        "समय बाकी: " +
-        String(hours).padStart(2, "0") + ":" +
-        String(minutes).padStart(2, "0") + ":" +
-        String(seconds).padStart(2, "0");
-}, 1000);
-
+setInterval(()=>{
+  if(submitted)return;
+  if(timeLeft<=0){calculateScore();return;}
+  timeLeft--;
+  const h=Math.floor(timeLeft/3600),m=Math.floor((timeLeft%3600)/60),s=timeLeft%60;
+  const timer=document.getElementById("timer");
+  timer.textContent=`समय बाकी: ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  if(timeLeft<=600)timer.classList.add("warning");
+},1000);
 
 renderQuestions();
-</script></body></html>
+renderPalette();
+</script>
+</body>
+</html>
