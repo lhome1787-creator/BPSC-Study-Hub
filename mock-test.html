@@ -332,6 +332,15 @@ nav.innerHTML = `
 `;
 
 q.appendChild(nav);
+      nav.querySelector(".review-btn").onclick = () => {
+  nav.querySelector(".review-btn").classList.toggle("marked");
+
+  if (nav.querySelector(".review-btn").classList.contains("marked")) {
+    nav.querySelector(".review-btn").textContent = "⭐ Marked for Review";
+  } else {
+    nav.querySelector(".review-btn").textContent = "⭐ Mark for Review";
+  }
+};
       nav.querySelector(".prev-btn").onclick = () => {
   if (i > 0) {
     document.getElementById(`question-${i - 1}`).scrollIntoView({
