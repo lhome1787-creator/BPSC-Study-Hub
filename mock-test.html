@@ -320,6 +320,17 @@ function renderQuestions(){
     });
     html+=`<label class="option"><input type="radio" name="q${n}" value="E"><span><b>E.</b> Not Attempted</span></label></div>`;
     box.insertAdjacentHTML("beforeend",html);
+      const q = document.getElementById("question-" + i);
+
+const nav = document.createElement("div");
+nav.className = "question-nav";
+
+nav.innerHTML = `
+    <button type="button" class="prev-btn">← Previous</button>
+    <button type="button" class="next-btn">Next →</button>
+`;
+
+q.appendChild(nav);
   });
 }
 
