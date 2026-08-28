@@ -414,23 +414,39 @@ let html=`<div class="question ${i===0 ? "active" : ""}" id="question-${i}">
       updatePalette();
     });
 
-    q.querySelector(".prev-btn").addEventListener("click",()=>{
-      if(i>0){
-        document.getElementById(`question-${i-1}`).scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
-      }
+ q.querySelector(".prev-btn").addEventListener("click",()=>{
+  if(i>0){
+    const current=document.getElementById(`question-${i}`);
+    const previous=document.getElementById(`question-${i-1}`);
+
+    current.classList.remove("active");
+    previous.classList.add("active");
+
+    previous.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
     });
 
-    q.querySelector(".next-btn").addEventListener("click",()=>{
-      if(i<questions100.length-1){
-        document.getElementById(`question-${i+1}`).scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
-      }
+    updatePalette();
+  }
+});
+
+q.querySelector(".next-btn").addEventListener("click",()=>{
+  if(i<questions100.length-1){
+    const current=document.getElementById(`question-${i}`);
+    const next=document.getElementById(`question-${i+1}`);
+
+    current.classList.remove("active");
+    next.classList.add("active");
+
+    next.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
     });
+
+    updatePalette();
+  }
+});
   });
 }
 
@@ -443,17 +459,27 @@ function renderPalette(){
     btn.textContent=i+1;
     btn.className="palette-btn";
 
-    btn.addEventListener("click",()=>{
-      document.querySelectorAll(".palette-btn").forEach(b=>{
-        b.classList.remove("current");
-      });
-      btn.classList.add("current");
+   btn.addEventListener("click",()=>{
+  document.querySelectorAll(".question").forEach(q=>{
+    q.classList.remove("active");
+  });
 
-      document.getElementById(`question-${i}`).scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-    });
+  document.querySelectorAll(".palette-btn").forEach(b=>{
+    b.classList.remove("current");
+  });
+
+  const target=document.getElementById(`question-${i}`);
+
+  target.classList.add("active");
+  btn.classList.add("current");
+
+  target.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+  updatePalette();
+});
 
     palette.appendChild(btn);
   });
