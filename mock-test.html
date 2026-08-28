@@ -524,13 +524,27 @@ function calculateScore(){
 
   const result=document.getElementById("result");
 
-  result.innerHTML=`<h2>🎯 Test Result</h2>
-    <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
-    <div class="result-grid">
-      <div class="result-stat">🟢<br><b>${correct}</b><br>सही</div>
-      <div class="result-stat">🔴<br><b>${wrong}</b><br>गलत</div>
-      <div class="result-stat">⭕<br><b>${skip}</b><br>Not Attempted</div>
-    </div>
+  const percentage=Math.max(0,Math.min(100,score));
+const attempted=correct+wrong;
+const markedCount=markedQuestions.size;
+
+result.innerHTML=`<h2>🎯 Test Result</h2>
+<h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+
+<p style="text-align:center">
+📈 Percentage: <b>${percentage.toFixed(2)}%</b>
+&nbsp; | &nbsp;
+📝 Attempted: <b>${attempted}</b>/100
+&nbsp; | &nbsp;
+⭐ Marked: <b>${markedCount}</b>
+</p>
+
+<div class="result-grid">
+  <div class="result-stat">🎯<br><b>${score.toFixed(2)}</b><br>Score</div>
+  <div class="result-stat">🟢<br><b>${correct}</b><br>सही</div>
+  <div class="result-stat">🔴<br><b>${wrong}</b><br>गलत</div>
+  <div class="result-stat">⭕<br><b>${skip}</b><br>Not Attempted</div>
+</div>
     <hr>
     <h2>📖 Answer Review</h2>
     ${review}
