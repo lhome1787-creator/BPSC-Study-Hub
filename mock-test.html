@@ -339,16 +339,21 @@ nav.innerHTML = `
 q.appendChild(nav);
 
 
-const paletteBtn = document.querySelectorAll(".palette-btn")[i];
+nav.querySelector(".prev-btn").onclick = () => {
+  if (i > 0) {
+    document.getElementById(`question-${i - 1}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+};
 
-if (paletteBtn) {
-    paletteBtn.classList.toggle("marked");
-}
-
-  if (nav.querySelector(".review-btn").classList.contains("marked")) {
-    nav.querySelector(".review-btn").textContent = "⭐ Marked for Review";
-  } else {
-    nav.querySelector(".review-btn").textContent = "⭐ Mark for Review";
+nav.querySelector(".next-btn").onclick = () => {
+  if (i < questions100.length - 1) {
+    document.getElementById(`question-${i + 1}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   }
 };
       nav.querySelector(".prev-btn").onclick = () => {
