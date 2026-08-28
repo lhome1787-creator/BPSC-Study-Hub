@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -137,6 +138,50 @@ footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:3
     color:#fff;
     border-color:#22c55e;
 }
+
+.question-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+.question-nav button{
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  padding:9px 12px;
+  background:#fff;
+  color:#344054;
+  font-weight:700;
+  cursor:pointer;
+}
+.question-nav button:hover{background:#eef6ff;border-color:var(--primary)}
+.question-nav .review-btn.marked{
+  background:#f59e0b;
+  color:#fff;
+  border-color:#f59e0b;
+}
+.palette-btn.marked{
+  background:#f59e0b !important;
+  color:#fff !important;
+  border-color:#f59e0b !important;
+}
+.palette-help{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:10px 0 0;
+  font-size:13px;
+  color:var(--muted);
+}
+.palette-help span{font-weight:700}
+@media(max-width:600px){
+  .question-nav{flex-direction:column}
+  .question-nav button{width:100%}
+}
+
 </style>
 </head>
 <body>
@@ -164,7 +209,7 @@ footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:3
 
 <section class="card">
 <h3>🔢 प्रश्न नेविगेशन</h3>
-<p class="small">हरे नंबर उन प्रश्नों को दिखाते हैं जिनका उत्तर चुना गया है।</p>
+<p class="small">हरे नंबर = उत्तर चुना गया। 🟧 नारंगी नंबर = Mark for Review।</p>
 <div id="questionPalette" class="palette"></div>
 </section>
 
@@ -310,133 +355,191 @@ const questions=[
 ];
 
 const questions100=questions.slice(0,100);
+
 const palette=document.getElementById("questionPalette");
-let timeLeft=7200,submitted=false;
+let timeLeft=7200;
+let submitted=false;
+const markedQuestions=new Set();
 
 function renderQuestions(){
   const box=document.getElementById("mockTest");
   box.innerHTML="";
+
   questions100.forEach((item,i)=>{
     const n=i+1;
-    let html=`<div class="question" id="question-${i}"><h3>${n}. ${item[0]}</h3>`;
+    let html=`<div class="question" id="question-${i}">
+      <h3>${n}. ${item[0]}</h3>`;
+
     item[1].forEach((option,j)=>{
       const letter=String.fromCharCode(65+j);
-      html+=`<label class="option"><input type="radio" name="q${n}" value="${letter}"><span><b>${letter}.</b> ${option}</span></label>`;
+      html+=`<label class="option">
+        <input type="radio" name="q${n}" value="${letter}">
+        <span><b>${letter}.</b> ${option}</span>
+      </label>`;
     });
-    html+=`<label class="option"><input type="radio" name="q${n}" value="E"><span><b>E.</b> Not Attempted</span></label></div>`;
+
+    html+=`<label class="option">
+      <input type="radio" name="q${n}" value="E">
+      <span><b>E.</b> Not Attempted</span>
+    </label>`;
+
+    html+=`<div class="question-nav">
+      <button type="button" class="prev-btn">← Previous</button>
+      <button type="button" class="review-btn">⭐ Mark for Review</button>
+      <button type="button" class="next-btn">Next →</button>
+    </div></div>`;
+
     box.insertAdjacentHTML("beforeend",html);
-      const q = document.getElementById("question-" + i);
 
-const nav = document.createElement("div");
-nav.className = "question-nav";
+    const q=document.getElementById(`question-${i}`);
+    const reviewBtn=q.querySelector(".review-btn");
 
-nav.innerHTML = `
-    <button type="button" class="prev-btn">← Previous</button>
-    <button type="button" class="review-btn">⭐ Mark for Review</button>
-    <button type="button" class="next-btn">Next →</button>
-`;
-
-q.appendChild(nav);
-
-
-nav.querySelector(".prev-btn").onclick = () => {
-  if (i > 0) {
-    document.getElementById(`question-${i - 1}`).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+    reviewBtn.addEventListener("click",()=>{
+      if(markedQuestions.has(i)){
+        markedQuestions.delete(i);
+        reviewBtn.classList.remove("marked");
+        reviewBtn.textContent="⭐ Mark for Review";
+      }else{
+        markedQuestions.add(i);
+        reviewBtn.classList.add("marked");
+        reviewBtn.textContent="⭐ Marked for Review";
+      }
+      updatePalette();
     });
-  }
-};
 
-nav.querySelector(".next-btn").onclick = () => {
-  if (i < questions100.length - 1) {
-    document.getElementById(`question-${i + 1}`).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+    q.querySelector(".prev-btn").addEventListener("click",()=>{
+      if(i>0){
+        document.getElementById(`question-${i-1}`).scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+      }
     });
-  }
-};
-      nav.querySelector(".prev-btn").onclick = () => {
-  if (i > 0) {
-    document.getElementById(`question-${i - 1}`).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
-};
 
-nav.querySelector(".next-btn").onclick = () => {
-  if (i < questions100.length - 1) {
-    document.getElementById(`question-${i + 1}`).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+    q.querySelector(".next-btn").addEventListener("click",()=>{
+      if(i<questions100.length-1){
+        document.getElementById(`question-${i+1}`).scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+      }
     });
-  }
-};
   });
 }
 
 function renderPalette(){
+  palette.innerHTML="";
+
   questions100.forEach((item,i)=>{
     const btn=document.createElement("button");
-    btn.type="button"; btn.textContent=i+1;
-      btn.className="palette-btn";
-btn.onclick=()=>{
-    document.querySelectorAll(".palette-btn").forEach(b=>{
+    btn.type="button";
+    btn.textContent=i+1;
+    btn.className="palette-btn";
+
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".palette-btn").forEach(b=>{
         b.classList.remove("current");
-    });
+      });
+      btn.classList.add("current");
 
-    btn.classList.add("current");
-
-    document.getElementById("question-"+i).scrollIntoView({
+      document.getElementById(`question-${i}`).scrollIntoView({
         behavior:"smooth",
         block:"start"
+      });
     });
-};
+
     palette.appendChild(btn);
+  });
+
+  updatePalette();
+}
+
+function updatePalette(){
+  questions100.forEach((item,i)=>{
+    const btn=palette.children[i];
+    if(!btn)return;
+
+    const n=i+1;
+    const selected=document.querySelector(`input[name="q${n}"]:checked`);
+
+    btn.classList.toggle("answered",!!selected && selected.value!=="E");
+    btn.classList.toggle("marked",markedQuestions.has(i));
+
+    const reviewBtn=document.querySelector(`#question-${i} .review-btn`);
+    if(reviewBtn){
+      reviewBtn.classList.toggle("marked",markedQuestions.has(i));
+      reviewBtn.textContent=markedQuestions.has(i)
+        ? "⭐ Marked for Review"
+        : "⭐ Mark for Review";
+    }
   });
 }
 
-document.addEventListener("change",e=>{
-  if(e.target.matches('input[type="radio"]')){
-    const n=parseInt(e.target.name.substring(1))-1;
-    if(palette.children[n]) palette.children[n].classList.add("answered");
+document.addEventListener("change",(event)=>{
+  if(event.target.matches('input[type="radio"]')){
+    updatePalette();
   }
 });
 
 function calculateScore(){
   if(submitted)return;
+
   let score=0,correct=0,wrong=0,skip=0,review="";
+
   questions100.forEach((item,i)=>{
     const n=i+1;
     const selected=document.querySelector(`input[name="q${n}"]:checked`);
     const correctAnswer=item[2];
     const correctText=item[1][correctAnswer.charCodeAt(0)-65];
+    const marked=markedQuestions.has(i);
+
+    const markText=marked ? " ⭐ Marked for Review" : "";
 
     if(!selected || selected.value==="E"){
       skip++;
-      review+=`<div class="review-item skip"><b>Q${n}. ${item[0]}</b><br>⭕ Not Attempted<br>✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b></div>`;
+      review+=`<div class="review-item skip">
+        <b>Q${n}. ${item[0]}</b>${markText}<br>
+        ⭕ Not Attempted<br>
+        ✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b>
+      </div>`;
     }else if(selected.value===correctAnswer){
-      score++; correct++;
+      score++;
+      correct++;
       const selectedText=item[1][selected.value.charCodeAt(0)-65];
-      review+=`<div class="review-item correct"><b>Q${n}. ${item[0]}</b><br>🟢 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — सही</div>`;
+      review+=`<div class="review-item correct">
+        <b>Q${n}. ${item[0]}</b>${markText}<br>
+        🟢 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — सही
+      </div>`;
     }else{
-      score-=1/3; wrong++;
+      score-=1/3;
+      wrong++;
       const selectedText=item[1][selected.value.charCodeAt(0)-65];
-      review+=`<div class="review-item wrong"><b>Q${n}. ${item[0]}</b><br>🔴 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — गलत<br>✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b></div>`;
+      review+=`<div class="review-item wrong">
+        <b>Q${n}. ${item[0]}</b>${markText}<br>
+        🔴 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — गलत<br>
+        ✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b>
+      </div>`;
     }
   });
 
   const result=document.getElementById("result");
+
   result.innerHTML=`<h2>🎯 Test Result</h2>
-  <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
-  <div class="result-grid">
-    <div class="result-stat">🟢<br><b>${correct}</b><br>सही</div>
-    <div class="result-stat">🔴<br><b>${wrong}</b><br>गलत</div>
-    <div class="result-stat">⭕<br><b>${skip}</b><br>Not Attempted</div>
-  </div>
-  <hr><h2>📖 Answer Review</h2>${review}
-  <div class="actions"><button class="retry" type="button" onclick="location.reload()">🔄 Retry Mock Test</button></div>`;
+    <h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+    <div class="result-grid">
+      <div class="result-stat">🟢<br><b>${correct}</b><br>सही</div>
+      <div class="result-stat">🔴<br><b>${wrong}</b><br>गलत</div>
+      <div class="result-stat">⭕<br><b>${skip}</b><br>Not Attempted</div>
+    </div>
+    <hr>
+    <h2>📖 Answer Review</h2>
+    ${review}
+    <div class="actions">
+      <button class="retry" type="button" onclick="location.reload()">
+        🔄 Retry Mock Test
+      </button>
+    </div>`;
+
   result.classList.add("show");
   submitted=true;
   result.scrollIntoView({behavior:"smooth",block:"start"});
@@ -446,42 +549,28 @@ document.getElementById("submitBtn").addEventListener("click",calculateScore);
 
 setInterval(()=>{
   if(submitted)return;
-  if(timeLeft<=0){calculateScore();return;}
+
+  if(timeLeft<=0){
+    calculateScore();
+    return;
+  }
+
   timeLeft--;
-  const h=Math.floor(timeLeft/3600),m=Math.floor((timeLeft%3600)/60),s=timeLeft%60;
+
+  const h=Math.floor(timeLeft/3600);
+  const m=Math.floor((timeLeft%3600)/60);
+  const s=timeLeft%60;
+
   const timer=document.getElementById("timer");
-  timer.textContent=`समय बाकी: ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  timer.textContent=
+    `समय बाकी: ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+
   if(timeLeft<=600)timer.classList.add("warning");
 },1000);
 
-    // Professional Palette Status
-function updatePalette() {
-    questions100.forEach((item, i) => {
-        const n = i + 1;
-        const selected = document.querySelector(
-            `input[name="q${n}"]:checked`
-        );
-
-        const btn = document.querySelectorAll(".palette-btn")[i];
-
-        if (!btn) return;
-
-        btn.classList.remove("answered");
-
-        if (selected && selected.value !== "E") {
-            btn.classList.add("answered");
-        }
-    });
-}
-
-// Detect answer selection
-document.addEventListener("change", function(event) {
-    if (event.target.matches('input[type="radio"]')) {
-        updatePalette();
-    }
-});
 renderQuestions();
 renderPalette();
+
 </script>
 </body>
 </html>
