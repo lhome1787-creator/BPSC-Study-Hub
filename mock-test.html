@@ -337,10 +337,13 @@ nav.innerHTML = `
 `;
 
 q.appendChild(nav);
-      nav.querySelector(".review-btn").onclick = () => {
-  nav.querySelector(".review-btn").classList.toggle("marked");
-          const paletteBtn = document.querySelectorAll(".palette-btn")[i];
-paletteBtn.classList.toggle("marked");
+nav.querySelector(".review-btn").classList.toggle("marked");
+
+const paletteBtn = document.querySelectorAll(".palette-btn")[i];
+
+if (paletteBtn) {
+    paletteBtn.classList.toggle("marked");
+}
 
   if (nav.querySelector(".review-btn").classList.contains("marked")) {
     nav.querySelector(".review-btn").textContent = "⭐ Marked for Review";
