@@ -453,27 +453,112 @@ timer = setInterval(function () {
     }
 }, 1000);
 function searchContent() {
-    const searchText = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    const searchText = document.getElementById("searchInput").value
+        .trim()
+        .toLowerCase();
 
     if (searchText === "") {
         alert("⚠️ कृपया कुछ खोजें");
         return;
     }
 
-    if (searchText.includes("bihar") || searchText.includes("बिहार") || searchText.includes("gk")) {
+    // Home
+    if (
+        searchText.includes("home") ||
+        searchText.includes("होम")
+    ) {
+        window.location.href = "index.html";
+    }
+
+    // Bihar GK
+    else if (
+        searchText.includes("bihar") ||
+        searchText.includes("बिहार") ||
+        searchText.includes("gk")
+    ) {
+        window.location.href = "index.html";
+    }
+
+    // History
+    else if (
+        searchText.includes("history") ||
+        searchText.includes("इतिहास")
+    ) {
+        window.location.href = "history.html";
+    }
+
+    // Geography
+    else if (
+        searchText.includes("geography") ||
+        searchText.includes("भूगोल")
+    ) {
+        window.location.href = "geography.html";
+    }
+
+    // Polity
+    else if (
+        searchText.includes("polity") ||
+        searchText.includes("राजव्यवस्था")
+    ) {
+        window.location.href = "polity.html";
+    }
+
+    // Economy
+    else if (
+        searchText.includes("economy") ||
+        searchText.includes("अर्थव्यवस्था")
+    ) {
+        window.location.href = "economy.html";
+    }
+
+    // Current Affairs
+    else if (
+        searchText.includes("current affairs") ||
+        searchText.includes("current-affairs") ||
+        searchText.includes("current") ||
+        searchText.includes("करंट")
+    ) {
+        window.location.href = "current-affairs.html";
+    }
+
+    // Quiz
+    else if (
+        searchText.includes("quiz") ||
+        searchText.includes("क्विज")
+    ) {
         window.location.href = "quiz.html";
-    } 
-    else if (searchText.includes("mock") || searchText.includes("मॉक")) {
+    }
+
+    // Mock Test
+    else if (
+        searchText.includes("mock") ||
+        searchText.includes("मॉक")
+    ) {
         window.location.href = "mock-test.html";
-    } 
-    else if (searchText.includes("study") || searchText.includes("plan") || searchText.includes("पढ़ाई")) {
+    }
+
+    // Study Plan
+    else if (
+        searchText.includes("study plan") ||
+        searchText.includes("study") ||
+        searchText.includes("plan") ||
+        searchText.includes("पढ़ाई")
+    ) {
         window.location.href = "study-plan.html";
-    } 
-    else if (searchText.includes("note") || searchText.includes("notes") || searchText.includes("नोट्स")) {
+    }
+
+    // Notes
+    else if (
+        searchText.includes("note") ||
+        searchText.includes("notes") ||
+        searchText.includes("नोट्स")
+    ) {
         window.location.href = "notes.html";
-    } 
+    }
+
     else {
-        alert("❌ ऐसा कोई topic नहीं मिला");
+        alert("❌ ऐसा कोई Topic या Page नहीं मिला");
     }
 }
 console.log("BPSC Study Hub Quiz Ready");
