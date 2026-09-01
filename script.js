@@ -549,7 +549,7 @@ let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
-shuffleQuestions();
+questions.sort(() => Math.random() - 0.5);
 
 function loadQuestion() {
     const q = questions[currentQuestion];
