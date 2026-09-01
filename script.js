@@ -545,11 +545,11 @@ function shuffleQuestions() {
     }
 }
 
+questions.sort(() => Math.random() - 0.5);
+
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
-
-questions.sort(() => Math.random() - 0.5);
 
 function loadQuestion() {
     const q = questions[currentQuestion];
