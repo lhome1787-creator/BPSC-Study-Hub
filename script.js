@@ -535,6 +535,16 @@ const questions = [
 
 ];
 
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        const temp = questions[i];
+        questions[i] = questions[j];
+        questions[j] = temp;
+    }
+}
+
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
@@ -662,6 +672,8 @@ restartButton.onclick = function() {
     answered = false;
     timeLeft = 15 * 60;
 
+    shuffleQuestions();
+
     restartButton.remove();
     loadQuestion();
 };
@@ -676,6 +688,7 @@ document.getElementById("options").appendChild(restartButton);
 let timer;
 let timeLeft = 15 * 60;
 
+shuffleQuestions();
 loadQuestion();
 timeLeft = 15 * 60;
 
