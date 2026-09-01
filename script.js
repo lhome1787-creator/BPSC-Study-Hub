@@ -549,6 +549,8 @@ let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
+shuffleQuestions();
+
 function loadQuestion() {
     const q = questions[currentQuestion];
     const progress = ((currentQuestion + 1) / questions.length) * 100;
