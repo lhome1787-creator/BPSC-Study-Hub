@@ -2697,7 +2697,7 @@ document.getElementById("options").appendChild(restartButton);
 }
 
 let timer;
-let timeLeft = 15 * 60;
+let timeLeft = 30 * 60;
 
 shuffleQuestions();
 loadQuestion();
