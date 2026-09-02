@@ -2701,7 +2701,7 @@ let timeLeft = 30 * 60;
 
 shuffleQuestions();
 loadQuestion();
-timeLeft = 15 * 60;
+timeLeft = 30 * 60;
 
 timer = setInterval(function () {
     let minutes = Math.floor(timeLeft / 60);
