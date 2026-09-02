@@ -2553,6 +2553,9 @@ function shuffleQuestions() {
 
 questions.sort(() => Math.random() - 0.5);
 
+shuffleQuestions();
+questions.splice(50);
+
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
