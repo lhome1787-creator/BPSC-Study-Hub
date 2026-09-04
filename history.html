@@ -9,6 +9,23 @@
 
 <body>
 
+    <div id="quizHistory" style="margin:20px; padding:15px; background:#f5f5f5; border-radius:10px;">
+    <h3>📊 पिछला Quiz Score</h3>
+    <p id="scoreText">अभी कोई Quiz नहीं दिया गया है।</p>
+</div>
+
+    <script>
+const score = localStorage.getItem("quizScore");
+const total = localStorage.getItem("quizTotal");
+const percentage = localStorage.getItem("quizPercentage");
+
+if (score !== null) {
+    document.getElementById("scoreText").innerHTML =
+        "🎯 Score: " + score + " / " + total +
+        "<br>📊 प्रतिशत: " + percentage + "%";
+}
+</script>
+
 <nav>
     <a href="index.html">Home</a>
     <a href="notes.html">Notes</a>
