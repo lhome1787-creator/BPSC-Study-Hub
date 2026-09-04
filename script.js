@@ -2551,8 +2551,6 @@ function shuffleQuestions() {
     }
 }
 
-questions.sort(() => Math.random() - 0.5);
-
 shuffleQuestions();
 questions.splice(50);
 
