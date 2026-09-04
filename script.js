@@ -2668,6 +2668,10 @@ document.querySelectorAll("button").forEach(function(button) {
 
         const percentage = (score / questions.length) * 100;
 
+        localStorage.setItem("quizScore", score);
+localStorage.setItem("quizTotal", questions.length);
+localStorage.setItem("quizPercentage", percentage.toFixed(0));
+
 document.getElementById("question").innerHTML =
     "🎉 आपका Final Score: " + score + " / " + questions.length +
     "<br>📊 प्रतिशत: " + percentage.toFixed(0) + "%";
