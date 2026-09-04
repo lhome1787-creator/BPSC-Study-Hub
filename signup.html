@@ -73,6 +73,94 @@ button{
 <p>पहले से Account है? <a href="login.html">Login</a></p>
 
 </div>
+    
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCCgGSWfDa_Hj8iOk2kLvQ-jMEog1UNdqE",
+    authDomain: "bpsc-study-hub.firebaseapp.com",
+    projectId: "bpsc-study-hub",
+    storageBucket: "bpsc-study-hub.firebasestorage.app",
+    messagingSenderId: "238095948641",
+    appId: "1:238095948641:web:68866dba3f9940a4f7c320",
+    measurementId: "G-FN3R1HMF4M"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+const inputs = document.querySelectorAll("input");
+
+const nameInput = inputs[0];
+const emailInput = inputs[1];
+const passwordInput = inputs[2];
+const confirmPasswordInput = inputs[3];
+
+const createButton = document.querySelector("button");
+
+
+createButton.addEventListener("click", async () => {
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (!name || !email || !password || !confirmPassword) {
+        alert("कृपया सभी जानकारी भरें।");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Password और Confirm Password समान नहीं हैं।");
+        return;
+    }
+
+    if (password.length < 6) {
+        alert("Password कम से कम 6 characters का होना चाहिए।");
+        return;
+    }
+
+    try {
+
+        const userCredential =
+            await createUserWithEmailAndPassword(auth, email, password);
+
+        await updateProfile(userCredential.user, {
+            displayName: name
+        });
+
+        alert("🎉 Account सफलतापूर्वक बन गया!");
+
+        window.location.href = "login.html";
+
+    } catch (error) {
+
+        if (error.code === "auth/email-already-in-use") {
+            alert("यह Email पहले से registered है।");
+        } else if (error.code === "auth/invalid-email") {
+            alert("Email सही नहीं है।");
+        } else if (error.code === "auth/weak-password") {
+            alert("Password बहुत कमजोर है।");
+        } else {
+            alert("Account बनाने में समस्या हुई। कृपया दोबारा प्रयास करें।");
+        }
+
+    }
+
+});
+
+</script>
 </body>
 </html>
