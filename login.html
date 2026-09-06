@@ -70,6 +70,10 @@ button{
 <button id="loginButton">Login</button>
 
 <p>
+<a href="#" id="forgotPassword">Forgot Password?</a>
+</p>
+
+<p>
 Account नहीं है?
 <a href="signup.html">Create Account</a>
 </p>
@@ -85,6 +89,7 @@ from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import {
     getAuth,
     signInWithEmailAndPassword
+    sendPasswordResetEmail
 } 
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
@@ -107,6 +112,39 @@ const auth = getAuth(app);
 
 
 const loginButton = document.getElementById("loginButton");
+
+const forgotPassword = document.getElementById("forgotPassword");
+
+forgotPassword.addEventListener("click", async (event) => {
+
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+
+    if (!email) {
+        alert("कृपया पहले अपना Email डालें।");
+        return;
+    }
+
+    try {
+
+        await sendPasswordResetEmail(auth, email);
+
+        alert("📧 Password reset link आपके Email पर भेज दिया गया है।");
+
+    } catch (error) {
+
+        if (error.code === "auth/user-not-found") {
+            alert("❌ यह Email registered नहीं है।");
+        }
+        else if (error.code === "auth/invalid-email") {
+            alert("❌ Email सही नहीं है।");
+        }
+        else {
+            alert("❌ Password reset करने में समस्या हुई।");
+        }
+    }
+});
 
 
 loginButton.addEventListener("click", async () => {
