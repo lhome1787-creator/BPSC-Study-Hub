@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC Study Hub | Profile</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    text-align:center;
+    padding-top:50px;
+}
+
+.container{
+    width:380px;
+    max-width:90%;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #0002;
+}
+
+.logo{
+    font-size:50px;
+}
+
+h1{
+    color:#084b9a;
+    margin-bottom:5px;
+}
+
+h2{
+    margin-top:20px;
+}
+
+.info{
+    background:#f5f7fa;
+    padding:15px;
+    border-radius:10px;
+    margin:20px 0;
+    text-align:left;
+}
+
+.info p{
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.home{
+    background:#084b9a;
+    color:white;
+}
+
+.logout{
+    background:#dc3545;
+    color:white;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<div class="logo">👤</div>
+
+<h1>BPSC Study Hub</h1>
+
+<h2>My Profile</h2>
+
+<div class="info">
+
+<p>
+<b>👤 Name:</b>
+<span id="userName">Loading...</span>
+</p>
+
+<p>
+<b>📧 Email:</b>
+<span id="userEmail">Loading...</span>
+</p>
+
+</div>
+
+<button class="home" onclick="window.location.href='index.html'">
+🏠 Home
+</button>
+
+<button class="logout" id="logoutButton">
+🚪 Logout
+</button>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+
+    getAuth,
+    onAuthStateChanged,
+    signOut
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyCCgGSwfDa_Hj8iOk2kLvQ-jMEog1UNdqE",
+
+    authDomain: "bpsc-study-hub.firebaseapp.com",
+
+    projectId: "bpsc-study-hub",
+
+    storageBucket: "bpsc-study-hub.firebasestorage.app",
+
+    messagingSenderId: "238095948641",
+
+    appId: "1:238095948641:web:351c37a5ae825a9cf7c320",
+
+    measurementId: "G-SSHY20JM23"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+onAuthStateChanged(auth, (user) => {
+
+    if(user){
+
+        document.getElementById("userName").textContent =
+            user.displayName || "User";
+
+        document.getElementById("userEmail").textContent =
+            user.email;
+
+    }else{
+
+        window.location.href = "login.html";
+
+    }
+
+});
+
+
+document.getElementById("logoutButton")
+.addEventListener("click", async () => {
+
+    await signOut(auth);
+
+    alert("आप सफलतापूर्वक Logout हो गए।");
+
+    window.location.href = "login.html";
+
+});
+
+</script>
+
+</body>
+
+</html>
