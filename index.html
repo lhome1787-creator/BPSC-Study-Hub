@@ -163,6 +163,39 @@
 
 <script src="script.js"></script>
 
+    <script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+    // यहाँ वही Firebase Config डालें
+    // जो आपके login.html में अभी काम कर रहा है
+};
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+        document.getElementById("userWelcome").innerHTML =
+            "👋 स्वागत है, <b>" + (user.displayName || "BPSC Student") + "</b>!";
+    }
+
+});
+
+</script>
+
 </body>
 
 </html>
