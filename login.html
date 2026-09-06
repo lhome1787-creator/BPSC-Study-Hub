@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BPSC Study Hub | Login</title>
 
 <style>
+
 body{
     font-family:Arial,sans-serif;
     background:#f4f7fb;
@@ -13,21 +16,33 @@ body{
     padding-top:60px;
 }
 
+.container{
+    width:350px;
+    max-width:90%;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 15px #0002;
+}
+
 h1{
     color:#084b9a;
 }
 
 input{
-    width:280px;
+    width:100%;
     padding:12px;
-    margin:5px;
+    margin:8px 0;
     border:1px solid #ccc;
     border-radius:8px;
+    box-sizing:border-box;
 }
 
 button{
-    width:280px;
+    width:100%;
     padding:12px;
+    margin-top:10px;
     background:#084b9a;
     color:white;
     border:none;
@@ -35,25 +50,139 @@ button{
     font-size:16px;
     cursor:pointer;
 }
+
 </style>
 
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>🎯 BPSC Study Hub</h1>
 
 <h2>Login</h2>
 
-<input type="email" placeholder="Email">
-<br><br>
+<input type="email" id="email" placeholder="Email">
 
-<input type="password" placeholder="Password">
-<br><br>
+<input type="password" id="password" placeholder="Password">
 
-<button>Login</button>
+<button id="loginButton">Login</button>
 
-<p>Account नहीं है? <a href="#">Create Account</a></p>
+<p>
+Account नहीं है?
+<a href="signup.html">Create Account</a>
+</p>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword
+} 
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyCCgGSWfDa_Hj8iOk2kLvQ-jMEog1UNdqE",
+
+    authDomain: "bpsc-study-hub.firebaseapp.com",
+
+    projectId: "bpsc-study-hub",
+
+    storageBucket: "bpsc-study-hub.firebasestorage.app",
+
+    messagingSenderId: "238095948641",
+
+    appId: "1:238095948641:web:68866dba3f9940a4f7c320",
+
+    measurementId: "G-FN3R1HMF4M"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+const loginButton = document.getElementById("loginButton");
+
+
+loginButton.addEventListener("click", async () => {
+
+    const email = document.getElementById("email").value.trim();
+
+    const password = document.getElementById("password").value;
+
+
+    if(!email || !password){
+
+        alert("कृपया Email और Password भरें।");
+
+        return;
+
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        alert("🎉 Login सफलतापूर्वक हो गया!");
+
+        window.location.href = "index.html";
+
+    }
+
+    catch(error){
+
+        if(error.code === "auth/invalid-credential"){
+
+            alert("❌ Email या Password गलत है।");
+
+        }
+
+        else if(error.code === "auth/user-not-found"){
+
+            alert("❌ यह Email registered नहीं है।");
+
+        }
+
+        else if(error.code === "auth/wrong-password"){
+
+            alert("❌ Password गलत है।");
+
+        }
+
+        else if(error.code === "auth/invalid-email"){
+
+            alert("❌ Email सही नहीं है।");
+
+        }
+
+        else{
+
+            alert("Login करने में समस्या हुई। कृपया दोबारा प्रयास करें।");
+
+        }
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
