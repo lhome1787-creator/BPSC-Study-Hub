@@ -199,6 +199,9 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("userWelcome").innerHTML =
             "👋 स्वागत है, <b>" + (user.displayName || "BPSC Student") + "</b>!";
     }
+    else {
+    window.location.href = "login.html";
+}
 
 });
 
