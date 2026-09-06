@@ -49,6 +49,7 @@
     <h2>📚 BPSC Study Hub में आपका स्वागत है</h2>
 
         <p id="userWelcome"></p>
+        <button id="logoutButton">Logout</button>
     <p>
         यहाँ आपको BPSC परीक्षा की तैयारी के लिए
         Bihar GK, Quiz, Mock Test और Study Plan मिलेगा।
@@ -198,6 +199,16 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("userWelcome").innerHTML =
             "👋 स्वागत है, <b>" + (user.displayName || "BPSC Student") + "</b>!";
     }
+
+});
+
+document.getElementById("logoutButton").addEventListener("click", async () => {
+
+    await signOut(auth);
+
+    alert("आप Logout हो गए हैं।");
+
+    window.location.href = "login.html";
 
 });
 
