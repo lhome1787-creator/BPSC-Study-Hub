@@ -165,7 +165,8 @@ onAuthStateChanged(auth, (user) => {
 
     } else {
 
-        window.location.href = "login.html";
+        document.getElementById("userName").textContent = "Firebase User नहीं मिला";
+document.getElementById("userEmail").textContent = "Login state check करें";
 
     }
 
