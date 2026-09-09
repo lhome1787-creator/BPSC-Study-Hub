@@ -2551,7 +2551,8 @@ function shuffleQuestions() {
     }
 }
 
-const quizNumber = window.quizNumber || 1;
+const urlParams = new URLSearchParams(window.location.search);
+const quizNumber = parseInt(urlParams.get("quiz")) || window.quizNumber || 1;
 
 const startIndex = (quizNumber - 1) * 50;
 const quizSet = questions.slice(startIndex, startIndex + 50);
