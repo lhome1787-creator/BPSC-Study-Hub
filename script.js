@@ -2566,6 +2566,7 @@ let score = 0;
 let answered = false;
 
 function loadQuestion() {
+document.getElementById("nextButton").style.display = "block";
     const q = questions[currentQuestion];
     const progress = ((currentQuestion + 1) / questions.length) * 100;
 
