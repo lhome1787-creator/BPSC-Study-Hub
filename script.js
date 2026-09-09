@@ -2610,6 +2610,7 @@ document.getElementById("progressBar").style.width =
     });
 
     document.getElementById("result").innerHTML = "";
+    document.getElementById("nextButton").style.display = "none";
 }
 
 
