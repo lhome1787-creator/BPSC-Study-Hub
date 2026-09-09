@@ -2692,6 +2692,7 @@ restartButton.onclick = function() {
     shuffleQuestions();
 
     restartButton.remove();
+    document.getElementById("nextButton").style.display = "block";
     loadQuestion();
 };
 
