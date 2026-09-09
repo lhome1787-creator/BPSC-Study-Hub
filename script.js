@@ -2551,8 +2551,15 @@ function shuffleQuestions() {
     }
 }
 
+const quizNumber = 1;
+
+const startIndex = (quizNumber - 1) * 50;
+const quizSet = questions.slice(startIndex, startIndex + 50);
+
+questions.length = 0;
+questions.push(...quizSet);
+
 shuffleQuestions();
-questions.splice(50);
 
 let currentQuestion = 0;
 let score = 0;
