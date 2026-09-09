@@ -205,3 +205,18 @@ html, body {
 .quiz-list a:hover {
     background: #125aa0;
 }
+
+@media (max-width: 600px) {
+    .quiz-list {
+        padding: 10px;
+    }
+
+    .quiz-list a {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 14px 10px;
+        margin: 10px 0;
+        font-size: 15px;
+    }
+}
