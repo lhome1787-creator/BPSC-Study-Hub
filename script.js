@@ -2664,11 +2664,7 @@ function nextQuestion() {
         clearInterval(timer);
         document.getElementById("timer").innerHTML = "⏱️ Quiz समाप्त";
 
-document.querySelectorAll("button").forEach(function(button) {
-    if (button.innerText.includes("Next Question")) {
-        button.remove();
-    }
-});
+
 
         document.getElementById("questionNumber").innerHTML =
             "🎉 Quiz समाप्त";
