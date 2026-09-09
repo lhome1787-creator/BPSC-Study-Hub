@@ -180,3 +180,28 @@ html, body {
         overflow-x: hidden;
     }
 }
+
+.quiz-list {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.quiz-list h3 {
+    margin-bottom: 15px;
+}
+
+.quiz-list a {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 15px;
+    max-width: 500px;
+    background: #1976d2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.quiz-list a:hover {
+    background: #125aa0;
+}
