@@ -75,7 +75,20 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </section>
 
 <section id="result" class="box">
-<h2>📊 Result</h2><h2 id="score"></h2><p id="details"></p>
+<h2>📊 Quiz Result</h2>
+
+<h2 id="score"></h2>
+
+<p id="details"></p>
+
+<hr>
+
+<h3>📝 Answer Review</h3>
+
+<div id="review"></div>
+
+<br>
+
 <button class="primary" onclick="startQuiz()">🔄 Restart</button>
 <button class="secondary" onclick="home()">← TRE 4.0 Home</button>
 </section>
@@ -121,7 +134,78 @@ qs.forEach((_,i)=>{let b=document.createElement("button");b.textContent=i+1;if(i
 }
 function next(){if(cur<qs.length-1){cur++;render()}else alert("आखिरी प्रश्न है। Submit दबाएँ।")}
 function prev(){if(cur>0){cur--;render()}}
-function submitQuiz(){let c=0,w=0,n=0;ans.forEach((a,i)=>{if(a===null||a===4)n++;else if(a===qs[i][2])c++;else w++});let s=c-w/3;document.getElementById("quiz").style.display="none";document.getElementById("result").style.display="block";document.getElementById("score").textContent="Score: "+s.toFixed(2)+" / 10";document.getElementById("details").innerHTML="सही: <b>"+c+"</b> | गलत: <b>"+w+"</b> | प्रयास नहीं किया: <b>"+n+"</b>";}
+function submitQuiz(){
+
+let c=0,w=0,n=0;
+let review="";
+
+ans.forEach((a,i)=>{
+
+let correct=qs[i][2];
+
+if(a===null || a===4){
+
+n++;
+
+review += `
+<div class="card">
+<h3>Q${i+1}. ${qs[i][0]}</h3>
+<p>⚪ <b>प्रयास नहीं किया गया</b></p>
+<p>आपका उत्तर: <b>E. प्रयास नहीं किया गया</b></p>
+<p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+</div>
+`;
+
+}
+
+else if(a===correct){
+
+c++;
+
+review += `
+<div class="card">
+<h3>Q${i+1}. ${qs[i][0]}</h3>
+<p>🟢 <b>सही उत्तर</b></p>
+<p>आपका उत्तर: <b>${String.fromCharCode(65+a)}. ${qs[i][1][a]}</b></p>
+<p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+</div>
+`;
+
+}
+
+else{
+
+w++;
+
+review += `
+<div class="card">
+<h3>Q${i+1}. ${qs[i][0]}</h3>
+<p>🔴 <b>गलत उत्तर</b></p>
+<p>आपका उत्तर: <b>${String.fromCharCode(65+a)}. ${qs[i][1][a]}</b></p>
+<p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+</div>
+`;
+
+}
+
+});
+
+let s=c-w/3;
+
+document.getElementById("quiz").style.display="none";
+document.getElementById("result").style.display="block";
+
+document.getElementById("score").textContent=
+"Score: "+s.toFixed(2)+" / "+qs.length;
+
+document.getElementById("details").innerHTML=
+"🟢 सही: <b>"+c+
+"</b> &nbsp; 🔴 गलत: <b>"+w+
+"</b> &nbsp; ⚪ प्रयास नहीं किया: <b>"+n+"</b>";
+
+document.getElementById("review").innerHTML=review;
+
+}
 function home(){document.getElementById("result").style.display="none";document.getElementById("home").style.display="block"}
 function coming(c){alert(c+" का question bank बाद में जोड़ा जाएगा।")}
 function fullTest(c){alert(c+" का Full Test official pattern में 150 प्रश्न, 150 अंक और 2 घंटे 30 मिनट का होगा।")}
