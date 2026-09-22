@@ -166,6 +166,7 @@ let review="";
 ans.forEach((a,i)=>{
 
 let correct=qs[i][2];
+let explanation=qs[i][3];
 
 if(a===null || a===4){
 
@@ -177,11 +178,11 @@ review += `
 <p>⚪ <b>प्रयास नहीं किया गया</b></p>
 <p>आपका उत्तर: <b>E. प्रयास नहीं किया गया</b></p>
 <p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+<p>💡 <b>व्याख्या:</b> ${explanation}</p>
 </div>
 `;
 
 }
-
 else if(a===correct){
 
 c++;
@@ -192,11 +193,11 @@ review += `
 <p>🟢 <b>सही उत्तर</b></p>
 <p>आपका उत्तर: <b>${String.fromCharCode(65+a)}. ${qs[i][1][a]}</b></p>
 <p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+<p>💡 <b>व्याख्या:</b> ${explanation}</p>
 </div>
 `;
 
 }
-
 else{
 
 w++;
@@ -207,6 +208,7 @@ review += `
 <p>🔴 <b>गलत उत्तर</b></p>
 <p>आपका उत्तर: <b>${String.fromCharCode(65+a)}. ${qs[i][1][a]}</b></p>
 <p>✅ सही उत्तर: <b>${String.fromCharCode(65+correct)}. ${qs[i][1][correct]}</b></p>
+<p>💡 <b>व्याख्या:</b> ${explanation}</p>
 </div>
 `;
 
