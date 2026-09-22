@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BPSC TRE 4.0 - BPSC Study Hub</title>
+<style>
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f4f7fb;color:#172033}
+header{background:#123d6b;color:white;text-align:center;padding:22px 12px}
+header h1{margin:0 0 6px} header p{margin:0}
+nav{background:white;padding:12px;text-align:center;box-shadow:0 2px 8px #0001}
+nav a{margin:5px;color:#123d6b;text-decoration:none;font-weight:bold}
+main{max-width:950px;margin:24px auto;padding:0 14px}
+.box,.card{background:white;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 3px 14px #0001}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:#eef6ff;padding:12px;text-align:center;border-radius:9px}
+button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;font-weight:bold}
+.primary{background:#1769aa;color:white}.secondary{background:#e8eef5;color:#17324d}
+#quiz,#result{display:none}.question{font-size:20px;font-weight:bold;margin:18px 0}
+.option{display:block;width:100%;text-align:left;background:#f7f9fc;border:2px solid #dbe3ec}
+.option.selected{border-color:#1769aa;background:#eaf4ff}
+.palette{display:flex;flex-wrap:wrap;gap:5px}.palette button{width:40px;height:40px;padding:0;background:#eef1f5}
+.palette .current{background:#1769aa;color:white}.palette .answered{background:#d9f2df}
+.top{display:flex;gap:8px;flex-wrap:wrap}.badge{background:#eef6ff;padding:8px 12px;border-radius:20px;font-weight:bold}
+@media(max-width:650px){.grid,.stats{grid-template-columns:1fr}.question{font-size:18px}}
+</style>
+</head>
+<body>
+<header><h1>📚 BPSC Study Hub</h1><p>BPSC TRE 4.0 Quiz & Test Series</p></header>
+<nav>
+<a href="index.html">Home</a> |
+<a href="quiz-list.html">BPSC Quiz</a> |
+<a href="tre4.html">BPSC TRE 4.0</a> |
+<a href="mock-test.html">Mock Test</a>
+</nav>
+<main>
+<section id="home">
+<div class="box">
+<h2>🎯 BPSC TRE 4.0</h2>
+<p>Official pattern के अनुसार Class Group चुनें।</p>
+<div class="stats">
+<div class="stat"><b>150</b><br>प्रश्न</div>
+<div class="stat"><b>150</b><br>अंक</div>
+<div class="stat"><b>2:30</b><br>घंटे</div>
+<div class="stat"><b>−1/3</b><br>गलत उत्तर</div>
+</div>
+<p><b>Options:</b> A, B, C, D और E = प्रयास नहीं किया गया</p>
+</div>
+<h2>Class Group</h2>
+<div class="grid">
+<div class="card"><h3>Class 1–5</h3><p>भाषा 30 + सामान्य अध्ययन 120</p>
+<button class="primary" onclick="startQuiz()">🟢 Practice Quiz</button>
+<button class="secondary" onclick="fullTest('Class 1–5')">🔴 Full Test</button></div>
+<div class="card"><h3>Class 6–8</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
+<button class="primary" onclick="coming('Class 6–8')">Practice Quiz</button>
+<button class="secondary" onclick="fullTest('Class 6–8')">Full Test</button></div>
+<div class="card"><h3>Class 9–10</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
+<button class="primary" onclick="coming('Class 9–10')">Practice Quiz</button>
+<button class="secondary" onclick="fullTest('Class 9–10')">Full Test</button></div>
+<div class="card"><h3>Class 11–12</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
+<button class="primary" onclick="coming('Class 11–12')">Practice Quiz</button>
+<button class="secondary" onclick="fullTest('Class 11–12')">Full Test</button></div>
+</div>
+</section>
+
+<section id="quiz" class="box">
+<div class="top"><span class="badge" id="qno"></span><span class="badge">+1 / −1/3 / 0</span></div>
+<div class="palette" id="palette"></div>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<button class="secondary" onclick="prev()">← Previous</button>
+<button class="secondary" onclick="next()">Next →</button>
+<button class="primary" onclick="submitQuiz()">Submit</button>
+</section>
+
+<section id="result" class="box">
+<h2>📊 Result</h2><h2 id="score"></h2><p id="details"></p>
+<button class="primary" onclick="startQuiz()">🔄 Restart</button>
+<button class="secondary" onclick="home()">← TRE 4.0 Home</button>
+</section>
+</main>
+
+<script>
+const qs=[
+["बिहार की राजधानी कौन-सी है?",["पटना","गया","भागलपुर","मुजफ्फरपुर","प्रयास नहीं किया गया"],0],
+["भारत का राष्ट्रीय पशु कौन-सा है?",["सिंह","बाघ","हाथी","हिरण","प्रयास नहीं किया गया"],1],
+["सूर्य किस दिशा से उगता है?",["उत्तर","दक्षिण","पूर्व","पश्चिम","प्रयास नहीं किया गया"],2],
+["5 + 7 का मान कितना है?",["10","11","12","13","प्रयास नहीं किया गया"],2],
+["पौधे अपना भोजन बनाने की प्रक्रिया को क्या कहा जाता है?",["प्रकाश संश्लेषण","पाचन","श्वसन","वाष्पोत्सर्जन","प्रयास नहीं किया गया"],0],
+["भारत का राष्ट्रीय ध्वज किस नाम से जाना जाता है?",["तिरंगा","चक्रध्वज","केसरिया ध्वज","भारत ध्वज","प्रयास नहीं किया गया"],0],
+["एक सप्ताह में कितने दिन होते हैं?",["5","6","7","8","प्रयास नहीं किया गया"],2],
+["गंगा नदी बिहार से होकर बहती है। यह कथन कैसा है?",["सही","गलत","केवल पहाड़ों में सही","केवल समुद्र में सही","प्रयास नहीं किया गया"],0],
+["जल का सामान्य ठोस रूप क्या है?",["भाप","बर्फ","ओस","वर्षा","प्रयास नहीं किया गया"],1],
+["भारत का राष्ट्रीय फूल कौन-सा है?",["गुलाब","कमल","गेंदा","चमेली","प्रयास नहीं किया गया"],1]
+];
+let cur=0,ans=Array(qs.length).fill(null);
+function startQuiz(){cur=0;ans.fill(null);document.getElementById("home").style.display="none";document.getElementById("result").style.display="none";document.getElementById("quiz").style.display="block";render();}
+function render(){
+document.getElementById("qno").textContent="Question "+(cur+1)+" / "+qs.length;
+document.getElementById("question").textContent=qs[cur][0];
+let o=document.getElementById("options");o.innerHTML="";
+qs[cur][1].forEach((x,i)=>{let b=document.createElement("button");b.className="option"+(ans[cur]===i?" selected":"");b.textContent=String.fromCharCode(65+i)+". "+x;b.onclick=()=>{ans[cur]=i;render()};o.appendChild(b)});
+let p=document.getElementById("palette");p.innerHTML="";
+qs.forEach((_,i)=>{let b=document.createElement("button");b.textContent=i+1;if(i===cur)b.classList.add("current");if(ans[i]!==null)b.classList.add("answered");b.onclick=()=>{cur=i;render()};p.appendChild(b)});
+}
+function next(){if(cur<qs.length-1){cur++;render()}else alert("आखिरी प्रश्न है। Submit दबाएँ।")}
+function prev(){if(cur>0){cur--;render()}}
+function submitQuiz(){let c=0,w=0,n=0;ans.forEach((a,i)=>{if(a===null||a===4)n++;else if(a===qs[i][2])c++;else w++});let s=c-w/3;document.getElementById("quiz").style.display="none";document.getElementById("result").style.display="block";document.getElementById("score").textContent="Score: "+s.toFixed(2)+" / 10";document.getElementById("details").innerHTML="सही: <b>"+c+"</b> | गलत: <b>"+w+"</b> | प्रयास नहीं किया: <b>"+n+"</b>";}
+function home(){document.getElementById("result").style.display="none";document.getElementById("home").style.display="block"}
+function coming(c){alert(c+" का question bank बाद में जोड़ा जाएगा।")}
+function fullTest(c){alert(c+" का Full Test official pattern में 150 प्रश्न, 150 अंक और 2 घंटे 30 मिनट का होगा।")}
+</script>
+</body>
+</html>
