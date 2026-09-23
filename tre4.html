@@ -675,6 +675,48 @@ function startFullTest1(){
     document.getElementById("quiz").style.display = "block";
 
     render();
+    startFullTestTimer();
+}
+
+let fullTestTimer;
+let fullTestTime = 150 * 60;
+
+function startFullTestTimer(){
+
+    clearInterval(fullTestTimer);
+
+    fullTestTime = 150 * 60;
+
+    fullTestTimer = setInterval(function(){
+
+        let hours = Math.floor(fullTestTime / 3600);
+        let minutes = Math.floor((fullTestTime % 3600) / 60);
+        let seconds = fullTestTime % 60;
+
+        let timeText =
+            String(hours).padStart(2,"0") + ":" +
+            String(minutes).padStart(2,"0") + ":" +
+            String(seconds).padStart(2,"0");
+
+        let timer = document.getElementById("timer");
+
+        if(timer){
+            timer.textContent = "⏱️ " + timeText;
+        }
+
+        if(fullTestTime <= 0){
+
+            clearInterval(fullTestTimer);
+
+            alert("⏰ समय समाप्त! आपका Full Test जमा किया जा रहा है।");
+
+            submitQuiz();
+            return;
+        }
+
+        fullTestTime--;
+
+    },1000);
 }
 let cur=0,ans=Array(qs.length).fill(null);
 function showPracticeSets(){
