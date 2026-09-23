@@ -242,7 +242,7 @@ let qs = set1;
 
 const set2 = [];
 
-function startSet(setNumber){
+window.startSet = function(setNumber){
     if(setNumber === 1){
         qs = set1;
     }else if(setNumber === 2){
@@ -250,7 +250,7 @@ function startSet(setNumber){
     }
 
     startQuiz();
-}
+};
 let cur=0,ans=Array(qs.length).fill(null);
 function showPracticeSets(){
 
