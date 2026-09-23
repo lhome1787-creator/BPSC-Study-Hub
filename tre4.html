@@ -51,7 +51,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 <div class="grid">
 <div class="card"><h3>Class 1–5</h3><p>भाषा 30 + सामान्य अध्ययन 120</p>
 <button class="primary" onclick="showPracticeSets()">📝 Practice Questions</button>
-<button class="secondary" onclick="fullTest('Class 1–5')">🔴 Full Test</button></div>
+<button class="secondary" onclick="startFullTest1()">📝 Full Test 1</button></div>
 <div class="card"><h3>Class 6–8</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
 <button class="primary" onclick="coming('Class 6–8')">Practice Quiz</button>
 <button class="secondary" onclick="fullTest('Class 6–8')">Full Test</button></div>
@@ -655,6 +655,27 @@ window.startSet = function(setNumber){
 
     startQuiz();
 };
+
+function startFullTest1(){
+    qs = [
+        ...set1,
+        ...set2,
+        ...set3,
+        ...set4,
+        ...set5,
+        ...set6
+    ];
+
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+}
 let cur=0,ans=Array(qs.length).fill(null);
 function showPracticeSets(){
 
