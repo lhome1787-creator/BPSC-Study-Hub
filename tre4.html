@@ -74,7 +74,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 <div class="card">
 <h3>Practice Set 1</h3>
 <p>25 Questions</p>
-<button class="primary" onclick="startQuiz();document.getElementById('practiceSets').style.display='none'">
+<button class="primary" onclick="startset(1);document.getElementById('practiceSets').style.display='none'">
 ▶️ Start Set 1
 </button>
 </div>
@@ -186,7 +186,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </main>
 
 <script>
-const qs=[
+const set1=[
 ["‘कमल’ शब्द में कितने अक्षर हैं?",["2","3","4","5","प्रयास नहीं किया गया"],1,"‘कमल’ में क, म और ल — कुल 3 अक्षर हैं।"],
 
 ["25 + 17 का मान कितना है?",["32","40","42","45","प्रयास नहीं किया गया"],2,"25 + 17 = 42।"],
@@ -237,6 +237,20 @@ const qs=[
 
 ["इनमें से कौन फल है?",["आलू","गाजर","आम","पालक","प्रयास नहीं किया गया"],2,"आम एक फल है।"]
 ];
+
+let qs = set1;
+
+const set2 = [];
+
+function startSet(setNumber){
+    if(setNumber === 1){
+        qs = set1;
+    }else if(setNumber === 2){
+        qs = set2;
+    }
+
+    startQuiz();
+}
 let cur=0,ans=Array(qs.length).fill(null);
 function showPracticeSets(){
 
