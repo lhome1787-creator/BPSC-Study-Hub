@@ -704,9 +704,17 @@ function startFullTestTimer(){
 
         let timer = document.getElementById("timer");
 
-        if(timer){
-            timer.textContent = "⏱️ " + timeText;
-        }
+       if(timer){
+    timer.textContent = "⏱️ " + timeText;
+
+    if(fullTestTime <=600){
+        timer.style.color = "red";
+        timer.style.fontWeight = "bold";
+    }else{
+        timer.style.color = "";
+        timer.style.fontWeight = "";
+    }
+}
 
         if(fullTestTime <= 0){
 
