@@ -52,9 +52,18 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 <div class="card"><h3>Class 1–5</h3><p>भाषा 30 + सामान्य अध्ययन 120</p>
 <button class="primary" onclick="showPracticeSets()">📝 Practice Questions</button>
 <button class="secondary" onclick="startFullTest1()">📝 Full Test 1</button></div>
-<div class="card"><h3>Class 6–8</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
-<button class="primary" onclick="coming('Class 6–8')">Practice Quiz</button>
-<button class="secondary" onclick="fullTest('Class 6–8')">Full Test</button></div>
+<div class="card">
+<h3>Class 6–8</h3>
+<p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
+
+<button class="primary" onclick="showClass6_8Subjects()">
+📚 Practice Questions
+</button>
+
+<button class="secondary" onclick="fullTest('Class 6–8')">
+📝 Full Test
+</button>
+</div>
 <div class="card"><h3>Class 9–10</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
 <button class="primary" onclick="coming('Class 9–10')">Practice Quiz</button>
 <button class="secondary" onclick="fullTest('Class 9–10')">Full Test</button></div>
@@ -155,6 +164,51 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </div>
 </section>
 
+<section id="class6_8Subjects" class="box" style="display:none">
+
+<h2>📚 Class 6–8 Practice Questions</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📘 भाषा</h3>
+<button class="primary" onclick="coming('Class 6–8 भाषा Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 भाषा Set 2')">Set 2</button>
+</div>
+
+<div class="card">
+<h3>➗ गणित</h3>
+<button class="primary" onclick="coming('Class 6–8 गणित Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 गणित Set 2')">Set 2</button>
+</div>
+
+<div class="card">
+<h3>🔬 विज्ञान</h3>
+<button class="primary" onclick="coming('Class 6–8 विज्ञान Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 विज्ञान Set 2')">Set 2</button>
+</div>
+
+<div class="card">
+<h3>🌍 सामाजिक विज्ञान</h3>
+<button class="primary" onclick="coming('Class 6–8 सामाजिक विज्ञान Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 सामाजिक विज्ञान Set 2')">Set 2</button>
+</div>
+
+<div class="card">
+<h3>📕 संस्कृत</h3>
+<button class="primary" onclick="coming('Class 6–8 संस्कृत Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 संस्कृत Set 2')">Set 2</button>
+</div>
+
+<div class="card">
+<h3>🇬🇧 अंग्रेजी</h3>
+<button class="primary" onclick="coming('Class 6–8 अंग्रेजी Set 1')">Set 1</button>
+<button class="secondary" onclick="coming('Class 6–8 अंग्रेजी Set 2')">Set 2</button>
+</div>
+
+</div>
+
+</section>
 <section id="quiz" class="box">
 <div class="top">
 <span class="badge" id="qno"></span>
@@ -641,6 +695,109 @@ const set6 = [
 ["2 अक्टूबर को किसका जन्मदिवस मनाया जाता है?",["महात्मा गांधी","जवाहरलाल नेहरू","सुभाष चंद्र बोस","डॉ. राजेंद्र प्रसाद","प्रयास नहीं किया गया"],0],
 ["स्वच्छ वातावरण बनाए रखने के लिए क्या करना चाहिए?",["कूड़ा निर्धारित स्थान पर डालना","कूड़ा सड़क पर फेंकना","नदियों में कचरा डालना","पेड़ काटना","प्रयास नहीं किया गया"],0]
 ];
+
+const class6_8_mathScience_set1 = [
+
+/* ===== भाषा : 5 ===== */
+
+["'सूर्य' का पर्यायवाची शब्द कौन-सा है?",
+["चंद्रमा","रवि","पृथ्वी","जल","प्रयास नहीं किया गया"],1],
+
+["'अंधकार' का विलोम शब्द क्या है?",
+["रात्रि","प्रकाश","छाया","बादल","प्रयास नहीं किया गया"],1],
+
+["'लड़का' शब्द का बहुवचन क्या है?",
+["लड़की","लड़के","लड़कों","लड़का","प्रयास नहीं किया गया"],1],
+
+["'विद्यालय' शब्द का सही अर्थ क्या है?",
+["खेल का मैदान","पढ़ने का स्थान","बाजार","अस्पताल","प्रयास नहीं किया गया"],1],
+
+["'राम पुस्तक पढ़ता है।' वाक्य में क्रिया कौन-सी है?",
+["राम","पुस्तक","पढ़ता है","है","प्रयास नहीं किया गया"],2],
+
+
+/* ===== सामान्य अध्ययन : 7 ===== */
+
+["36 + 48 का मान कितना है?",
+["74","84","94","86","प्रयास नहीं किया गया"],1],
+
+["144 ÷ 12 का मान कितना है?",
+["10","11","12","14","प्रयास नहीं किया गया"],2],
+
+["भारत की राजधानी क्या है?",
+["पटना","मुंबई","नई दिल्ली","कोलकाता","प्रयास नहीं किया गया"],2],
+
+["भारत का राष्ट्रीय पशु कौन है?",
+["शेर","बाघ","हाथी","हिरण","प्रयास नहीं किया गया"],1],
+
+["भारतीय स्वतंत्रता आंदोलन से प्रमुख रूप से जुड़े नेता कौन थे?",
+["महात्मा गांधी","आइजैक न्यूटन","अल्बर्ट आइंस्टीन","गैलीलियो","प्रयास नहीं किया गया"],0],
+
+["भारत का सबसे बड़ा राज्य क्षेत्रफल की दृष्टि से कौन-सा है?",
+["बिहार","उत्तर प्रदेश","राजस्थान","पंजाब","प्रयास नहीं किया गया"],2],
+
+["पृथ्वी के चार प्रमुख दिशाओं में से कौन-सी दिशा सूर्य के उदय से संबंधित है?",
+["पश्चिम","उत्तर","पूर्व","दक्षिण","प्रयास नहीं किया गया"],2],
+
+
+/* ===== गणित एवं विज्ञान : 13 ===== */
+
+["यदि x + 7 = 15 है, तो x का मान क्या होगा?",
+["6","7","8","9","प्रयास नहीं किया गया"],2],
+
+["3/4 का दशमलव रूप क्या है?",
+["0.25","0.50","0.75","1.25","प्रयास नहीं किया गया"],2],
+
+["एक त्रिभुज के तीनों कोणों का योग कितना होता है?",
+["90°","180°","270°","360°","प्रयास नहीं किया गया"],1],
+
+["2³ का मान कितना है?",
+["6","8","9","12","प्रयास नहीं किया गया"],1],
+
+["यदि किसी आयत की लंबाई 8 सेमी और चौड़ाई 5 सेमी है, तो उसका क्षेत्रफल कितना होगा?",
+["13 वर्ग सेमी","26 वर्ग सेमी","40 वर्ग सेमी","80 वर्ग सेमी","प्रयास नहीं किया गया"],2],
+
+["पौधों में भोजन बनाने की प्रक्रिया को क्या कहा जाता है?",
+["श्वसन","प्रकाश संश्लेषण","पाचन","वाष्पीकरण","प्रयास नहीं किया गया"],1],
+
+["मनुष्य के शरीर में रक्त का संचार मुख्य रूप से किस अंग द्वारा होता है?",
+["फेफड़ा","हृदय","मस्तिष्क","गुर्दा","प्रयास नहीं किया गया"],1],
+
+["जल का क्वथनांक सामान्य वायुदाब पर कितना होता है?",
+["0°C","50°C","100°C","200°C","प्रयास नहीं किया गया"],2],
+
+["वायुमंडल में सबसे अधिक मात्रा में कौन-सी गैस पाई जाती है?",
+["ऑक्सीजन","नाइट्रोजन","कार्बन डाइऑक्साइड","हाइड्रोजन","प्रयास नहीं किया गया"],1],
+
+["बल की SI इकाई क्या है?",
+["जूल","वाट","न्यूटन","पास्कल","प्रयास नहीं किया गया"],2],
+
+["विद्युत धारा के प्रवाह को नियंत्रित करने के लिए किस उपकरण का उपयोग किया जाता है?",
+["स्विच","दर्पण","थर्मामीटर","तराजू","प्रयास नहीं किया गया"],0],
+
+["पृथ्वी का प्राकृतिक उपग्रह कौन है?",
+["सूर्य","चंद्रमा","मंगल","शुक्र","प्रयास नहीं किया गया"],1],
+
+["पानी का वाष्प में बदलना किस प्रक्रिया का उदाहरण है?",
+["संघनन","वाष्पीकरण","हिमांक","गलन","प्रयास नहीं किया गया"],1]
+
+];
+
+function startClass6_8MathScienceSet1(){
+
+    qs = class6_8_mathscience_set1;
+
+    ans = Array(qs.length).fill(null);
+
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+}
 
 window.startSet = function(setNumber){
     if(setNumber === 1){
