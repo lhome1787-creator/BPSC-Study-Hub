@@ -798,6 +798,7 @@ function startClass6_8MathScienceSet1(){
     document.getElementById("quiz").style.display = "block";
 
     render();
+    StartPracticeTimer( );
 }
 
 function showClass6_8Subjects(){
@@ -895,6 +896,50 @@ function startFullTestTimer(){
         }
 
         fullTestTime--;
+
+    },1000);
+}
+
+let practiceTimer;
+let practiceTime = 30 * 60;
+
+function startPracticeTimer(){
+
+    clearInterval(practiceTimer);
+
+    practiceTime = 30 * 60;
+
+    practiceTimer = setInterval(function(){
+
+        let minutes = Math.floor(practiceTime / 60);
+        let seconds = practiceTime % 60;
+
+        let timeText =
+            String(minutes).padStart(2,"0") + ":" +
+            String(seconds).padStart(2,"0");
+
+        let timer = document.getElementById("timer");
+
+        if(timer){
+            timer.textContent = "⏱️ " + timeText;
+
+            if(practiceTime <= 300){
+                timer.style.color = "red";
+                timer.style.fontWeight = "bold";
+            }
+        }
+
+        if(practiceTime <= 0){
+
+            clearInterval(practiceTimer);
+
+            alert("⏰ समय समाप्त! आपका Practice Set जमा किया जा रहा है।");
+
+            submitQuiz();
+            return;
+        }
+
+        practiceTime--;
 
     },1000);
 }
