@@ -799,6 +799,16 @@ function startClass6_8MathScienceSet1(){
     render();
 }
 
+function showClass6_8Subjects(){
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "block";
+}
+
 window.startSet = function(setNumber){
     if(setNumber === 1){
         qs = set1;
