@@ -1265,6 +1265,8 @@ function next(){if(cur<qs.length-1){cur++;render()}else alert("आखिरी �
 function prev(){if(cur>0){cur--;render()}}
 function submitQuiz(){
 
+if(fullTestTimer) clearInterval(fullTestTimer);
+
 let c=0,w=0,n=0;
 let review="";
 
