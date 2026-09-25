@@ -1257,85 +1257,82 @@ document.getElementById("practiceSets").style.display="block";
 function startQuiz(){cur=0;ans.fill(null);document.getElementById("home").style.display="none";document.getElementById("result").style.display="none";document.getElementById("quiz").style.display="block";render();}
 function render(){
 
-document.getElementById("qno").textContent =
-"Question "+(cur+1)+" / "+qs.length;
+    document.getElementById("qno").textContent =
+        "Question " + (cur+1) + " / " + qs.length;
 
-document.getElementById("question").textContent =
-qs[cur][0];
+    let p = document.getElementById("palette");
+    p.innerHTML = "";
 
-let o = document.getElementById("options");
-o.innerHTML = "";
+    qs.forEach((_,i)=>{
 
-qs[cur][1].forEach((x,i)=>{
+        let b = document.createElement("button");
 
-    let b = document.createElement("button");
+        b.textContent = i+1;
 
-    b.className = "option";
+        if(i === cur){
+            b.classList.add("active");
+        }
 
-    b.textContent =
-    String.fromCharCode(65+i) + ". " + x;
+        if(ans[i] !== null){
+            b.classList.add("attempted");
+        }
 
-    if(ans[cur] === i){
-        b.classList.add("selected");
+        b.onclick = function(){
+            cur = i;
+            render();
+        };
+
+        p.appendChild(b);
+
+    });
+
+    document.getElementById("question").textContent =
+        qs[cur][0];
+
+    let o = document.getElementById("options");
+    o.innerHTML = "";
+
+    // A-D options
+    qs[cur][1].slice(0,4).forEach((x,i)=>{
+
+        let b = document.createElement("button");
+
+        b.className = "option";
+
+        b.textContent =
+            String.fromCharCode(65+i) + ". " + x;
+
+        if(ans[cur] === i){
+            b.classList.add("selected");
+        }
+
+        b.onclick = function(){
+            ans[cur] = i;
+            render();
+        };
+
+        o.appendChild(b);
+
+    });
+
+    // E = प्रयास नहीं किया गया
+    let e = document.createElement("button");
+
+    e.className = "option";
+
+    e.textContent = "E. प्रयास नहीं किया गया";
+
+    if(ans[cur] === 4){
+        e.classList.add("selected");
     }
 
-    b.onclick = function(){
-        ans[cur] = i;
+    e.onclick = function(){
+        ans[cur] = 4;
         render();
     };
 
-    o.appendChild(b);
-
-});
-
-/* E = प्रयास नहीं किया गया */
-
-let e = document.createElement("button");
-
-e.className = "option";
-
-e.textContent = "E. प्रयास नहीं किया गया";
-
-if(ans[cur] === 4){
-    e.classList.add("selected");
+    o.appendChild(e);
 }
-
-e.onclick = function(){
-    ans[cur] = 4;
-    render();
-};
-
-o.appendChild(e);
-
-
-/* Question Palette */
-
-let p = document.getElementById("palette");
-
-p.innerHTML = "";
-
-qs.forEach((_,i)=>{
-
-    let b = document.createElement("button");
-
-    b.textContent = i+1;
-
-    if(i === cur){
-        b.classList.add("active");
-    }
-
-    if(ans[i] !== null){
-        b.classList.add("attempted");
-    }
-
-    b.onclick = function(){
-        cur = i;
-        render();
-    };
-
-    p.appendChild(b);
-
-});
 
 }
 function next(){if(cur<qs.length-1){cur++;render()}else alert("आखिरी प्रश्न है। Submit दबाएँ।")}
