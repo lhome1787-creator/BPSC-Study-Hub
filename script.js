@@ -2585,8 +2585,11 @@ if (questionNumber) {
     "प्रश्न " + (currentQuestion + 1) + " / " + questions.length;
 }
 
-    document.getElementById("question").innerHTML =
-        q.question;
+    const questionElement = document.getElementById("question");
+
+if (questionElement) {
+    questionElement.innerHTML = q.question;
+}
 
     const optionsDiv = document.getElementById("options");
 
