@@ -2598,6 +2598,11 @@ if (optionsDiv) {
 }
 
     answered = false;
+    
+    if (!q) {
+    console.log("Question नहीं मिला:", currentQuestion);
+    return;
+}
 
     q.options.forEach(function(option) {
 
