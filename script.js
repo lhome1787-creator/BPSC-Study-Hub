@@ -2572,8 +2572,11 @@ function loadQuestion() {
     const q = questions[currentQuestion];
     const progress = ((currentQuestion + 1) / questions.length) * 100;
 
-document.getElementById("progressBar").style.width =
-    progress + "%";
+const progressBar = document.getElementById("progressBar");
+
+if (progressBar) {
+    progressBar.style.width = progress + "%";
+}
 
     
 
