@@ -120,7 +120,28 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </button>
 
 </div>
+    
+</div>
 
+<div id="class9_10SubjectSets" class="box" style="display:none">
+
+<h2>📚 Class 9–10 विषय के Practice Sets</h2>
+
+<p>अपना विषय चुनें:</p>
+
+<button class="primary" onclick="coming('Class 9–10 विषय')">
+विषय के Practice Sets
+</button>
+
+<br><br>
+
+<button class="secondary" onclick="showClass9_10Subjects()">
+← वापस
+</button>
+
+</div>
+
+<div id="class9_10LanguageSets" class="box" style="display:none">
 <div id="class9_10LanguageSets" class="box" style="display:none">
 
 <h2>📖 Class 9–10 भाषा</h2>
@@ -1857,6 +1878,17 @@ window.showClass9_10Subjects = function(){
     document.getElementById("class9_10Subjects").style.display = "block";
 }
 
+function showClass9_10SubjectSets(){
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+
+    document.getElementById("class9_10Subjects").style.display = "none";
+    document.getElementById("class9_10SubjectSets").style.display = "block";
+
+}
 
 function showClass9_10LanguageSets(){
 
