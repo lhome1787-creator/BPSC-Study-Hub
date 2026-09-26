@@ -2578,10 +2578,12 @@ if (progressBar) {
     progressBar.style.width = progress + "%";
 }
 
-    
+const questionNumber = document.getElementById("questionNumber");
 
-    document.getElementById("questionNumber").innerHTML =
-        "प्रश्न " + (currentQuestion + 1) + " / " + questions.length;
+if (questionNumber) {
+    questionNumber.innerHTML =
+    "प्रश्न " + (currentQuestion + 1) + " / " + questions.length;
+}
 
     document.getElementById("question").innerHTML =
         q.question;
