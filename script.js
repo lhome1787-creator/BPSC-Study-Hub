@@ -2591,13 +2591,15 @@ if (questionElement) {
     questionElement.innerHTML = q.question;
 }
 
-   const optionsDiv = document.getElementById("options");
+  const optionsDiv = document.getElementById("options");
 
-if (optionsDiv) {
-    optionsDiv.innerHTML = "";
+if (!optionsDiv) {
+    return;
 }
 
-    answered = false;
+optionsDiv.innerHTML = "";
+
+answered = false;
     
     if (!q) {
     console.log("Question नहीं मिला:", currentQuestion);
