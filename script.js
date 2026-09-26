@@ -2591,9 +2591,11 @@ if (questionElement) {
     questionElement.innerHTML = q.question;
 }
 
-    const optionsDiv = document.getElementById("options");
+   const optionsDiv = document.getElementById("options");
 
+if (optionsDiv) {
     optionsDiv.innerHTML = "";
+}
 
     answered = false;
 
