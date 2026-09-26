@@ -1858,15 +1858,18 @@ function startClass6_8MathScienceSet5(){
 
 
 
-function showClass6_8Subjects(){
+window.showClass6_8Subjects = function(){
 
     document.getElementById("home").style.display = "none";
     document.getElementById("practiceSets").style.display = "none";
     document.getElementById("result").style.display = "none";
     document.getElementById("quiz").style.display = "none";
 
+    document.getElementById("class9_10Subjects").style.display = "none";
+
     document.getElementById("class6_8Subjects").style.display = "block";
-}
+
+};
 
 window.showClass9_10Subjects = function(){
 
@@ -2034,13 +2037,16 @@ function startPracticeTimer(){
     },1000);
 }
 let cur=0,ans=Array(qs.length).fill(null);
-function showPracticeSets(){
+window.showPracticeSets = function(){
 
-document.getElementById("quiz").style.display="none";
-document.getElementById("result").style.display="none";
-document.getElementById("practiceSets").style.display="block";
+    document.getElementById("home").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("class6_8Subjects").style.display = "none";
 
-}
+    document.getElementById("practiceSets").style.display = "block";
+
+};
 function startQuiz(){cur=0;ans.fill(null);document.getElementById("home").style.display="none";document.getElementById("result").style.display="none";document.getElementById("quiz").style.display="block";render();}
 function render(){
 
