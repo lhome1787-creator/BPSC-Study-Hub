@@ -68,7 +68,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 <h3>Class 9–10</h3>
 <p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
 
-<button class="primary" onclick="showClass9_10Subjects()">
+<button class="primary" onclick="window.showClass9_10Subjects()">
 📚 Practice Quiz
 </button>
 
@@ -1845,7 +1845,7 @@ function showClass6_8Subjects(){
     document.getElementById("class6_8Subjects").style.display = "block";
 }
 
-function showClass9_10Subjects(){
+window.showClass9_10Subjects = function(){
 
     document.getElementById("home").style.display = "none";
     document.getElementById("practiceSets").style.display = "none";
