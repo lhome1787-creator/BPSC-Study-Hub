@@ -64,12 +64,114 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 📝 Full Test
 </button>
 </div>
-<div class="card"><h3>Class 9–10</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
-<button class="primary" onclick="coming('Class 9–10')">Practice Quiz</button>
-<button class="secondary" onclick="fullTest('Class 9–10')">Full Test</button></div>
+<div class="card">
+<h3>Class 9–10</h3>
+<p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
+
+<button class="primary" onclick="showClass9_10Subjects()">
+📚 Practice Quiz
+</button>
+
+<button class="secondary" onclick="fullTest('Class 9–10')">
+📝 Full Test
+</button>
+</div>
 <div class="card"><h3>Class 11–12</h3><p>भाषा 30 + सामान्य अध्ययन 40 + विषय 80</p>
 <button class="primary" onclick="coming('Class 11–12')">Practice Quiz</button>
 <button class="secondary" onclick="fullTest('Class 11–12')">Full Test</button></div>
+</div>
+
+<div id="class9_10Subjects" class="box" style="display:none">
+
+<h2>📚 Class 9–10 Practice</h2>
+
+<div class="card">
+<h3>📖 भाषा (30)</h3>
+<p>Practice Sets</p>
+
+<button class="primary" onclick="showClass9_10LanguageSets()">
+भाषा के Practice Sets
+</button>
+</div>
+
+<div class="card">
+<h3>🌍 सामान्य अध्ययन (40)</h3>
+<p>Practice Sets</p>
+
+<button class="primary" onclick="coming('Class 9–10 सामान्य अध्ययन')">
+सामान्य अध्ययन के Practice Sets
+</button>
+</div>
+
+<div class="card">
+<h3>📚 विषय (80)</h3>
+<p>विषय के Practice Sets</p>
+
+<button class="primary" onclick="coming('Class 9–10 विषय')">
+विषय के Practice Sets
+</button>
+</div>
+
+<button class="secondary" onclick="home()">
+← वापस
+</button>
+
+</div>
+
+<div id="class9_10LanguageSets" class="box" style="display:none">
+
+<h2>📖 Class 9–10 भाषा</h2>
+
+<p>Practice Set चुनें:</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Language Set 1</h3>
+<p>25 Questions</p>
+<button class="primary" onclick="coming('Class 9–10 Language Set 1')">
+▶️ Start Set 1
+</button>
+</div>
+
+<div class="card">
+<h3>Language Set 2</h3>
+<p>25 Questions</p>
+<button class="secondary" onclick="coming('Class 9–10 Language Set 2')">
+🔒 Set 2
+</button>
+</div>
+
+<div class="card">
+<h3>Language Set 3</h3>
+<p>25 Questions</p>
+<button class="secondary" onclick="coming('Class 9–10 Language Set 3')">
+🔒 Set 3
+</button>
+</div>
+
+<div class="card">
+<h3>Language Set 4</h3>
+<p>25 Questions</p>
+<button class="secondary" onclick="coming('Class 9–10 Language Set 4')">
+🔒 Set 4
+</button>
+</div>
+
+<div class="card">
+<h3>Language Set 5</h3>
+<p>25 Questions</p>
+<button class="secondary" onclick="coming('Class 9–10 Language Set 5')">
+🔒 Set 5
+</button>
+</div>
+
+</div>
+
+<button class="secondary" onclick="showClass9_10Subjects()">
+← वापस
+</button>
+
 </div>
 
 <div id="practiceSets" class="box" style="display:none">
