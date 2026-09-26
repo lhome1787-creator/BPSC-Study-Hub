@@ -2047,7 +2047,20 @@ window.showPracticeSets = function(){
     document.getElementById("practiceSets").style.display = "block";
 
 };
-function startQuiz(){cur=0;ans.fill(null);document.getElementById("home").style.display="none";document.getElementById("result").style.display="none";document.getElementById("quiz").style.display="block";render();}
+function startQuiz(){
+
+    cur = 0;
+
+    ans = Array(qs.length).fill(null);
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+
+    startPracticeTimer();
+}
 function render(){
 
     document.getElementById("qno").textContent =
