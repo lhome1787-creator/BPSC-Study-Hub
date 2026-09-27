@@ -168,7 +168,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 
 <div class="card">
 <h3>🔬 विज्ञान</h3>
-<button class="primary" onclick="coming('विज्ञान')">
+<button class="primary" onclick="showClass9_10ScienceSets()">
 विज्ञान के Practice Sets
 </button>
 </div>
@@ -2533,6 +2533,20 @@ function startClass9_10ScienceSet1(){
     render();
 
     startPracticeTimer();
+}
+
+function showClass9_10ScienceSets(){
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+
+    document.getElementById("class9_10Subjects").style.display = "none";
+    document.getElementById("class9_10SubjectSets").style.display = "none";
+
+    document.getElementById("class9_10ScienceSets").style.display = "block";
+
 }
 
 function startClass9_10HindiSet1(){
