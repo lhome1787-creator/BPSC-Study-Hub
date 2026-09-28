@@ -581,8 +581,8 @@ Practice Sets
 
 <div class="card">
 <h3>🌍 सामान्य अध्ययन Set 1</h3>
-<button class="primary" onclick="coming('Class 6–8 सामान्य अध्ययन Set 1')">
-Set 1
+<button class="primary" onclick="window.C68GeneralStudiesSet1()">
+▶️ Set 1 शुरू करें
 </button>
 </div>
 
@@ -595,22 +595,22 @@ Set 2
 
 <div class="card">
 <h3>🌍 सामान्य अध्ययन Set 3</h3>
-<button class="primary" onclick="coming('Class 6–8 सामान्य अध्ययन Set 3')">
-Set 3
+<button class="primary" onclick="window.C68GeneralStudiesSet3()">
+▶️ Set 3 शुरू करें
 </button>
 </div>
 
 <div class="card">
 <h3>🌍 सामान्य अध्ययन Set 4</h3>
-<button class="primary" onclick="coming('Class 6–8 सामान्य अध्ययन Set 4')">
-Set 4
+<button class="primary" onclick="window.C68GeneralStudiesSet4()">
+▶️ Set 4 शुरू करें
 </button>
 </div>
 
 <div class="card">
 <h3>🌍 सामान्य अध्ययन Set 5</h3>
-<button class="primary" onclick="coming('Class 6–8 सामान्य अध्ययन Set 5')">
-Set 5
+<button class="primary" onclick="window.C68GeneralStudiesSet5()">
+▶️ Set 5 शुरू करें
 </button>
 </div>
 
@@ -7500,6 +7500,395 @@ const class6_8_language_set5 = [
 ]
 
 ];
+
+const class6_8_general_studies_set1 = [
+
+[
+"24 और 36 का HCF क्या है?",
+["6","8","12","18"],
+2,
+"24 और 36 का सबसे बड़ा समान भाजक 12 है।"
+],
+
+[
+"3/4 का दशमलव रूप क्या है?",
+["0.25","0.50","0.75","1.25"],
+2,
+"3 ÷ 4 = 0.75।"
+],
+
+[
+"एक वस्तु का मूल्य ₹500 है। उस पर 10% छूट दी गई। विक्रय मूल्य कितना होगा?",
+["₹450","₹460","₹475","₹490"],
+0,
+"₹500 का 10% = ₹50, इसलिए विक्रय मूल्य ₹450 होगा।"
+],
+
+[
+"यदि 5 पेन की कीमत ₹50 है, तो 1 पेन की कीमत कितनी होगी?",
+["₹5","₹10","₹15","₹20"],
+1,
+"₹50 ÷ 5 = ₹10।"
+],
+
+[
+"श्रृंखला पूरी करें: 2, 4, 8, 16, ?",
+["20","24","32","36"],
+2,
+"प्रत्येक संख्या को 2 से गुणा किया गया है। अगली संख्या 32 होगी।"
+],
+
+[
+"यदि A, B से लंबा है और B, C से लंबा है, तो सबसे छोटा कौन है?",
+["A","B","C","कहा नहीं जा सकता"],
+2,
+"A > B > C, इसलिए C सबसे छोटा है।"
+],
+
+[
+"एक व्यक्ति उत्तर की ओर 5 मीटर चलता है, फिर दाएँ मुड़ता है। वह किस दिशा में जाएगा?",
+["उत्तर","दक्षिण","पूर्व","पश्चिम"],
+2,
+"उत्तर से दाएँ मुड़ने पर दिशा पूर्व होती है।"
+],
+
+[
+"यदि CAT को DBU लिखा जाता है, तो DOG को कैसे लिखा जाएगा?",
+["EPH","EOG","DPH","FOH"],
+0,
+"हर अक्षर को एक स्थान आगे किया गया है: D→E, O→P, G→H।"
+],
+
+[
+"भारत की राजधानी क्या है?",
+["मुंबई","नई दिल्ली","कोलकाता","चेन्नई"],
+1,
+"भारत की राजधानी नई दिल्ली है।"
+],
+
+[
+"बिहार की राजधानी क्या है?",
+["गया","पटना","मुजफ्फरपुर","भागलपुर"],
+1,
+"बिहार की राजधानी पटना है।"
+],
+
+[
+"भारत का राष्ट्रीय पशु कौन है?",
+["सिंह","हाथी","बाघ","मोर"],
+2,
+"भारत का राष्ट्रीय पशु बाघ है।"
+],
+
+[
+"भारत का राष्ट्रीय पक्षी कौन है?",
+["कबूतर","मोर","तोता","हंस"],
+1,
+"भारत का राष्ट्रीय पक्षी मोर है।"
+],
+
+[
+"भारत का राष्ट्रीय फूल कौन है?",
+["गुलाब","कमल","चमेली","गेंदा"],
+1,
+"कमल भारत का राष्ट्रीय फूल है।"
+],
+
+[
+"बिहार का प्रमुख लोकपर्व कौन-सा है?",
+["ओणम","छठ","पोंगल","बैसाखी"],
+1,
+"छठ बिहार का प्रमुख लोकपर्व है।"
+],
+
+[
+"भारत में गणतंत्र दिवस कब मनाया जाता है?",
+["15 अगस्त","26 जनवरी","2 अक्टूबर","14 नवंबर"],
+1,
+"गणतंत्र दिवस 26 जनवरी को मनाया जाता है।"
+],
+
+[
+"भारत का संविधान कब लागू हुआ?",
+["15 अगस्त 1947","26 नवंबर 1949","26 जनवरी 1950","2 अक्टूबर 1950"],
+2,
+"भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।"
+],
+
+[
+"जल का रासायनिक सूत्र क्या है?",
+["CO₂","O₂","H₂O","N₂"],
+2,
+"जल का रासायनिक सूत्र H₂O है।"
+],
+
+[
+"पौधे अपना भोजन मुख्यतः किस प्रक्रिया से बनाते हैं?",
+["श्वसन","प्रकाश संश्लेषण","पाचन","वाष्पीकरण"],
+1,
+"हरे पौधे प्रकाश संश्लेषण द्वारा भोजन बनाते हैं।"
+],
+
+[
+"मानव शरीर में रक्त को पंप करने वाला अंग कौन-सा है?",
+["फेफड़ा","हृदय","गुर्दा","यकृत"],
+1,
+"हृदय रक्त को पूरे शरीर में पंप करता है।"
+],
+
+[
+"पृथ्वी का प्राकृतिक उपग्रह कौन है?",
+["सूर्य","मंगल","चंद्रमा","शुक्र"],
+2,
+"चंद्रमा पृथ्वी का प्राकृतिक उपग्रह है।"
+],
+
+[
+"सूर्य से हमें मुख्य रूप से क्या प्राप्त होता है?",
+["प्रकाश और ऊष्मा","केवल जल","केवल वायु","मिट्टी"],
+0,
+"सूर्य प्रकाश और ऊष्मा का प्रमुख स्रोत है।"
+],
+
+[
+"वायु में सबसे अधिक मात्रा में कौन-सी गैस होती है?",
+["ऑक्सीजन","नाइट्रोजन","कार्बन डाइऑक्साइड","हाइड्रोजन"],
+1,
+"वायुमंडल में नाइट्रोजन की मात्रा सबसे अधिक है।"
+],
+
+[
+"पानी का क्वथनांक सामान्यतः कितना होता है?",
+["0°C","50°C","100°C","150°C"],
+2,
+"सामान्य वायुदाब पर पानी 100°C पर उबलता है।"
+],
+
+[
+"बल की SI इकाई क्या है?",
+["जूल","न्यूटन","वाट","पास्कल"],
+1,
+"बल की SI इकाई न्यूटन है।"
+],
+
+[
+"प्रकाश किस गति से चलता है?",
+["लगभग 3 × 10⁸ मीटर/सेकंड","लगभग 3 × 10⁴ मीटर/सेकंड","लगभग 3 × 10² मीटर/सेकंड","लगभग 3 × 10⁶ मीटर/सेकंड"],
+0,
+"निर्वात में प्रकाश की गति लगभग 3 × 10⁸ मीटर/सेकंड होती है।"
+],
+
+[
+"भारतीय राष्ट्रीय आंदोलन में असहयोग आंदोलन किसने शुरू किया था?",
+["महात्मा गांधी","सुभाष चंद्र बोस","भगत सिंह","बाल गंगाधर तिलक"],
+0,
+"असहयोग आंदोलन महात्मा गांधी के नेतृत्व में शुरू हुआ था।"
+],
+
+[
+"भारत में 'भारत छोड़ो आंदोलन' किस वर्ष शुरू हुआ?",
+["1930","1935","1942","1947"],
+2,
+"भारत छोड़ो आंदोलन 1942 में शुरू हुआ।"
+],
+
+[
+"महात्मा गांधी का जन्म कब हुआ था?",
+["2 अक्टूबर 1869","15 अगस्त 1870","26 जनवरी 1869","14 नवंबर 1889"],
+0,
+"महात्मा गांधी का जन्म 2 अक्टूबर 1869 को हुआ था।"
+],
+
+[
+"1857 का विद्रोह किस नाम से भी जाना जाता है?",
+["असहयोग आंदोलन","भारत छोड़ो आंदोलन","प्रथम स्वतंत्रता संग्राम","स्वदेशी आंदोलन"],
+2,
+"1857 के विद्रोह को प्रथम स्वतंत्रता संग्राम भी कहा जाता है।"
+],
+
+[
+"भारतीय राष्ट्रीय कांग्रेस की स्थापना किस वर्ष हुई?",
+["1885","1905","1919","1942"],
+0,
+"भारतीय राष्ट्रीय कांग्रेस की स्थापना 1885 में हुई थी।"
+],
+
+[
+"पृथ्वी पर सबसे बड़ा महासागर कौन-सा है?",
+["हिंद महासागर","अटलांटिक महासागर","प्रशांत महासागर","आर्कटिक महासागर"],
+2,
+"प्रशांत महासागर पृथ्वी का सबसे बड़ा महासागर है।"
+],
+
+[
+"भारत का सबसे बड़ा राज्य क्षेत्रफल की दृष्टि से कौन-सा है?",
+["बिहार","राजस्थान","उत्तर प्रदेश","मध्य प्रदेश"],
+1,
+"क्षेत्रफल की दृष्टि से राजस्थान भारत का सबसे बड़ा राज्य है।"
+],
+
+[
+"गंगा नदी का उद्गम किस हिमनद से माना जाता है?",
+["सियाचिन","गंगोत्री","यमुनोत्री","पिंडारी"],
+1,
+"भागीरथी का उद्गम गंगोत्री हिमनद से होता है।"
+],
+
+[
+"बिहार में गंगा नदी राज्य को मुख्यतः किस दिशा में विभाजित करती है?",
+["उत्तर और दक्षिण","पूर्व और पश्चिम","केवल पूर्व","केवल पश्चिम"],
+0,
+"गंगा बिहार को मुख्यतः उत्तर और दक्षिण भागों में विभाजित करती है।"
+],
+
+[
+"पर्यावरण संरक्षण के लिए पेड़ लगाना किस प्रकार की गतिविधि है?",
+["वनीकरण","खनन","प्रदूषण","औद्योगीकरण"],
+0,
+"पेड़ लगाने की प्रक्रिया वनीकरण कहलाती है।"
+],
+
+[
+"ओजोन परत मुख्यतः किससे हमारी रक्षा करती है?",
+["ध्वनि प्रदूषण","पराबैंगनी किरणों","भूकंप","बाढ़"],
+1,
+"ओजोन परत सूर्य की हानिकारक पराबैंगनी किरणों से रक्षा करती है।"
+],
+
+[
+"भारतीय संविधान में मौलिक अधिकार किस भाग में दिए गए हैं?",
+["भाग I","भाग II","भाग III","भाग IV"],
+2,
+"मौलिक अधिकार संविधान के भाग III में दिए गए हैं।"
+],
+
+[
+"भारत में मतदान की न्यूनतम आयु कितनी है?",
+["16 वर्ष","18 वर्ष","21 वर्ष","25 वर्ष"],
+1,
+"भारत में मतदान की न्यूनतम आयु 18 वर्ष है।"
+],
+
+[
+"ग्राम पंचायत का प्रमुख सामान्यतः क्या कहलाता है?",
+["मुखिया","राज्यपाल","सांसद","महापौर"],
+0,
+"ग्राम पंचायत के निर्वाचित प्रमुख को बिहार में सामान्यतः मुखिया कहा जाता है।"
+],
+
+[
+"बिहार का प्रसिद्ध मधुबनी चित्रकला किस क्षेत्र से संबंधित है?",
+["मिथिला","मगध","भोजपुर","अंग"],
+0,
+"मधुबनी चित्रकला मिथिला क्षेत्र की प्रसिद्ध कला है।"
+]
+
+];
+
+window.C68GeneralStudiesSet1 = function(){
+
+    qs = class6_8_general_studies_set1;
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "none";
+    document.getElementById("class6_8Language").style.display = "none";
+    document.getElementById("class6_8GeneralStudies").style.display = "none";
+    document.getElementById("class6_8SubjectsList").style.display = "none";
+
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+    startPracticeTimer();
+};
+
+window.C68GeneralStudiesSet2 = function(){
+
+    qs = class6_8_general_studies_set2;
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "none";
+    document.getElementById("class6_8Language").style.display = "none";
+    document.getElementById("class6_8GeneralStudies").style.display = "none";
+    document.getElementById("class6_8SubjectsList").style.display = "none";
+
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+    startPracticeTimer();
+};
+
+window.C68GeneralStudiesSet3 = function(){
+
+    qs = class6_8_general_studies_set3;
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "none";
+    document.getElementById("class6_8Language").style.display = "none";
+    document.getElementById("class6_8GeneralStudies").style.display = "none";
+    document.getElementById("class6_8SubjectsList").style.display = "none";
+
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+    startPracticeTimer();
+};
+
+window.C68GeneralStudiesSet4 = function(){
+
+    qs = class6_8_general_studies_set4;
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "none";
+    document.getElementById("class6_8Language").style.display = "none";
+    document.getElementById("class6_8GeneralStudies").style.display = "none";
+    document.getElementById("class6_8SubjectsList").style.display = "none";
+
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+    startPracticeTimer();
+};
+
+window.C68GeneralStudiesSet5 = function(){
+
+    qs = class6_8_general_studies_set5;
+    ans = Array(qs.length).fill(null);
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("class6_8Subjects").style.display = "none";
+    document.getElementById("class6_8Language").style.display = "none";
+    document.getElementById("class6_8GeneralStudies").style.display = "none";
+    document.getElementById("class6_8SubjectsList").style.display = "none";
+
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+    startPracticeTimer();
+};
     
 window.C68LanguageSet1 = function(){
 
