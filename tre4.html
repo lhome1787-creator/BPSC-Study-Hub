@@ -161,7 +161,7 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 
 <div class="card">
 <h3>🇬🇧 अंग्रेज़ी</h3>
-<button class="primary" onclick="coming('अंग्रेज़ी')">
+<button class="primary" onclick="showClass9_10EnglishSets()">
 अंग्रेज़ी के Practice Sets
 </button>
 </div>
@@ -685,6 +685,61 @@ Set 4 शुरू करें
 <div class="card">
 <h3>📝 सामाजिक विज्ञान Set 5</h3>
 <button class="primary" onclick="startClass9_10SocialScienceSet5()">
+Set 5 शुरू करें
+</button>
+</div>
+
+</div>
+
+<br>
+
+<button class="secondary" onclick="showClass9_10SubjectSets()">
+⬅️ वापस
+</button>
+
+</div>
+
+<!-- CLASS 9–10 ENGLISH PRACTICE SETS -->
+
+<div id="class9_10EnglishSets" class="box" style="display:none">
+
+<h2>🇬🇧 Class 9–10 English Practice Sets</h2>
+
+<p>English का Practice Set चुनें:</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>📝 English Set 1</h3>
+<button class="primary" onclick="startClass9_10EnglishSet1()">
+Set 1 शुरू करें
+</button>
+</div>
+
+<div class="card">
+<h3>📝 English Set 2</h3>
+<button class="primary" onclick="startClass9_10EnglishSet2()">
+Set 2 शुरू करें
+</button>
+</div>
+
+<div class="card">
+<h3>📝 English Set 3</h3>
+<button class="primary" onclick="startClass9_10EnglishSet3()">
+Set 3 शुरू करें
+</button>
+</div>
+
+<div class="card">
+<h3>📝 English Set 4</h3>
+<button class="primary" onclick="startClass9_10EnglishSet4()">
+Set 4 शुरू करें
+</button>
+</div>
+
+<div class="card">
+<h3>📝 English Set 5</h3>
+<button class="primary" onclick="startClass9_10EnglishSet5()">
 Set 5 शुरू करें
 </button>
 </div>
@@ -4068,6 +4123,141 @@ const class9_10_social_science_set5 = [
 ["स्वास्थ्य, शिक्षा और आय सहित जीवन की गुणवत्ता","केवल उत्पादन","केवल जनसंख्या","केवल निर्यात","प्रयास नहीं किया गया"],0,
 "मानव विकास में लोगों के स्वास्थ्य, शिक्षा, आय और जीवन की गुणवत्ता जैसे पहलू महत्वपूर्ण हैं."]
 ];
+
+const class9_10_english_set1 = [
+
+["Choose the correct synonym of 'Happy'.",
+["Sad","Joyful","Angry","Weak","प्रयास नहीं किया गया"],1,
+"'Joyful' means happy or full of joy."],
+
+["Choose the antonym of 'Brave'.",
+["Courageous","Fearless","Cowardly","Strong","प्रयास नहीं किया गया"],2,
+"'Cowardly' is the opposite of brave."],
+
+["Choose the correct plural form of 'Child'.",
+["Childs","Childes","Children","Childrens","प्रयास नहीं किया गया"],2,
+"The plural of 'child' is 'children'."],
+
+["Choose the correct past tense of 'Go'.",
+["Goed","Gone","Went","Going","प्रयास नहीं किया गया"],2,
+"The simple past tense of 'go' is 'went'."],
+
+["Fill in the blank: She ___ a teacher.",
+["am","is","are","be","प्रयास नहीं किया गया"],1,
+"'She' takes 'is' in the present tense."],
+
+["Fill in the blank: They ___ playing cricket.",
+["is","am","are","was","प्रयास नहीं किया गया"],2,
+"'They' takes 'are'."],
+
+["Choose the correct article: He is ___ honest man.",
+["a","an","the","no article","प्रयास नहीं किया गया"],1,
+"'Honest' begins with a vowel sound, so 'an' is used."],
+
+["Choose the correct preposition: The book is ___ the table.",
+["in","on","at","by","प्रयास नहीं किया गया"],1,
+"'On' is used when something is placed on a surface."],
+
+["Choose the correct form: I ___ my homework yesterday.",
+["do","does","did","done","प्रयास नहीं किया गया"],2,
+"'Did' is the simple past form of 'do'."],
+
+["Choose the correct pronoun: Ramesh is a student. ___ is intelligent.",
+["She","They","He","It","प्रयास नहीं किया गया"],2,
+"Ramesh is male, so 'He' is used."],
+
+["What is the opposite of 'Ancient'?",
+["Old","Modern","Historic","Past","प्रयास नहीं किया गया"],1,
+"'Modern' is the opposite of 'ancient'."],
+
+["Choose the synonym of 'Begin'.",
+["End","Start","Stop","Close","प्रयास नहीं किया गया"],1,
+"'Start' means begin."],
+
+["Choose the correctly spelled word.",
+["Beautifull","Beautiful","Beutiful","Beautifool","प्रयास नहीं किया गया"],1,
+"The correct spelling is 'Beautiful'."],
+
+["Choose the correctly spelled word.",
+["Environment","Enviroment","Envirenment","Environmant","प्रयास नहीं किया गया"],0,
+"The correct spelling is 'Environment'."],
+
+["Identify the noun in the sentence: 'The boy is reading a book.'",
+["is","reading","boy","a","प्रयास नहीं किया गया"],2,
+"'Boy' is a noun because it names a person."],
+
+["Identify the adjective: 'She has a beautiful dress.'",
+["She","has","beautiful","dress","प्रयास नहीं किया गया"],2,
+"'Beautiful' describes the noun 'dress', so it is an adjective."],
+
+["Identify the adverb: 'He runs quickly.'",
+["He","runs","quickly","none","प्रयास नहीं किया गया"],2,
+"'Quickly' describes how he runs, so it is an adverb."],
+
+["Choose the correct sentence.",
+["He go to school.","He goes to school.","He going school.","He gone to school.","प्रयास नहीं किया गया"],1,
+"With 'He' in the simple present, the verb takes 's': goes."],
+
+["Choose the correct passive voice: 'Ram writes a letter.'",
+["A letter is written by Ram.","A letter was written by Ram.","A letter has written by Ram.","A letter writes by Ram.","प्रयास नहीं किया गया"],0,
+"The simple present passive is 'is + past participle': A letter is written by Ram."],
+
+["Choose the correct indirect speech: He said, 'I am tired.'",
+["He said that I am tired.","He said that he was tired.","He says that he was tired.","He said he is tired.","प्रयास नहीं किया गया"],1,
+"In reported speech, 'I' changes to 'he' and 'am' changes to 'was'."],
+
+["Choose the correct question tag: You are a student, ___?",
+["are you","aren't you","isn't you","don't you","प्रयास नहीं किया गया"],1,
+"A positive statement takes a negative question tag: aren't you?"],
+
+["Choose the correct conjunction: I stayed at home ___ it was raining.",
+["but","because","or","and","प्रयास नहीं किया गया"],1,
+"'Because' gives the reason for staying at home."],
+
+["Choose the correct comparative form of 'Good'.",
+["Gooder","More good","Better","Best","प्रयास नहीं किया गया"],2,
+"The comparative form of 'good' is 'better'."],
+
+["Choose the correct superlative form of 'Bad'.",
+["Badder","Worse","Worst","More bad","प्रयास नहीं किया गया"],2,
+"The superlative form of 'bad' is 'worst'."],
+
+["What does the idiom 'A piece of cake' mean?",
+["Something very difficult","Something very easy","A food item only","Something expensive","प्रयास नहीं किया गया"],1,
+"'A piece of cake' means something that is very easy to do."]
+];
+
+function startClass9_10EnglishSet1(){
+
+    qs = class9_10_english_set1;
+
+    ans = Array(qs.length).fill(null);
+
+    cur = 0;
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    render();
+
+    startPracticeTimer();
+}
+
+function showClass9_10EnglishSets(){
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("practiceSets").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+
+    document.getElementById("class9_10Subjects").style.display = "none";
+    document.getElementById("class9_10SubjectSets").style.display = "none";
+
+    document.getElementById("class9_10EnglishSets").style.display = "block";
+
+}
     
 function startClass9_10SocialScienceSet1(){
 
