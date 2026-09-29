@@ -13,7 +13,7 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -92,14 +92,14 @@ body{
 }
 
 .login-btn:disabled{
-    background:#64748b;
+    opacity:.6;
     cursor:not-allowed;
 }
 
 .message{
     margin-top:15px;
     font-size:14px;
-    font-weight:bold;
+    color:#dc2626;
 }
 
 /* DASHBOARD */
@@ -192,7 +192,6 @@ body{
     background:#eaf2ff;
 }
 
-/* MOBILE */
 @media(max-width:700px){
 
     .cards{
@@ -225,7 +224,7 @@ body{
 
         <h1>BPSC Study Hub</h1>
 
-        <p>Admin Panel</p>
+        <p>Secure Admin Panel</p>
 
         <div class="input-group">
             <label>📧 Admin Email</label>
@@ -234,20 +233,26 @@ body{
                 type="email"
                 id="adminEmail"
                 placeholder="Admin Email"
-                autocomplete="username">
+            >
         </div>
 
         <div class="input-group">
+
             <label>🔐 Password</label>
 
             <input
                 type="password"
                 id="adminPassword"
                 placeholder="Password"
-                autocomplete="current-password">
+            >
+
         </div>
 
-        <button class="login-btn" id="loginBtn" onclick="login()">
+        <button
+            class="login-btn"
+            id="loginButton"
+            onclick="login()"
+        >
             LOGIN
         </button>
 
@@ -265,7 +270,10 @@ body{
 
         <h2>🎓 BPSC Study Hub Admin</h2>
 
-        <button class="logout-btn" onclick="logout()">
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
             Logout
         </button>
 
@@ -275,29 +283,48 @@ body{
     <div class="container">
 
         <div class="welcome">
+
             <h1>📊 Admin Dashboard</h1>
-            <p>Welcome to BPSC Study Hub Control Panel</p>
+
+            <p>
+                Welcome to BPSC Study Hub Control Panel
+            </p>
+
         </div>
 
 
         <div class="cards">
 
             <div class="card">
+
                 <div class="card-icon">📩</div>
+
                 <h3>New Doubts</h3>
+
                 <p>0 Doubts</p>
+
             </div>
 
+
             <div class="card">
+
                 <div class="card-icon">💬</div>
+
                 <h3>Feedback</h3>
+
                 <p>0 Feedback</p>
+
             </div>
 
+
             <div class="card">
+
                 <div class="card-icon">👥</div>
+
                 <h3>Students</h3>
+
                 <p>0 Students</p>
+
             </div>
 
         </div>
@@ -338,9 +365,9 @@ body{
 
 <script>
 
-/* =========================================
+/* ==============================
    SUPABASE CONFIGURATION
-   ========================================= */
+================================ */
 
 const SUPABASE_URL =
     "https://jemapsoiycfivmaifbcn.supabase.co";
@@ -349,15 +376,16 @@ const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_DQPK3mLyY9m1qNcEMgcY-Q_bDyiNt0A";
 
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
 
-/* =========================================
+/* ==============================
    LOGIN
-   ========================================= */
+================================ */
 
 async function login(){
 
@@ -367,16 +395,15 @@ async function login(){
     const password =
         document.getElementById("adminPassword").value;
 
-    const loginBtn =
-        document.getElementById("loginBtn");
-
     const message =
         document.getElementById("loginMessage");
+
+    const button =
+        document.getElementById("loginButton");
 
 
     if(email === "" || password === ""){
 
-        message.style.color = "#dc2626";
         message.textContent =
             "कृपया Email और Password भरें।";
 
@@ -384,11 +411,11 @@ async function login(){
     }
 
 
-    loginBtn.disabled = true;
-    loginBtn.textContent = "LOGIN हो रहा है...";
+    button.disabled = true;
 
-    message.style.color = "#64748b";
-    message.textContent = "Authentication checking...";
+    button.textContent = "LOGIN हो रहा है...";
+
+    message.textContent = "";
 
 
     try{
@@ -402,12 +429,10 @@ async function login(){
 
         if(error){
 
-            message.style.color = "#dc2626";
             message.textContent =
-                "❌ Login failed: " + error.message;
+                "❌ Email या Password गलत है।";
 
-            loginBtn.disabled = false;
-            loginBtn.textContent = "LOGIN";
+            console.log(error);
 
             return;
         }
@@ -415,33 +440,46 @@ async function login(){
 
         if(data.session){
 
-            document.getElementById("loginPage")
-                .style.display = "none";
-
-            document.getElementById("dashboard")
-                .style.display = "block";
-
-            message.textContent = "";
+            showDashboard();
 
         }
 
     }catch(error){
 
-        message.style.color = "#dc2626";
+        console.log(error);
+
         message.textContent =
-            "❌ कुछ समस्या हुई। कृपया दोबारा कोशिश करें।";
+            "❌ Login में समस्या हुई।";
+
+    }finally{
+
+        button.disabled = false;
+
+        button.textContent = "LOGIN";
 
     }
 
-
-    loginBtn.disabled = false;
-    loginBtn.textContent = "LOGIN";
 }
 
 
-/* =========================================
+/* ==============================
+   SHOW DASHBOARD
+================================ */
+
+function showDashboard(){
+
+    document.getElementById("loginPage")
+        .style.display = "none";
+
+    document.getElementById("dashboard")
+        .style.display = "block";
+
+}
+
+
+/* ==============================
    LOGOUT
-   ========================================= */
+================================ */
 
 async function logout(){
 
@@ -459,67 +497,48 @@ async function logout(){
     document.getElementById("adminPassword")
         .value = "";
 
-    document.getElementById("loginMessage")
-        .textContent = "";
 }
 
 
-/* =========================================
+/* ==============================
    CHECK EXISTING SESSION
-   ========================================= */
+================================ */
 
 async function checkSession(){
 
-    const {
-        data: { session }
-    } = await supabaseClient.auth.getSession();
+    const { data } =
+        await supabaseClient.auth.getSession();
 
 
-    if(session){
+    if(data.session){
 
-        document.getElementById("loginPage")
-            .style.display = "none";
+        showDashboard();
 
-        document.getElementById("dashboard")
-            .style.display = "block";
-
-    }else{
-
-        document.getElementById("loginPage")
-            .style.display = "flex";
-
-        document.getElementById("dashboard")
-            .style.display = "none";
     }
+
 }
 
 
-/* Run when page opens */
-checkSession();
+/* ==============================
+   AUTH STATE LISTENER
+================================ */
 
-
-/* Listen for authentication changes */
 supabaseClient.auth.onAuthStateChange(
     (event, session) => {
 
         if(session){
 
-            document.getElementById("loginPage")
-                .style.display = "none";
+            showDashboard();
 
-            document.getElementById("dashboard")
-                .style.display = "block";
-
-        }else{
-
-            document.getElementById("loginPage")
-                .style.display = "flex";
-
-            document.getElementById("dashboard")
-                .style.display = "none";
         }
+
     }
 );
+
+
+/* START */
+
+checkSession();
 
 </script>
 
