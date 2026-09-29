@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback & Doubt - BPSC Study Hub</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f8ff;color:#1f2937}
+.header{background:linear-gradient(135deg,#0d6efd,#0756c9);color:white;padding:22px 16px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.12)}
+.header h1{margin:0;font-size:27px}.header p{margin:7px 0 0;font-size:14px}
+.container{max-width:650px;margin:28px auto;padding:0 16px}.card{background:white;border-radius:18px;padding:24px;box-shadow:0 6px 25px rgba(20,70,130,.10);border:1px solid #e5eefb}
+.title{text-align:center;color:#0756c9;margin:0 0 8px;font-size:24px}.subtitle{text-align:center;color:#6b7280;margin:0 0 24px;font-size:14px}
+label{display:block;font-weight:600;margin:15px 0 7px}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #d6e2f2;border-radius:10px;font-size:15px;outline:none;background:#fbfdff}
+input:focus,select:focus,textarea:focus{border-color:#0d6efd;box-shadow:0 0 0 3px rgba(13,110,253,.10)}
+textarea{min-height:135px;resize:vertical}.hint{font-size:12px;color:#7b8794;margin-top:5px}
+button{width:100%;margin-top:22px;padding:14px;border:0;border-radius:10px;background:#0d6efd;color:white;font-size:16px;font-weight:700;cursor:pointer}
+button:hover{background:#0756c9}.back{display:block;text-align:center;margin:18px 0 5px;color:#0756c9;text-decoration:none;font-weight:600}
+.info{margin-top:18px;background:#eef6ff;border-radius:12px;padding:13px;font-size:13px;line-height:1.6;color:#35506f}
+footer{text-align:center;padding:20px;color:#7b8794;font-size:12px}
+</style>
+</head>
+<body>
+<header class="header"><h1>📚 BPSC Study Hub</h1><p>आपकी तैयारी, हमारी जिम्मेदारी</p></header>
+<main class="container">
+<div class="card">
+<h2 class="title">💬 Feedback & Doubt</h2>
+<p class="subtitle">अपना सवाल, सुझाव या वेबसाइट की समस्या हमें भेजें।</p>
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<label for="name">👤 आपका नाम</label>
+<input type="text" id="name" name="name" placeholder="अपना नाम लिखें" required>
+<label for="type">📌 आप क्या भेजना चाहते हैं?</label>
+<select id="type" name="type" required>
+<option value="">-- चुनें --</option>
+<option value="Study Doubt">📚 Study Doubt</option>
+<option value="Feedback">⭐ Feedback</option>
+<option value="Website Problem">🛠️ Website Problem</option>
+<option value="Suggestion">💡 Suggestion</option>
+</select>
+<label for="contact">📧 Email / WhatsApp</label>
+<input type="text" id="contact" name="contact" placeholder="Optional - जवाब पाने के लिए">
+<label for="message">📝 आपका संदेश</label>
+<textarea id="message" name="message" placeholder="अपना सवाल या feedback यहाँ लिखें..." required></textarea>
+<div class="hint">कृपया अपना सवाल साफ-साफ लिखें ताकि हम बेहतर जवाब दे सकें।</div>
+<button type="submit">📤 Send Message</button>
+</form>
+<div class="info">💙 <strong>BPSC Study Hub</strong><br>आपके feedback और doubts से हम website को और बेहतर बनाने की कोशिश करेंगे।</div>
+</div>
+<a class="back" href="index.html">← वापस Home पर जाएँ</a>
+</main>
+<footer>© 2026 BPSC Study Hub • Feedback & Doubt</footer>
+</body>
+</html>
