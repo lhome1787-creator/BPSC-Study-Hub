@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BPSC Study Hub - Admin Panel</title>
 
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 *{
     box-sizing:border-box;
@@ -88,10 +91,15 @@ body{
     background:#083578;
 }
 
-.demo-note{
-    margin-top:18px;
-    font-size:13px;
-    color:#dc2626;
+.login-btn:disabled{
+    background:#64748b;
+    cursor:not-allowed;
+}
+
+.message{
+    margin-top:15px;
+    font-size:14px;
+    font-weight:bold;
 }
 
 /* DASHBOARD */
@@ -186,6 +194,7 @@ body{
 
 /* MOBILE */
 @media(max-width:700px){
+
     .cards{
         grid-template-columns:1fr;
     }
@@ -220,23 +229,29 @@ body{
 
         <div class="input-group">
             <label>📧 Admin Email</label>
-            <input type="email" id="adminEmail"
-                   placeholder="Admin Email">
+
+            <input
+                type="email"
+                id="adminEmail"
+                placeholder="Admin Email"
+                autocomplete="username">
         </div>
 
         <div class="input-group">
             <label>🔐 Password</label>
-            <input type="password" id="adminPassword"
-                   placeholder="Password">
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Password"
+                autocomplete="current-password">
         </div>
 
-        <button class="login-btn" onclick="demoLogin()">
+        <button class="login-btn" id="loginBtn" onclick="login()">
             LOGIN
         </button>
 
-        <div class="demo-note">
-            ⚠️ Demo Login — Secure Authentication अभी जोड़ा जाना बाकी है।
-        </div>
+        <div class="message" id="loginMessage"></div>
 
     </div>
 
@@ -323,29 +338,188 @@ body{
 
 <script>
 
-function demoLogin(){
+/* =========================================
+   SUPABASE CONFIGURATION
+   ========================================= */
 
-    const email = document.getElementById("adminEmail").value;
-    const password = document.getElementById("adminPassword").value;
+const SUPABASE_URL =
+    "https://jemapsoiycfivmaifbcn.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_DQPK3mLyY9m1qNcEMgcY-Q_bDyiNt0A";
+
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* =========================================
+   LOGIN
+   ========================================= */
+
+async function login(){
+
+    const email =
+        document.getElementById("adminEmail").value.trim();
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+    const loginBtn =
+        document.getElementById("loginBtn");
+
+    const message =
+        document.getElementById("loginMessage");
+
 
     if(email === "" || password === ""){
-        alert("कृपया Email और Password भरें।");
+
+        message.style.color = "#dc2626";
+        message.textContent =
+            "कृपया Email और Password भरें।";
+
         return;
     }
 
-    document.getElementById("loginPage").style.display="none";
-    document.getElementById("dashboard").style.display="block";
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = "LOGIN हो रहा है...";
+
+    message.style.color = "#64748b";
+    message.textContent = "Authentication checking...";
+
+
+    try{
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+
+        if(error){
+
+            message.style.color = "#dc2626";
+            message.textContent =
+                "❌ Login failed: " + error.message;
+
+            loginBtn.disabled = false;
+            loginBtn.textContent = "LOGIN";
+
+            return;
+        }
+
+
+        if(data.session){
+
+            document.getElementById("loginPage")
+                .style.display = "none";
+
+            document.getElementById("dashboard")
+                .style.display = "block";
+
+            message.textContent = "";
+
+        }
+
+    }catch(error){
+
+        message.style.color = "#dc2626";
+        message.textContent =
+            "❌ कुछ समस्या हुई। कृपया दोबारा कोशिश करें।";
+
+    }
+
+
+    loginBtn.disabled = false;
+    loginBtn.textContent = "LOGIN";
 }
 
 
-function logout(){
+/* =========================================
+   LOGOUT
+   ========================================= */
 
-    document.getElementById("dashboard").style.display="none";
-    document.getElementById("loginPage").style.display="flex";
+async function logout(){
 
-    document.getElementById("adminEmail").value="";
-    document.getElementById("adminPassword").value="";
+    await supabaseClient.auth.signOut();
+
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+    document.getElementById("loginPage")
+        .style.display = "flex";
+
+    document.getElementById("adminEmail")
+        .value = "";
+
+    document.getElementById("adminPassword")
+        .value = "";
+
+    document.getElementById("loginMessage")
+        .textContent = "";
 }
+
+
+/* =========================================
+   CHECK EXISTING SESSION
+   ========================================= */
+
+async function checkSession(){
+
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+
+    if(session){
+
+        document.getElementById("loginPage")
+            .style.display = "none";
+
+        document.getElementById("dashboard")
+            .style.display = "block";
+
+    }else{
+
+        document.getElementById("loginPage")
+            .style.display = "flex";
+
+        document.getElementById("dashboard")
+            .style.display = "none";
+    }
+}
+
+
+/* Run when page opens */
+checkSession();
+
+
+/* Listen for authentication changes */
+supabaseClient.auth.onAuthStateChange(
+    (event, session) => {
+
+        if(session){
+
+            document.getElementById("loginPage")
+                .style.display = "none";
+
+            document.getElementById("dashboard")
+                .style.display = "block";
+
+        }else{
+
+            document.getElementById("loginPage")
+                .style.display = "flex";
+
+            document.getElementById("dashboard")
+                .style.display = "none";
+        }
+    }
+);
 
 </script>
 
