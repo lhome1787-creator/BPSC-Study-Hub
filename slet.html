@@ -163,7 +163,607 @@ const mockSets=Array.from({length:10},(_,i)=>({
  title:`Full Mock Test ${i+1}`,count:150,type:"mock",index:i
 }));
 
-const demoLibrary=[["Library Science का जनक किसे कहा जाता है?",["S. R. Ranganathan","Melvil Dewey","Charles Cutter","Paul Otlet"],0,"S. R. Ranganathan को भारत में Library Science का जनक कहा जाता है।"],["Five Laws of Library Science किसने प्रतिपादित किए?",["S. R. Ranganathan","Melvil Dewey","C. A. Cutter","Jesse Shera"],0,"पाँच पुस्तकालय विज्ञान नियम S. R. Ranganathan ने दिए।"],["‘Books are for use’ किस नियम का भाग है?",["प्रथम नियम","द्वितीय नियम","तृतीय नियम","चतुर्थ नियम"],0,"यह प्रथम नियम है।"],["‘Every reader his/her book’ किस नियम से संबंधित है?",["प्रथम","द्वितीय","तृतीय","पंचम"],1,"यह द्वितीय नियम है।"],["‘Every book its reader’ किस नियम से संबंधित है?",["प्रथम","द्वितीय","तृतीय","चतुर्थ"],2,"यह तृतीय नियम है।"],["‘Save the time of the reader’ किस नियम का मुख्य विचार है?",["चतुर्थ नियम","प्रथम नियम","द्वितीय नियम","पंचम नियम"],0,"यह चतुर्थ नियम है।"],["‘Library is a growing organism’ किस नियम से संबंधित है?",["प्रथम","द्वितीय","चतुर्थ","पंचम"],3,"यह पंचम नियम है।"],["DDC का पूरा नाम क्या है?",["Dewey Decimal Classification","Decimal Document Catalogue","Digital Dewey Catalogue","Dewey Document Classification"],0,"DDC का अर्थ Dewey Decimal Classification है।"],["DDC के निर्माता कौन थे?",["Melvil Dewey","S. R. Ranganathan","C. A. Cutter","H. E. Bliss"],0,"Melvil Dewey ने DDC विकसित किया।"],["Colon Classification किसने विकसित की?",["S. R. Ranganathan","Melvil Dewey","Cutter","Otlet"],0,"Colon Classification Ranganathan की योजना है।"],["Colon Classification में PMEST का संबंध किससे है?",["Facet analysis","Book selection","Library building","Reference service"],0,"PMEST Colon Classification के facet categories से संबंधित है।"],["Library classification का मुख्य उद्देश्य क्या है?",["विषयों के अनुसार दस्तावेजों को व्यवस्थित करना","केवल किताबें खरीदना","केवल पाठक पंजीकरण","केवल बजट बनाना"],0,"Classification का उद्देश्य विषयानुसार व्यवस्थित करना है।"],["Cataloguing का मुख्य उद्देश्य क्या है?",["दस्तावेज की पहचान और स्थान पता करने में सहायता","किताबों की कीमत तय करना","केवल भवन प्रबंधन","केवल स्टाफ नियुक्ति"],0,"Cataloguing bibliographic description और access points उपलब्ध कराता है।"],["OPAC का पूरा नाम क्या है?",["Online Public Access Catalogue","Open Public Archive Catalogue","Online Private Access Catalogue","Official Public Access Computer"],0,"OPAC = Online Public Access Catalogue।"],["ISBN किससे संबंधित है?",["पुस्तक/मोनोग्राफ की अंतरराष्ट्रीय पहचान","पत्रिकाओं की पहचान","लेखक की पहचान","पुस्तकालय भवन"],0,"ISBN पुस्तकों और अन्य monographic publications की पहचान के लिए है।"],["ISSN किससे संबंधित है?",["Serial publications","Monographs only","Library buildings","Maps only"],0,"ISSN serial publications की पहचान के लिए है।"],["MARC का उपयोग मुख्यतः किसके लिए होता है?",["Machine-readable bibliographic records","Library furniture","Book binding","Budget accounting"],0,"MARC bibliographic data को machine-readable रूप में प्रस्तुत करता है।"],["Reference service का उद्देश्य क्या है?",["उपयोगकर्ता की सूचना आवश्यकता पूरी करना","केवल किताबें सजाना","केवल भवन की सफाई","केवल सदस्यता शुल्क लेना"],0,"Reference service सूचना खोजने में उपयोगकर्ता की सहायता करती है।"],["Bibliography क्या है?",["दस्तावेजों/स्रोतों की व्यवस्थित सूची","पुस्तकालय भवन का नक्शा","केवल पुस्तक समीक्षा","केवल समाचार पत्र"],0,"Bibliography किसी विषय/लेखक आदि से संबंधित स्रोतों की व्यवस्थित सूची है।"],["Index का मुख्य उद्देश्य क्या है?",["सूचना/विषय को खोजने में सहायता करना","किताब छापना","फर्नीचर खरीदना","भवन बनाना"],0,"Index access points देकर सूचना खोज आसान बनाता है।"],["Abstract क्या प्रदान करता है?",["दस्तावेज की संक्षिप्त सामग्री","केवल पुस्तक का मूल्य","केवल लेखक का पता","केवल ISBN"],0,"Abstract दस्तावेज की संक्षिप्त विषयवस्तु देता है।"],["CAS का पूरा नाम क्या है?",["Current Awareness Service","Central Archive System","Catalogue Access Service","Computerized Archive Service"],0,"CAS = Current Awareness Service।"],["SDI का पूरा नाम क्या है?",["Selective Dissemination of Information","Systematic Document Index","Serial Data Information","Selective Document Identification"],0,"SDI = Selective Dissemination of Information।"],["Inter-Library Loan का उद्देश्य क्या है?",["पुस्तकालयों के बीच संसाधन साझा करना","केवल किताब बेचना","केवल सदस्य बनाना","केवल भवन साझा करना"],0,"ILL से पुस्तकालय एक-दूसरे से दस्तावेज उपलब्ध कराते हैं।"],["Library automation का अर्थ क्या है?",["पुस्तकालय कार्यों में computer technology का उपयोग","केवल किताबों को रंगना","केवल भवन का विस्तार","केवल स्टाफ प्रशिक्षण"],0,"Automation में acquisition, cataloguing, circulation आदि कार्यों में ICT का उपयोग होता है।"],["Digital library में सामग्री मुख्यतः किस रूप में उपलब्ध होती है?",["Digital form","केवल हस्तलिखित","केवल मौखिक","केवल लकड़ी पर"],0,"Digital library में digital resources उपलब्ध होते हैं।"],["RFID का पूरा नाम क्या है?",["Radio Frequency Identification","Rapid File Information Data","Reference File Identification","Radio File Index Device"],0,"RFID = Radio Frequency Identification।"],["Barcode का उपयोग पुस्तकालय में किसके लिए किया जा सकता है?",["पुस्तक/सदस्य की पहचान और circulation","केवल भवन सुरक्षा","केवल catalog printing","केवल internet"],0,"Barcode circulation और identification में उपयोगी है।"],["Library management में acquisition का अर्थ क्या है?",["पुस्तकालय सामग्री प्राप्त करना","पुस्तकालय बंद करना","किताबों को नष्ट करना","केवल reference देना"],0,"Acquisition में library materials का चयन/प्राप्ति शामिल है।"],["Weeding का अर्थ क्या है?",["अनुपयोगी/पुरानी सामग्री को चयनित रूप से हटाना","नई किताबें खरीदना","पाठक जोड़ना","किताबों की binding करना"],0,"Weeding collection maintenance का हिस्सा है।"],["Stock verification का उद्देश्य क्या है?",["संग्रह की भौतिक स्थिति/उपलब्धता की जाँच","केवल बजट बनाना","केवल सदस्यता लेना","केवल पुस्तक समीक्षा"],0,"Stock verification में library holdings की जाँच की जाती है।"],["Accession register में क्या दर्ज किया जाता है?",["पुस्तकालय में प्राप्त सामग्री का विवरण","केवल पाठक की शिकायत","केवल स्टाफ attendance","केवल भवन का नक्शा"],0,"Accession register acquired documents का record रखता है।"],["Circulation section मुख्यतः किससे संबंधित है?",["Issue और return","Classification only","Book printing","Building construction"],0,"Circulation में issue, return और related user transactions होते हैं।"],["Library consortium का उद्देश्य क्या है?",["पुस्तकालयों के बीच सहयोग और संसाधन साझेदारी","केवल भवन निर्माण","केवल पुस्तक बिक्री","केवल परीक्षा आयोजन"],0,"Consortium libraries को collective resource access में सहयोग करता है।"],["INFLIBNET का पूरा नाम क्या है?",["Information and Library Network Centre","Indian National Library Network","Information Library National Board","Indian Network for Library Books"],0,"INFLIBNET = Information and Library Network Centre।"],["DELNET का पूरा नाम क्या है?",["Developing Library Network","Digital Library Network","Delhi Library Network","Document Library Network"],0,"DELNET = Developing Library Network।"],["IFLA का पूरा नाम क्या है?",["International Federation of Library Associations and Institutions","Indian Federation of Library Associations","International Forum of Library Archives","Information Federation of Library Administration"],0,"IFLA एक प्रमुख अंतरराष्ट्रीय library association federation है।"],["ALA का पूरा नाम क्या है?",["American Library Association","Asian Library Association","American Literature Association","Association of Library Archives"],0,"ALA = American Library Association।"],["Library statistics का उपयोग किसके लिए होता है?",["सेवाओं और संसाधनों का मापन/मूल्यांकन","केवल किताबों की binding","केवल building design","केवल membership cards"],0,"Statistics planning और evaluation में उपयोगी हैं।"],["Preservation का मुख्य उद्देश्य क्या है?",["दस्तावेजों को क्षति से बचाना","केवल नई किताब खरीदना","केवल circulation बढ़ाना","केवल catalogue हटाना"],0,"Preservation materials को deterioration से बचाने से संबंधित है।"],["Copyright किससे संबंधित है?",["बौद्धिक कृतियों के कानूनी अधिकार","केवल पुस्तकालय भवन","केवल membership fee","केवल shelf arrangement"],0,"Copyright intellectual creations पर कानूनी अधिकारों से संबंधित है।"],["Information literacy का अर्थ क्या है?",["सूचना की आवश्यकता पहचानना, खोजना, मूल्यांकन करना और प्रभावी उपयोग करना","केवल किताब पढ़ना","केवल computer खरीदना","केवल library जाना"],0,"Information literacy में information skills का व्यापक उपयोग शामिल है।"],["Research methodology में literature review का उद्देश्य क्या है?",["पूर्व उपलब्ध शोध/साहित्य को समझना","केवल questionnaire छापना","केवल पुस्तकालय बंद करना","केवल budget बनाना"],0,"Literature review prior research और knowledge base को समझने में मदद करता है।"],["Bibliometrics किसका अध्ययन करता है?",["प्रकाशित साहित्य के मात्रात्मक पहलू","केवल पुस्तक binding","केवल library furniture","केवल पाठक आयु"],0,"Bibliometrics scholarly publications के quantitative analysis से संबंधित है।"],["Citation का अर्थ क्या है?",["किसी स्रोत का संदर्भ देना","किताब को shelf पर रखना","पुस्तक खरीदना","पाठक पंजीकरण"],0,"Citation में उपयोग किए गए स्रोत का reference दिया जाता है।"],["Library network का प्रमुख लाभ क्या है?",["संसाधनों और सूचनाओं का साझा उपयोग","केवल भवन बढ़ाना","केवल staff transfer","केवल book pricing"],0,"Networking resource sharing और information access बढ़ाता है।"],["Union catalogue क्या है?",["कई पुस्तकालयों के holdings को एक संयुक्त catalogue में दिखाने वाला साधन","केवल एक पुस्तक की सूची","केवल budget register","केवल accession register"],0,"Union catalogue multiple libraries के holdings को एक साथ दर्शाता है।"],["User education का उद्देश्य क्या है?",["उपयोगकर्ताओं को library resources/services के प्रभावी उपयोग में सक्षम बनाना","केवल membership fee लेना","केवल पुस्तकें खरीदना","केवल staff नियुक्त करना"],0,"User education users को resources और services का प्रभावी उपयोग सिखाती है।"],["Open access का सामान्य अर्थ क्या है?",["शोध/सूचना सामग्री तक बिना पारंपरिक subscription बाधा के पहुँच","केवल बंद पुस्तकालय","केवल printed books","केवल paid membership"],0,"Open access scholarly information को व्यापक रूप से उपलब्ध कराने की अवधारणा है।"],["E-resource का उदाहरण कौन-सा है?",["E-journal","लकड़ी की अलमारी","मुद्रित shelf label","पुस्तकालय भवन"],0,"E-journal एक electronic resource है।"],["Metadata का सामान्य अर्थ क्या है?",["Data about data","केवल raw data","केवल पुस्तक मूल्य","केवल library budget"],0,"Metadata किसी resource के बारे में structured descriptive information है।"]];
+const librarySet1 = [
+  {
+    q: "S. R. Ranganathan द्वारा प्रतिपादित पाँच नियमों में पहला नियम कौन-सा है?",
+    options: [
+      "Every reader his/her book",
+      "Books are for use",
+      "Save the time of the reader",
+      "Library is a growing organism"
+    ],
+    answer: 1,
+    explanation: "Ranganathan का पहला नियम है—Books are for use अर्थात पुस्तकें उपयोग के लिए हैं।"
+  },
+
+  {
+    q: "Colon Classification का विकास किसने किया?",
+    options: [
+      "Melvil Dewey",
+      "C. A. Cutter",
+      "S. R. Ranganathan",
+      "Henry Bliss"
+    ],
+    answer: 2,
+    explanation: "Colon Classification S. R. Ranganathan द्वारा विकसित की गई थी।"
+  },
+
+  {
+    q: "DDC का पूरा नाम क्या है?",
+    options: [
+      "Digital Decimal Classification",
+      "Dewey Decimal Classification",
+      "Document Decimal Classification",
+      "Decimal Document Classification"
+    ],
+    answer: 1,
+    explanation: "DDC का अर्थ Dewey Decimal Classification है।"
+  },
+
+  {
+    q: "DDC के निर्माता कौन थे?",
+    options: [
+      "Melvil Dewey",
+      "S. R. Ranganathan",
+      "Paul Otlet",
+      "Henry Bliss"
+    ],
+    answer: 0,
+    explanation: "Melvil Dewey ने Dewey Decimal Classification विकसित की।"
+  },
+
+  {
+    q: "Colon Classification में PMEST का संबंध किससे है?",
+    options: [
+      "पुस्तकालय प्रबंधन",
+      "वर्गीकरण के Facets",
+      "Cataloguing",
+      "Reference Service"
+    ],
+    answer: 1,
+    explanation: "PMEST में Personality, Matter, Energy, Space और Time शामिल हैं।"
+  },
+
+  {
+    q: "OPAC का पूरा नाम क्या है?",
+    options: [
+      "Online Public Access Catalogue",
+      "Online Private Access Catalogue",
+      "Open Public Access Classification",
+      "Online Processing and Cataloguing"
+    ],
+    answer: 0,
+    explanation: "OPAC का अर्थ Online Public Access Catalogue है।"
+  },
+
+  {
+    q: "ISBN मुख्यतः किसके लिए प्रयोग किया जाता है?",
+    options: [
+      "Journals",
+      "Books और monographic publications",
+      "Newspapers only",
+      "Libraries"
+    ],
+    answer: 1,
+    explanation: "ISBN International Standard Book Number है और मुख्यतः books तथा monographic publications की पहचान के लिए प्रयोग होता है।"
+  },
+
+  {
+    q: "ISSN का प्रयोग मुख्यतः किस प्रकार के प्रकाशनों की पहचान के लिए होता है?",
+    options: [
+      "Serials/periodicals",
+      "केवल textbooks",
+      "Manuscripts",
+      "Maps"
+    ],
+    answer: 0,
+    explanation: "ISSN serial और continuing publications की पहचान के लिए international standard number है।"
+  },
+
+  {
+    q: "MARC का पूरा नाम क्या है?",
+    options: [
+      "Machine-Readable Cataloging",
+      "Manual Access Reading Code",
+      "Machine Access Reference Catalogue",
+      "Metadata and Reading Classification"
+    ],
+    answer: 0,
+    explanation: "MARC bibliographic information को machine-readable form में रखने के लिए प्रयोग होता है।"
+  },
+
+  {
+    q: "Reference service का मुख्य उद्देश्य क्या है?",
+    options: [
+      "केवल पुस्तकों की खरीद",
+      "उपयोगकर्ता की सूचना आवश्यकता पूरी करना",
+      "केवल पुस्तकें जारी करना",
+      "पुस्तकालय भवन का निर्माण"
+    ],
+    answer: 1,
+    explanation: "Reference service users को उनकी information needs के अनुसार उपयुक्त सूचना या स्रोत खोजने में सहायता करती है।"
+  },
+
+  {
+    q: "Bibliography मुख्यतः क्या प्रदान करती है?",
+    options: [
+      "पुस्तकों/दस्तावेजों की सूची",
+      "केवल पुस्तक का मूल्य",
+      "केवल लेखक का पता",
+      "पुस्तकालय का बजट"
+    ],
+    answer: 0,
+    explanation: "Bibliography किसी विषय या क्षेत्र से संबंधित documents की व्यवस्थित सूची प्रदान करती है।"
+  },
+
+  {
+    q: "Abstract क्या प्रदान करता है?",
+    options: [
+      "दस्तावेज का संक्षिप्त सार",
+      "केवल पुस्तक का ISBN",
+      "केवल लेखक का नाम",
+      "पुस्तक का पूरा पाठ"
+    ],
+    answer: 0,
+    explanation: "Abstract document के मुख्य content का संक्षिप्त सार प्रस्तुत करता है।"
+  },
+
+  {
+    q: "Index का प्रमुख उद्देश्य क्या है?",
+    options: [
+      "सूचना को खोजने में सहायता करना",
+      "पुस्तक छापना",
+      "पुस्तक खरीदना",
+      "पुस्तक बांधना"
+    ],
+    answer: 0,
+    explanation: "Index किसी document में मौजूद विषय, नाम आदि तक शीघ्र पहुँचने में सहायता करता है।"
+  },
+
+  {
+    q: "CAS का पूरा नाम क्या है?",
+    options: [
+      "Current Awareness Service",
+      "Central Access Service",
+      "Current Archive System",
+      "Catalogue Access Service"
+    ],
+    answer: 0,
+    explanation: "CAS का अर्थ Current Awareness Service है।"
+  },
+
+  {
+    q: "SDI का पूरा नाम क्या है?",
+    options: [
+      "Selective Dissemination of Information",
+      "Systematic Distribution of Indexes",
+      "Standard Documentation Information",
+      "Selective Document Index"
+    ],
+    answer: 0,
+    explanation: "SDI में उपयोगकर्ता की रुचि या profile के आधार पर relevant नवीन सूचना दी जाती है।"
+  },
+
+  {
+    q: "Inter-Library Loan का अर्थ क्या है?",
+    options: [
+      "पुस्तकालयों के बीच documents उधार देना",
+      "पुस्तकालय बंद करना",
+      "नई library बनाना",
+      "पुस्तकों को नष्ट करना"
+    ],
+    answer: 0,
+    explanation: "ILL के माध्यम से एक library दूसरी library से आवश्यक document उधार प्राप्त कर सकती है।"
+  },
+
+  {
+    q: "Library automation में किसका महत्वपूर्ण योगदान है?",
+    options: [
+      "Computer technology",
+      "केवल printing press",
+      "केवल typewriter",
+      "केवल telephone"
+    ],
+    answer: 0,
+    explanation: "Computer technology ने acquisition, cataloguing, circulation और OPAC जैसे library operations को automate करने में महत्वपूर्ण भूमिका निभाई।"
+  },
+
+  {
+    q: "Digital library में सूचना मुख्यतः किस रूप में उपलब्ध होती है?",
+    options: [
+      "Digital form",
+      "केवल handwritten form",
+      "केवल wooden form",
+      "केवल oral form"
+    ],
+    answer: 0,
+    explanation: "Digital libraries में digital documents और electronic resources उपलब्ध होते हैं।"
+  },
+
+  {
+    q: "RFID का पूरा नाम क्या है?",
+    options: [
+      "Radio Frequency Identification",
+      "Rapid File Information Database",
+      "Radio File Identification Document",
+      "Reference Frequency Information Device"
+    ],
+    answer: 0,
+    explanation: "RFID radio waves के माध्यम से tagged objects की पहचान करने वाली technology है।"
+  },
+
+  {
+    q: "Barcode का उपयोग library में किस कार्य के लिए किया जा सकता है?",
+    options: [
+      "पुस्तक की पहचान और circulation",
+      "पुस्तक लिखने के लिए",
+      "भवन निर्माण के लिए",
+      "पुस्तक का content लिखने के लिए"
+    ],
+    answer: 0,
+    explanation: "Barcode-based systems circulation और item identification को तेज कर सकते हैं।"
+  },
+
+  {
+    q: "Accession Register में सामान्यतः क्या दर्ज किया जाता है?",
+    options: [
+      "Library में प्राप्त documents का record",
+      "केवल कर्मचारियों की attendance",
+      "केवल library का बिजली बिल",
+      "केवल पाठकों के पते"
+    ],
+    answer: 0,
+    explanation: "Accession register library द्वारा प्राप्त documents का महत्वपूर्ण permanent record होता है।"
+  },
+
+  {
+    q: "Stock verification का उद्देश्य क्या है?",
+    options: [
+      "Library collection की वास्तविक स्थिति की जाँच",
+      "नई building बनाना",
+      "केवल पुस्तक खरीदना",
+      "केवल salary बनाना"
+    ],
+    answer: 0,
+    explanation: "Stock verification में collection records और उपलब्ध physical items का मिलान किया जाता है।"
+  },
+
+  {
+    q: "Weeding का अर्थ library context में क्या है?",
+    options: [
+      "अनुपयोगी/अनावश्यक materials को collection से हटाना",
+      "नई किताबें खरीदना",
+      "पुस्तकालय खोलना",
+      "catalog बनाना"
+    ],
+    answer: 0,
+    explanation: "Weeding collection को उपयोगी और up-to-date बनाए रखने की प्रक्रिया है।"
+  },
+
+  {
+    q: "Acquisition section का मुख्य कार्य क्या है?",
+    options: [
+      "Library materials का चयन और प्राप्ति",
+      "केवल books issue करना",
+      "केवल reference interview लेना",
+      "केवल furniture खरीदना"
+    ],
+    answer: 0,
+    explanation: "Acquisition library collection के लिए resources की selection, ordering और receiving से संबंधित है।"
+  },
+
+  {
+    q: "Circulation section का प्रमुख संबंध किससे है?",
+    options: [
+      "Books issue और return",
+      "Classification scheme बनाना",
+      "Building design",
+      "Research methodology"
+    ],
+    answer: 0,
+    explanation: "Circulation library materials के lending और return से संबंधित है।"
+  },
+
+  {
+    q: "INFLIBNET का संबंध मुख्यतः किस क्षेत्र से है?",
+    options: [
+      "Library and Information Network",
+      "Railway network",
+      "Banking network",
+      "Postal network"
+    ],
+    answer: 0,
+    explanation: "INFLIBNET Centre academic और research libraries के networking तथा information services से संबंधित है।"
+  },
+
+  {
+    q: "DELNET का मुख्य उद्देश्य क्या है?",
+    options: [
+      "Libraries के बीच resource sharing को बढ़ावा देना",
+      "केवल पुस्तक छापना",
+      "केवल परीक्षा आयोजित करना",
+      "केवल पुस्तक बेचना"
+    ],
+    answer: 0,
+    explanation: "DELNET libraries के बीच networking और resource sharing को facilitate करता है।"
+  },
+
+  {
+    q: "IFLA का पूरा नाम क्या है?",
+    options: [
+      "International Federation of Library Associations and Institutions",
+      "Indian Federation of Library Authorities",
+      "International Forum of Library Administration",
+      "Indian Federation of Learning Associations"
+    ],
+    answer: 0,
+    explanation: "IFLA एक प्रमुख international library organization है।"
+  },
+
+  {
+    q: "ALA का पूरा नाम क्या है?",
+    options: [
+      "American Library Association",
+      "Asian Library Association",
+      "American Literature Academy",
+      "Association of Library Automation"
+    ],
+    answer: 0,
+    explanation: "ALA अमेरिका की प्रमुख library association है।"
+  },
+
+  {
+    q: "Union Catalogue क्या दर्शाता है?",
+    options: [
+      "कई libraries के holdings का संयुक्त record",
+      "केवल एक पुस्तकालय की books",
+      "केवल पुस्तकालय का budget",
+      "केवल कर्मचारियों की सूची"
+    ],
+    answer: 0,
+    explanation: "Union catalogue विभिन्न libraries के collections/holdings को एक साथ खोजने में मदद करता है।"
+  },
+
+  {
+    q: "Information literacy का संबंध किससे है?",
+    options: [
+      "सूचना को खोजने, मूल्यांकन करने और प्रभावी ढंग से उपयोग करने की क्षमता",
+      "केवल पुस्तक पढ़ने से",
+      "केवल computer खरीदने से",
+      "केवल library membership से"
+    ],
+    answer: 0,
+    explanation: "Information literacy व्यक्ति को आवश्यक सूचना को पहचानने, खोजने, evaluate करने और उपयोग करने में सक्षम बनाती है।"
+  },
+
+  {
+    q: "Open Access का सामान्य अर्थ क्या है?",
+    options: [
+      "Research information तक free online access",
+      "केवल paid database",
+      "केवल printed books",
+      "केवल library membership"
+    ],
+    answer: 0,
+    explanation: "Open Access scholarly information को बिना सामान्य subscription barrier के online उपलब्ध कराने की अवधारणा है।"
+  },
+
+  {
+    q: "Metadata का सरल अर्थ क्या है?",
+    options: [
+      "Data about data",
+      "Data deletion",
+      "केवल numerical data",
+      "केवल printed data"
+    ],
+    answer: 0,
+    explanation: "Metadata किसी resource के बारे में descriptive या structural information प्रदान करता है।"
+  },
+
+  {
+    q: "Preservation का मुख्य उद्देश्य क्या है?",
+    options: [
+      "Library materials को लंबे समय तक सुरक्षित रखना",
+      "पुस्तकों को बेचना",
+      "books को issue करना",
+      "केवल catalogue बनाना"
+    ],
+    answer: 0,
+    explanation: "Preservation का उद्देश्य materials को deterioration और damage से बचाकर उपलब्धता बनाए रखना है।"
+  },
+
+  {
+    q: "Copyright किससे संबंधित है?",
+    options: [
+      "बौद्धिक रचनाओं पर कानूनी अधिकार",
+      "केवल पुस्तकालय भवन",
+      "केवल पुस्तक का वजन",
+      "केवल पुस्तक की कीमत"
+    ],
+    answer: 0,
+    explanation: "Copyright creators को उनकी original intellectual creations पर कुछ विशेष कानूनी अधिकार प्रदान करता है।"
+  },
+
+  {
+    q: "Bibliometrics का संबंध किससे है?",
+    options: [
+      "Publications और literature का quantitative analysis",
+      "केवल book binding",
+      "केवल library furniture",
+      "केवल circulation desk"
+    ],
+    answer: 0,
+    explanation: "Bibliometrics में scholarly publications, authorship, citations आदि का quantitative अध्ययन किया जाता है।"
+  },
+
+  {
+    q: "Citation का उपयोग academic writing में मुख्यतः क्यों किया जाता है?",
+    options: [
+      "स्रोत का उल्लेख करने के लिए",
+      "पुस्तक का वजन बताने के लिए",
+      "पुस्तक की कीमत बताने के लिए",
+      "library timing बताने के लिए"
+    ],
+    answer: 0,
+    explanation: "Citation उस source को acknowledge करता है जिससे information या idea लिया गया है।"
+  },
+
+  {
+    q: "User education programme का उद्देश्य क्या है?",
+    options: [
+      "Users को library resources और services का प्रभावी उपयोग सिखाना",
+      "केवल पुस्तक खरीदना",
+      "केवल staff training",
+      "केवल building maintenance"
+    ],
+    answer: 0,
+    explanation: "User education users को library resources, tools और services का बेहतर उपयोग करने में सक्षम बनाता है।"
+  },
+
+  {
+    q: "E-resource का उदाहरण कौन-सा है?",
+    options: [
+      "Online journal",
+      "Wooden shelf",
+      "Library chair",
+      "Printed notice board"
+    ],
+    answer: 0,
+    explanation: "Online journals, e-books और databases electronic resources के उदाहरण हैं।"
+  },
+
+  {
+    q: "Library consortium का मुख्य लाभ क्या है?",
+    options: [
+      "Resource sharing और संयुक्त access",
+      "Libraries को बंद करना",
+      "केवल staff कम करना",
+      "केवल furniture खरीदना"
+    ],
+    answer: 0,
+    explanation: "Consortium libraries को मिलकर electronic resources और अन्य information resources तक access प्राप्त करने में मदद करता है।"
+  },
+
+  {
+    q: "Reference interview किससे संबंधित है?",
+    options: [
+      "User की information need को समझना",
+      "Book binding",
+      "Book printing",
+      "Building construction"
+    ],
+    answer: 0,
+    explanation: "Reference interview में librarian user से बातचीत करके उसकी वास्तविक information requirement समझता है।"
+  },
+
+  {
+    q: "Primary source का उदाहरण कौन-सा है?",
+    options: [
+      "Original research article",
+      "Encyclopedia का summary entry",
+      "Bibliography",
+      "Abstracting database"
+    ],
+    answer: 0,
+    explanation: "Original research article primary scholarly information का प्रमुख उदाहरण है।"
+  },
+
+  {
+    q: "Secondary source का उदाहरण कौन-सा है?",
+    options: [
+      "Abstracting/Indexing service",
+      "Original laboratory notebook",
+      "Original research data",
+      "शोधकर्ता का raw data"
+    ],
+    answer: 0,
+    explanation: "Secondary sources primary literature की जानकारी को organize, describe या index करते हैं।"
+  },
+
+  {
+    q: "Tertiary source का सामान्य उदाहरण कौन-सा है?",
+    options: [
+      "Encyclopedia",
+      "Original research paper",
+      "Raw experimental data",
+      "Laboratory diary"
+    ],
+    answer: 0,
+    explanation: "Tertiary sources विभिन्न primary और secondary sources से संकलित/व्यवस्थित जानकारी प्रदान करते हैं।"
+  },
+
+  {
+    q: "Library classification का मुख्य उद्देश्य क्या है?",
+    options: [
+      "विषय के आधार पर documents को व्यवस्थित करना",
+      "books का मूल्य तय करना",
+      "staff की salary तय करना",
+      "building का नक्शा बनाना"
+    ],
+    answer: 0,
+    explanation: "Classification documents को उनके subjects के आधार पर व्यवस्थित करने में सहायता करती है।"
+  },
+
+  {
+    q: "Cataloguing का मुख्य उद्देश्य क्या है?",
+    options: [
+      "Library materials की bibliographic description और access points प्रदान करना",
+      "केवल books खरीदना",
+      "केवल books repair करना",
+      "केवल library साफ करना"
+    ],
+    answer: 0,
+    explanation: "Cataloguing users को किसी document की पहचान और उसे खोजने के लिए आवश्यक bibliographic information देती है।"
+  },
+
+  {
+    q: "Library catalogue में Author entry किस आधार पर document खोजने में मदद करती है?",
+    options: [
+      "लेखक के नाम से",
+      "पुस्तक के वजन से",
+      "shelf के रंग से",
+      "पुस्तक के आकार से"
+    ],
+    answer: 0,
+    explanation: "Author access point के माध्यम से उपयोगकर्ता लेखक के नाम के आधार पर document खोज सकता है।"
+  },
+
+  {
+    q: "Selective Dissemination of Information (SDI) में सूचना का चयन मुख्यतः किस आधार पर किया जाता है?",
+    options: [
+      "User profile/interests",
+      "पुस्तक का रंग",
+      "पुस्तक का आकार",
+      "shelf number की लंबाई"
+    ],
+    answer: 0,
+    explanation: "SDI में relevant information को individual user's interests या profile के अनुसार चुना जाता है।"
+  },
+
+  {
+    q: "Library networking का प्रमुख उद्देश्य क्या है?",
+    options: [
+      "Libraries के बीच information/resource sharing को आसान बनाना",
+      "केवल library भवनों को जोड़ना",
+      "केवल electricity supply देना",
+      "केवल books print करना"
+    ],
+    answer: 0,
+    explanation: "Library networks सहयोग, resource sharing और information access को बढ़ावा देते हैं।"
+  },
+
+  {
+    q: "Library and Information Science में research methodology का मुख्य उद्देश्य क्या है?",
+    options: [
+      "व्यवस्थित और वैज्ञानिक तरीके से research करना",
+      "केवल books खरीदना",
+      "केवल library decoration",
+      "केवल membership बनाना"
+    ],
+    answer: 0,
+    explanation: "Research methodology research problem, data collection, analysis और interpretation के लिए systematic approach प्रदान करती है।"
+  }
+];
 const demoGK=[["SLET 2026 में कुल कितने प्रश्न हैं?",["100","120","150","200"],2,"कुल 150 MCQ हैं।"],["SLET 2026 में कुल कितने अंक हैं?",["100","150","200","250"],1,"कुल 150 अंक हैं।"],["SLET 2026 में प्रत्येक प्रश्न कितने अंक का है?",["0.5","1","2","5"],1,"प्रत्येक प्रश्न 1 अंक का है।"],["SLET 2026 में गलत उत्तर पर negative marking है?",["हाँ, 1 अंक","हाँ, 1/2 अंक","हाँ, 1/3 अंक","नहीं"],3,"Notification के अनुसार negative marking नहीं है।"],["SLET 2026 की परीक्षा अवधि कितनी है?",["120 मिनट","135 मिनट","150 मिनट","180 मिनट"],2,"परीक्षा अवधि 150 मिनट है।"],["Library Science भाग के कितने अंक हैं?",["50","75","100","125"],2,"Library Science के 100 अंक हैं।"],["General Knowledge भाग के कितने अंक हैं?",["25","40","50","60"],2,"GK के 50 अंक हैं।"],["SLET 2026 किस mode में आयोजित होने की सूचना दी गई है?",["Offline","CBT","केवल oral","Postal"],1,"परीक्षा CBT mode में है।"],["SLET 2026 में normalization कब लागू हो सकता है?",["एक ही प्रश्नपत्र में हमेशा","Multiple sittings/dates होने पर","केवल offline में","कभी नहीं"],1,"Multiple shifts/dates में normalization लागू हो सकता है।"],["General category के लिए qualifying percentage कितना है?",["40%","45%","50%","55%"],2,"General category के लिए 50% है।"],["SC/ST के लिए qualifying percentage कितना है?",["35%","40%","45%","50%"],1,"SC/ST के लिए 40% है।"],["Bihar SLET 2026 के लिए न्यूनतम आयु कितनी है?",["18","20","21","25"],2,"01-08-2026 को न्यूनतम आयु 21 वर्ष है।"],["सामान्य वर्ग पुरुष की अधिकतम आयु notification में कितनी दी गई है?",["35","37","40","42"],1,"Unreserved male के लिए 37 वर्ष दी गई है।"],["SLET 2026 application की शुरुआत किस तारीख से हुई?",["01-09-2026","01-10-2026","10-10-2026","21-10-2026"],1,"Application 01-10-2026 से शुरू हुई।"],["Application की अंतिम तारीख क्या है?",["10-10-2026","15-10-2026","21-10-2026","31-10-2026"],2,"अंतिम तारीख 21-10-2026 है।"],["बिहार की राजधानी क्या है?",["गया","पटना","मुजफ्फरपुर","भागलपुर"],1,"बिहार की राजधानी पटना है।"],["बिहार से होकर बहने वाली प्रमुख नदी कौन-सी है?",["गंगा","नर्मदा","कावेरी","ताप्ती"],0,"गंगा बिहार की प्रमुख नदी है।"],["बोधगया किस जिले में स्थित है?",["पटना","गया","नालंदा","बक्सर"],1,"बोधगया गया जिले में है।"],["नालंदा किसके लिए प्रसिद्ध है?",["प्राचीन विश्वविद्यालय","समुद्र तट","रेगिस्तान","चाय बागान"],0,"नालंदा प्राचीन विश्वविद्यालय के लिए प्रसिद्ध है।"],["भारत का संविधान कब अंगीकृत किया गया?",["15 अगस्त 1947","26 नवंबर 1949","26 जनवरी 1950","2 अक्टूबर 1950"],1,"संविधान 26 नवंबर 1949 को अंगीकृत हुआ।"],["भारत का संविधान कब लागू हुआ?",["15 अगस्त 1947","26 नवंबर 1949","26 जनवरी 1950","2 अक्टूबर 1950"],2,"संविधान 26 जनवरी 1950 को लागू हुआ।"],["भारत का राष्ट्रीय पशु कौन है?",["सिंह","बाघ","हाथी","हिरण"],1,"बाघ राष्ट्रीय पशु है।"],["भारत का राष्ट्रीय पक्षी कौन है?",["मोर","तोता","हंस","कबूतर"],0,"मोर राष्ट्रीय पक्षी है।"],["भारत का राष्ट्रीय फूल कौन है?",["गुलाब","कमल","गेंदा","चमेली"],1,"कमल राष्ट्रीय फूल है।"],["भारत का राष्ट्रीय फल कौन-सा माना जाता है?",["सेब","आम","केला","अंगूर"],1,"आम को राष्ट्रीय फल माना जाता है।"],["भारत की राजधानी क्या है?",["मुंबई","नई दिल्ली","पटना","कोलकाता"],1,"भारत की राजधानी नई दिल्ली है।"],["भारतीय संसद के कितने सदन हैं?",["एक","दो","तीन","चार"],1,"संसद के दो सदन हैं।"],["लोकसभा को सामान्यतः क्या कहा जाता है?",["Upper House","Lower House","State House","Council House"],1,"लोकसभा Lower House है।"],["राज्यसभा को सामान्यतः क्या कहा जाता है?",["Lower House","Upper House","People's House","District House"],1,"राज्यसभा Upper House है।"],["भारत में मतदान की न्यूनतम आयु कितनी है?",["16","18","21","25"],1,"मतदान की आयु 18 वर्ष है।"],["भारतीय संविधान का संरक्षक किसे माना जाता है?",["सर्वोच्च न्यायालय","लोकसभा","राज्यसभा","राष्ट्रपति भवन"],0,"Supreme Court संविधान की रक्षा/व्याख्या में महत्वपूर्ण भूमिका निभाता है।"],["भारत का सर्वोच्च न्यायालय कहाँ स्थित है?",["मुंबई","नई दिल्ली","पटना","कोलकाता"],1,"Supreme Court नई दिल्ली में है।"],["भारत का राष्ट्रीय ध्वज किसने डिजाइन किया था?",["पिंगली वेंकैया","रवीन्द्रनाथ टैगोर","महात्मा गांधी","जवाहरलाल नेहरू"],0,"पिंगली वेंकैया को भारतीय राष्ट्रीय ध्वज के design से जोड़ा जाता है।"],["भारत का स्वतंत्रता दिवस कब मनाया जाता है?",["26 जनवरी","15 अगस्त","2 अक्टूबर","14 नवंबर"],1,"स्वतंत्रता दिवस 15 अगस्त को मनाया जाता है।"],["गणतंत्र दिवस कब मनाया जाता है?",["15 अगस्त","26 जनवरी","2 अक्टूबर","14 अप्रैल"],1,"गणतंत्र दिवस 26 जनवरी को मनाया जाता है।"],["महात्मा गांधी का जन्मदिन कब है?",["15 अगस्त","26 जनवरी","2 अक्टूबर","14 नवंबर"],2,"गांधी जयंती 2 अक्टूबर को होती है।"],["बिहार दिवस कब मनाया जाता है?",["22 मार्च","15 अगस्त","26 जनवरी","5 जून"],0,"बिहार दिवस 22 मार्च को मनाया जाता है।"],["बिहार का राजकीय वृक्ष कौन-सा है?",["पीपल","बरगद","आम","नीम"],0,"पीपल बिहार का राजकीय वृक्ष है।"],["बिहार का राजकीय फूल कौन-सा है?",["कमल","गेंदा","गुलाब","कचनार"],0,"कमल बिहार का राजकीय फूल है।"],["बिहार का प्रमुख कृषि उत्पाद कौन-सा है?",["धान","कॉफी","रबर","चाय"],0,"धान बिहार की प्रमुख फसलों में है।"],["भारत में हरित क्रांति मुख्यतः किससे संबंधित है?",["कृषि उत्पादन","दुग्ध उत्पादन","मछली उत्पादन","खनन"],0,"हरित क्रांति कृषि उत्पादन बढ़ाने से संबंधित है।"],["श्वेत क्रांति किससे संबंधित है?",["दूध","गेहूँ","मछली","तेल"],0,"White Revolution का संबंध दुग्ध उत्पादन से है।"],["नीली क्रांति किससे संबंधित है?",["मत्स्य उत्पादन","दुग्ध उत्पादन","गेहूँ","कपास"],0,"Blue Revolution fisheries से संबंधित है।"],["प्रकाश संश्लेषण में पौधे मुख्यतः किस गैस का उपयोग करते हैं?",["ऑक्सीजन","कार्बन डाइऑक्साइड","नाइट्रोजन","हीलियम"],1,"पौधे CO₂ का उपयोग करते हैं।"],["मानव शरीर में रक्त पंप करने वाला अंग कौन-सा है?",["फेफड़ा","हृदय","यकृत","गुर्दा"],1,"हृदय रक्त पंप करता है।"],["जल का रासायनिक सूत्र क्या है?",["CO₂","H₂O","O₂","NaCl"],1,"जल का सूत्र H₂O है।"],["सौरमंडल का सबसे बड़ा ग्रह कौन-सा है?",["पृथ्वी","मंगल","बृहस्पति","शनि"],2,"बृहस्पति सबसे बड़ा ग्रह है।"],["पृथ्वी का प्राकृतिक उपग्रह कौन है?",["सूर्य","चंद्रमा","मंगल","शुक्र"],1,"चंद्रमा पृथ्वी का प्राकृतिक उपग्रह है।"],["ओजोन परत मुख्यतः किस मंडल में पाई जाती है?",["क्षोभमंडल","समतापमंडल","मध्यमंडल","बहिर्मंडल"],1,"Ozone layer मुख्यतः stratosphere में है।"],["भारत का राष्ट्रीय गीत कौन-सा है?",["जन गण मन","वंदे मातरम्","सारे जहाँ से अच्छा","ऐ मेरे वतन"],1,"‘वंदे मातरम्’ राष्ट्रीय गीत है।"]];
 
 let currentQuestions=[];
