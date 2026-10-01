@@ -7,7 +7,7 @@
 <style>
 body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f4f7fb;color:#172033}
 header{background:#123d6b;color:white;text-align:center;padding:22px 12px}
-header h1{margin:0 0 6px} header p{margin:0}
+header h1{margin:0 0 6px}header p{margin:0}
 nav{background:white;padding:12px;text-align:center;box-shadow:0 2px 8px #0001}
 nav a{margin:5px;color:#123d6b;text-decoration:none;font-weight:bold}
 main{max-width:950px;margin:24px auto;padding:0 14px}
@@ -17,13 +17,17 @@ main{max-width:950px;margin:24px auto;padding:0 14px}
 .stat{background:#eef6ff;padding:12px;text-align:center;border-radius:9px}
 button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;font-weight:bold}
 .primary{background:#1769aa;color:white}.secondary{background:#e8eef5;color:#17324d}
-#quiz,#result,#sets{display:none}.question{font-size:20px;font-weight:bold;margin:18px 0}
+#librarySets,#gkSets,#mockSets,#quiz,#result{display:none}
+.question{font-size:20px;font-weight:bold;margin:18px 0}
 .option{display:block;width:100%;text-align:left;background:#f7f9fc;border:2px solid #dbe3ec}
 .option.selected{border-color:#1769aa;background:#eaf4ff}
-.palette{display:flex;flex-wrap:wrap;gap:5px}.palette button{width:40px;height:40px;padding:0;background:#eef1f5}
+.palette{display:flex;flex-wrap:wrap;gap:5px}
+.palette button{width:40px;height:40px;padding:0;background:#eef1f5}
 .palette .current{background:#1769aa;color:white}.palette .answered{background:#d9f2df}
-.top{display:flex;gap:8px;flex-wrap:wrap}.badge{background:#eef6ff;padding:8px 12px;border-radius:20px;font-weight:bold}
-.lock{opacity:.65}
+.top{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:#eef6ff;padding:8px 12px;border-radius:20px;font-weight:bold}
+.card h3{margin-top:0}
+.small{color:#596579}
 @media(max-width:650px){.grid,.stats{grid-template-columns:1fr}.question{font-size:18px}}
 </style>
 </head>
@@ -43,59 +47,96 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 
 <main>
 
+<!-- HOME -->
 <section id="home">
 <div class="box">
-<h2>🎯 SLET 2026 Test Series</h2>
-<p>Library Science, General Knowledge और Full Mock Tests</p>
+<h2>🎯 SLET 2026</h2>
+<p>Practice Questions और Full Mock Test</p>
+
 <div class="stats">
-<div class="stat"><b>50</b><br>Library Science प्रति Set</div>
-<div class="stat"><b>50</b><br>GK प्रति Set</div>
-<div class="stat"><b>150</b><br>Full Mock प्रश्न</div>
-<div class="stat"><b>150</b><br>Full Mock मिनट</div>
+<div class="stat"><b>20</b><br>Library Science Sets</div>
+<div class="stat"><b>10</b><br>GK Sets</div>
+<div class="stat"><b>10</b><br>Full Mock Tests</div>
+<div class="stat"><b>3,000</b><br>Total Questions</div>
 </div>
-<p><b>Full Mock:</b> 150 प्रश्न • 150 अंक • No Negative Marking</p>
-</div>
-
-<div class="box">
-<h2>📚 Library Science</h2>
-<p>20 Practice Sets × 50 Questions</p>
-<div class="grid" id="libraryCards"></div>
 </div>
 
-<div class="box">
-<h2>🌍 General Knowledge</h2>
-<p>10 Practice Sets × 50 Questions</p>
-<div class="grid" id="gkCards"></div>
+<h2>Test Series</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📚 Library Science</h3>
+<p>20 Practice Sets</p>
+<p class="small">प्रत्येक Set में 50 Questions</p>
+<button class="primary" onclick="showSection('librarySets')">
+📚 Practice Questions
+</button>
 </div>
 
-<div class="box">
-<h2>📝 Full Mock Test</h2>
-<p>10 Full Mocks × 150 Questions • 150 Minutes</p>
-<div class="grid" id="mockCards"></div>
+<div class="card">
+<h3>🌍 General Knowledge</h3>
+<p>10 Practice Sets</p>
+<p class="small">प्रत्येक Set में 50 Questions</p>
+<button class="primary" onclick="showSection('gkSets')">
+🌍 Practice Questions
+</button>
+</div>
+
+<div class="card">
+<h3>📝 Full Mock Test</h3>
+<p>10 Full Mock Tests</p>
+<p class="small">150 Questions • 150 Minutes</p>
+<button class="secondary" onclick="showSection('mockSets')">
+📝 Full Mock Tests
+</button>
+</div>
+
 </div>
 </section>
 
-<section id="sets" class="box">
-<h2 id="setsTitle">Practice Set</h2>
-<p id="setsInfo"></p>
-<div id="setButtons" class="grid"></div>
+<!-- LIBRARY SETS -->
+<section id="librarySets" class="box">
+<h2>📚 Library Science Practice Sets</h2>
+<p>Practice Set चुनें:</p>
+<div class="grid" id="libraryCards"></div>
 <button class="secondary" onclick="home()">← वापस</button>
 </section>
 
+<!-- GK SETS -->
+<section id="gkSets" class="box">
+<h2>🌍 General Knowledge Practice Sets</h2>
+<p>General Knowledge का Practice Set चुनें:</p>
+<div class="grid" id="gkCards"></div>
+<button class="secondary" onclick="home()">← वापस</button>
+</section>
+
+<!-- MOCK SETS -->
+<section id="mockSets" class="box">
+<h2>📝 SLET 2026 Full Mock Tests</h2>
+<p>Full Mock: 150 Questions • 150 Minutes • No Negative Marking</p>
+<div class="grid" id="mockCards"></div>
+<button class="secondary" onclick="home()">← वापस</button>
+</section>
+
+<!-- QUIZ -->
 <section id="quiz" class="box">
 <div class="top">
 <span class="badge" id="qno"></span>
 <span class="badge">+1 / 0</span>
-<span class="badge" id="timer">⏱️ 00:00</span>
+<span class="badge" id="timer">⏱️ 00:00:00</span>
 </div>
+
 <div class="palette" id="palette"></div>
 <div class="question" id="question"></div>
 <div id="options"></div>
+
 <button class="secondary" onclick="prev()">← Previous</button>
 <button class="secondary" onclick="next()">Next →</button>
 <button class="primary" onclick="submitQuiz()">Submit</button>
 </section>
 
+<!-- RESULT -->
 <section id="result" class="box">
 <h2>📊 Test Result</h2>
 <h2 id="score"></h2>
@@ -110,46 +151,25 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </main>
 
 <script>
-/*
-SLET 2026 Test Series
-20 Library Science Sets × 50
-10 GK Sets × 50
-10 Full Mocks × 150
-
-Question bank is intentionally kept separate in this single HTML structure.
-The official notification does not contain the detailed Library Science syllabus,
-so Library Science questions should be added only after the syllabus/source is fixed.
-*/
-
-const librarySets = Array.from({length:20},(_,i)=>({
-  title:`Library Science Set ${i+1}`,
-  count:50,
-  type:"library"
+const librarySets=Array.from({length:20},(_,i)=>({
+ title:`Library Science Practice Set ${i+1}`,count:50,type:"library",index:i
 }));
 
-const gkSets = Array.from({length:10},(_,i)=>({
-  title:`GK Set ${i+1}`,
-  count:50,
-  type:"gk"
+const gkSets=Array.from({length:10},(_,i)=>({
+ title:`General Knowledge Set ${i+1}`,count:50,type:"gk",index:i
 }));
 
-const mockSets = Array.from({length:10},(_,i)=>({
-  title:`Full Mock Test ${i+1}`,
-  count:150,
-  type:"mock"
+const mockSets=Array.from({length:10},(_,i)=>({
+ title:`Full Mock Test ${i+1}`,count:150,type:"mock",index:i
 }));
 
-/* Demo questions only — replace/expand with the final approved question bank. */
+/* Demo GK questions. Final question bank can be added later. */
 const demoGK=[
 ["SLET 2026 में कुल कितने अंक हैं?",["100","150","200","250"],1,"कुल 150 अंक हैं।"],
-["SLET 2026 Full Mock के लिए निर्धारित अवधि कितनी है?",["120 मिनट","135 मिनट","150 मिनट","180 मिनट"],2,"अवधि 150 मिनट है।"],
-["SLET 2026 में प्रत्येक प्रश्न कितने अंक का है?",["0.5","1","2","5"],1,"प्रत्येक प्रश्न 1 अंक का है।"],
-["SLET 2026 में गलत उत्तर के लिए क्या प्रावधान है?",["1 अंक कटता है","1/2 अंक कटता है","1/3 अंक कटता है","Negative marking नहीं है"],3,"Notification के अनुसार negative marking नहीं है।"],
-["SLET 2026 में Library Science भाग के कितने अंक हैं?",["50","75","100","150"],2,"Library Science के 100 अंक हैं।"]
-];
-
-const demoLibrary=[
-["Library Science question bank","Detailed syllabus/source उपलब्ध होने पर प्रश्न जोड़े जाएंगे।",["स्रोत आवश्यक है","स्रोत आवश्यक नहीं","केवल अनुमान","इनमें से कोई नहीं"],0,"Detailed Library Science syllabus notification में नहीं दिया गया है।"]
+["SLET 2026 Full Mock की अवधि कितनी है?",["120 मिनट","135 मिनट","150 मिनट","180 मिनट"],2,"अवधि 150 मिनट है।"],
+["प्रत्येक प्रश्न कितने अंक का है?",["0.5","1","2","5"],1,"प्रत्येक प्रश्न 1 अंक का है।"],
+["गलत उत्तर के लिए क्या प्रावधान है?",["1 अंक कटता है","1/2 अंक कटता है","1/3 अंक कटता है","Negative marking नहीं है"],3,"Notification के अनुसार negative marking नहीं है।"],
+["Library Science भाग के कितने अंक हैं?",["50","75","100","150"],2,"Library Science भाग 100 अंकों का है।"]
 ];
 
 let currentQuestions=[];
@@ -157,156 +177,164 @@ let answers=[];
 let current=0;
 let timer=null;
 let remaining=0;
-let testTitle="";
 
-function cardButton(title,count,type,index){
-  return `<div class="card">
-    <h3>${title}</h3>
-    <p>${count} Questions</p>
-    <button class="primary" onclick="startTest('${type}',${index})">▶️ Start Test</button>
-  </div>`;
+function makeCards(){
+document.getElementById("libraryCards").innerHTML=librarySets.map(x=>`
+<div class="card">
+<h3>📚 ${x.title}</h3>
+<p>${x.count} Questions</p>
+<button class="primary" onclick="startTest('library',${x.index})">▶️ Start Set ${x.index+1}</button>
+</div>`).join("");
+
+document.getElementById("gkCards").innerHTML=gkSets.map(x=>`
+<div class="card">
+<h3>🌍 ${x.title}</h3>
+<p>${x.count} Questions</p>
+<button class="primary" onclick="startTest('gk',${x.index})">▶️ Start Set ${x.index+1}</button>
+</div>`).join("");
+
+document.getElementById("mockCards").innerHTML=mockSets.map(x=>`
+<div class="card">
+<h3>📝 ${x.title}</h3>
+<p>${x.count} Questions • 150 Minutes</p>
+<button class="primary" onclick="startTest('mock',${x.index})">▶️ Start Mock ${x.index+1}</button>
+</div>`).join("");
 }
 
-function renderCards(){
-  document.getElementById("libraryCards").innerHTML=librarySets.map((x,i)=>cardButton(x.title,x.count,x.type,i)).join("");
-  document.getElementById("gkCards").innerHTML=gkSets.map((x,i)=>cardButton(x.title,x.count,x.type,i)).join("");
-  document.getElementById("mockCards").innerHTML=mockSets.map((x,i)=>cardButton(x.title,x.count,x.type,i)).join("");
+function hideAll(){
+["home","librarySets","gkSets","mockSets","quiz","result"].forEach(id=>{
+document.getElementById(id).style.display="none";
+});
+}
+
+function showSection(id){
+hideAll();
+document.getElementById(id).style.display="block";
+window.scrollTo(0,0);
+}
+
+function home(){
+clearInterval(timer);
+hideAll();
+document.getElementById("home").style.display="block";
+window.scrollTo(0,0);
 }
 
 function startTest(type,index){
-  if(type==="library"){
-    alert("Library Science का detailed syllabus/source तय होने के बाद इस Set में 50 वास्तविक प्रश्न जोड़े जाएंगे।");
-    return;
-  }
+if(type==="library"){
+alert("Library Science का detailed syllabus/source तय होने के बाद इस Set में 50 वास्तविक प्रश्न जोड़े जाएंगे।");
+return;
+}
 
-  testTitle = type==="gk" ? gkSets[index].title : mockSets[index].title;
-  const count = type==="gk" ? 50 : 150;
+const count=type==="mock"?150:50;
+currentQuestions=[];
 
-  currentQuestions = [];
-  const source = demoGK;
+for(let i=0;i<count;i++){
+const q=demoGK[i%demoGK.length];
+currentQuestions.push([
+`प्रश्न ${i+1}: ${q[0]}`,q[1],q[2],q[3]
+]);
+}
 
-  for(let i=0;i<count;i++){
-    const q = source[i % source.length];
-    currentQuestions.push([
-      `प्रश्न ${i+1}: ${q[0]}`,
-      q[1],
-      q[2],
-      q[3]
-    ]);
-  }
+answers=new Array(count).fill(-1);
+current=0;
+remaining=type==="mock"?150*60:50*60;
 
-  answers = new Array(currentQuestions.length).fill(-1);
-  current=0;
-  remaining = type==="mock" ? 150*60 : 50*60;
-
-  document.getElementById("home").style.display="none";
-  document.getElementById("sets").style.display="none";
-  document.getElementById("result").style.display="none";
-  document.getElementById("quiz").style.display="block";
-
-  renderPalette();
-  renderQuestion();
-  startTimer();
+hideAll();
+document.getElementById("quiz").style.display="block";
+renderQuestion();
+startTimer();
+window.scrollTo(0,0);
 }
 
 function startTimer(){
-  clearInterval(timer);
-  updateTimer();
-  timer=setInterval(()=>{
-    remaining--;
-    updateTimer();
-    if(remaining<=0){
-      clearInterval(timer);
-      submitQuiz(true);
-    }
-  },1000);
+clearInterval(timer);
+updateTimer();
+timer=setInterval(()=>{
+remaining--;
+updateTimer();
+if(remaining<=0){
+clearInterval(timer);
+submitQuiz(true);
+}
+},1000);
 }
 
 function updateTimer(){
-  const h=Math.floor(remaining/3600);
-  const m=Math.floor((remaining%3600)/60);
-  const s=remaining%60;
-  document.getElementById("timer").textContent =
-    "⏱️ "+String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-}
-
-function renderPalette(){
-  const p=document.getElementById("palette");
-  p.innerHTML=currentQuestions.map((_,i)=>{
-    let cls=i===current?"current ":"";
-    if(answers[i]!==-1) cls+="answered";
-    return `<button class="${cls}" onclick="go(${i})">${i+1}</button>`;
-  }).join("");
+const h=Math.floor(remaining/3600);
+const m=Math.floor((remaining%3600)/60);
+const s=remaining%60;
+document.getElementById("timer").textContent=
+"⏱️ "+String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
 }
 
 function renderQuestion(){
-  const q=currentQuestions[current];
-  document.getElementById("qno").textContent=`Question ${current+1} / ${currentQuestions.length}`;
-  document.getElementById("question").textContent=q[0];
+const q=currentQuestions[current];
 
-  document.getElementById("options").innerHTML=q[1].map((op,i)=>
-    `<button class="option ${answers[current]===i?'selected':''}" onclick="selectAnswer(${i})">
-      ${String.fromCharCode(65+i)}. ${op}
-    </button>`
-  ).join("");
+document.getElementById("qno").textContent=
+`Question ${current+1} / ${currentQuestions.length}`;
 
-  renderPalette();
+document.getElementById("question").textContent=q[0];
+
+document.getElementById("options").innerHTML=q[1].map((op,i)=>
+`<button class="option ${answers[current]===i?"selected":""}"
+onclick="selectAnswer(${i})">
+${String.fromCharCode(65+i)}. ${op}
+</button>`).join("");
+
+document.getElementById("palette").innerHTML=currentQuestions.map((_,i)=>{
+let cls=i===current?"current ":"";
+if(answers[i]!==-1)cls+="answered";
+return `<button class="${cls}" onclick="go(${i})">${i+1}</button>`;
+}).join("");
 }
 
-function selectAnswer(i){
-  answers[current]=i;
-  renderQuestion();
-}
-
+function selectAnswer(i){answers[current]=i;renderQuestion()}
 function go(i){current=i;renderQuestion()}
 function next(){if(current<currentQuestions.length-1){current++;renderQuestion()}}
 function prev(){if(current>0){current--;renderQuestion()}}
 
 function submitQuiz(auto=false){
-  clearInterval(timer);
-  let correct=0, attempted=0;
+clearInterval(timer);
 
-  answers.forEach((a,i)=>{
-    if(a!==-1){
-      attempted++;
-      if(a===currentQuestions[i][2]) correct++;
-    }
-  });
+let correct=0,attempted=0;
 
-  const wrong=attempted-correct;
-  const score=correct;
-  const percent=((score/currentQuestions.length)*100).toFixed(2);
+answers.forEach((a,i)=>{
+if(a!==-1){
+attempted++;
+if(a===currentQuestions[i][2])correct++;
+}
+});
 
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("result").style.display="block";
+const wrong=attempted-correct;
+const skipped=currentQuestions.length-attempted;
+const percent=((correct/currentQuestions.length)*100).toFixed(2);
 
-  document.getElementById("score").textContent=`${score} / ${currentQuestions.length}`;
-  document.getElementById("details").innerHTML=
-    `सही: <b>${correct}</b> &nbsp; गलत: <b>${wrong}</b> &nbsp; छोड़े: <b>${currentQuestions.length-attempted}</b><br>
-     प्रतिशत: <b>${percent}%</b><br>
-     ${auto?"⏰ समय समाप्त होने पर test submit हुआ।":""}`;
+hideAll();
+document.getElementById("result").style.display="block";
 
-  document.getElementById("review").innerHTML=currentQuestions.map((q,i)=>{
-    const a=answers[i];
-    return `<div class="card">
-      <b>Q${i+1}. ${q[0]}</b><br>
-      आपका उत्तर: ${a===-1?"प्रयास नहीं किया":q[1][a]}<br>
-      सही उत्तर: <b>${q[1][q[2]]}</b><br>
-      <small>${q[3]}</small>
-    </div>`;
-  }).join("");
+document.getElementById("score").textContent=
+`${correct} / ${currentQuestions.length}`;
+
+document.getElementById("details").innerHTML=
+`सही: <b>${correct}</b> &nbsp; गलत: <b>${wrong}</b> &nbsp; छोड़े: <b>${skipped}</b><br>
+प्रतिशत: <b>${percent}%</b>${auto?"<br>⏰ समय समाप्त होने पर Test Submit हुआ।":""}`;
+
+document.getElementById("review").innerHTML=
+currentQuestions.map((q,i)=>{
+const a=answers[i];
+return `<div class="card">
+<b>Q${i+1}. ${q[0]}</b><br>
+आपका उत्तर: ${a===-1?"प्रयास नहीं किया":q[1][a]}<br>
+सही उत्तर: <b>${q[1][q[2]]}</b><br>
+<small>${q[3]}</small>
+</div>`;
+}).join("");
+
+window.scrollTo(0,0);
 }
 
-function home(){
-  clearInterval(timer);
-  document.getElementById("home").style.display="block";
-  document.getElementById("sets").style.display="none";
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("result").style.display="none";
-  window.scrollTo(0,0);
-}
-
-renderCards();
+makeCards();
 </script>
 </body>
 </html>
