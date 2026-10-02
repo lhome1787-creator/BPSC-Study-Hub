@@ -16,7 +16,7 @@ main{max-width:950px;margin:24px auto;padding:0 14px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .stat{background:#eef6ff;padding:12px;text-align:center;border-radius:9px}
 button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;font-weight:bold}
-.primary{background:#1769aa;color:white}.secondary{background:#e8eef5;color:#17324d}
+.primary{background:#1769aa;color:white}.secondary{background:#e8eef5;color:#17324d}.secondary:disabled{opacity:.75;cursor:not-allowed}
 #librarySets,#gkSets,#mockSets,#quiz,#result{display:none}
 .question{font-size:20px;font-weight:bold;margin:18px 0}
 .option{display:block;width:100%;text-align:left;background:#f7f9fc;border:2px solid #dbe3ec}
@@ -4998,25 +4998,36 @@ let timer=null;
 let remaining=0;
 
 function makeCards(){
-document.getElementById("libraryCards").innerHTML=librarySets.map(x=>`
+
+document.getElementById("libraryCards").innerHTML=librarySets.map(x=>{
+const locked=x.index>=10;
+return `
 <div class="card">
 <h3>📚 ${x.title}</h3>
 <p>${x.count} Questions</p>
-<button class="primary" onclick="startTest('library',${x.index})">▶️ Start Set ${x.index+1}</button>
-</div>`).join("");
+${locked
+? `<button class="secondary" disabled>🔒 Locked</button>`
+: `<button class="primary" onclick="startTest('library',${x.index})">▶️ Start Set ${x.index+1}</button>`}
+</div>`;
+}).join("");
 
-document.getElementById("gkCards").innerHTML=gkSets.map(x=>`
+document.getElementById("gkCards").innerHTML=gkSets.map(x=>{
+const locked=x.index>=5;
+return `
 <div class="card">
 <h3>🌍 ${x.title}</h3>
 <p>${x.count} Questions</p>
-<button class="primary" onclick="startTest('gk',${x.index})">▶️ Start Set ${x.index+1}</button>
-</div>`).join("");
+${locked
+? `<button class="secondary" disabled>🔒 Locked</button>`
+: `<button class="primary" onclick="startTest('gk',${x.index})">▶️ Start Set ${x.index+1}</button>`}
+</div>`;
+}).join("");
 
 document.getElementById("mockCards").innerHTML=mockSets.map(x=>`
 <div class="card">
 <h3>📝 ${x.title}</h3>
 <p>${x.count} Questions • 150 Minutes</p>
-<button class="primary" onclick="startTest('mock',${x.index})">▶️ Start Mock ${x.index+1}</button>
+<button class="secondary" disabled>🔒 Locked</button>
 </div>`).join("");
 }
 
@@ -5040,6 +5051,22 @@ window.scrollTo(0,0);
 }
 
 function startTest(type,index){
+
+if(type==="library" && index>=10){
+alert("🔒 यह Library Science Set अभी Locked है।");
+return;
+}
+
+if(type==="gk" && index>=5){
+alert("🔒 यह GK Set अभी Locked है।");
+return;
+}
+
+if(type==="mock"){
+alert("🔒 Full Mock Tests अभी Locked हैं।");
+return;
+}
+
 const count=type==="mock"?150:50;
 currentQuestions=[];
 
