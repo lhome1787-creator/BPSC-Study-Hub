@@ -4996,6 +4996,7 @@ let answers=[];
 let current=0;
 let timer=null;
 let remaining=0;
+let sletAccess = false;
 
 function makeCards(){
 
@@ -5052,19 +5053,9 @@ window.scrollTo(0,0);
 
 function startTest(type,index){
 
-if(type==="library"){
-alert("🔒 यह Library Science Set अभी Locked है।");
-return;
-}
-
-if(type==="gk"){
-alert("🔒 यह GK Set अभी Locked है।");
-return;
-}
-
-if(type==="mock"){
-alert("🔒 Full Mock Tests अभी Locked हैं।");
-return;
+if(!sletAccess){
+    alert("🔒 पहले SLET 2026 Test Series का payment verify करें।");
+    return;
 }
 
 const count=type==="mock"?150:50;
