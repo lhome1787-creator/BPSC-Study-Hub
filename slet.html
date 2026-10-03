@@ -61,18 +61,6 @@ button{border:0;border-radius:9px;padding:11px 14px;margin:5px;cursor:pointer;fo
 </div>
 </div>
 
-<div class="box" style="text-align:center;border:2px solid #1769aa">
-<h2>🔐 SLET 2026 Complete Test Series</h2>
-<p><b>20 Library Science Sets + 10 GK Sets + 10 Full Mock Tests</b></p>
-<p class="small">कुल 3,000 Questions • One-Time Payment</p>
-<h2>₹199</h2>
-<a href="https://rzp.io/rzp/13eTKvig" target="_blank" rel="noopener noreferrer"
-style="display:inline-block;background:#1769aa;color:white;text-decoration:none;border-radius:9px;padding:12px 22px;font-weight:bold;">
-💳 Pay ₹199 & Get Access
-</a>
-<p class="small">Payment के बाद access देने की प्रक्रिया अलग से होगी।</p>
-</div>
-
 <h2>Test Series</h2>
 
 <div class="grid">
@@ -5012,7 +5000,7 @@ let remaining=0;
 function makeCards(){
 
 document.getElementById("libraryCards").innerHTML=librarySets.map(x=>{
-const locked=x.index>=10;
+const locked=true;
 return `
 <div class="card">
 <h3>📚 ${x.title}</h3>
@@ -5024,7 +5012,7 @@ ${locked
 }).join("");
 
 document.getElementById("gkCards").innerHTML=gkSets.map(x=>{
-const locked=x.index>=5;
+const locked=true;
 return `
 <div class="card">
 <h3>🌍 ${x.title}</h3>
@@ -5064,12 +5052,12 @@ window.scrollTo(0,0);
 
 function startTest(type,index){
 
-if(type==="library" && index>=10){
+if(type==="library"){
 alert("🔒 यह Library Science Set अभी Locked है।");
 return;
 }
 
-if(type==="gk" && index>=5){
+if(type==="gk"){
 alert("🔒 यह GK Set अभी Locked है।");
 return;
 }
