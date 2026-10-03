@@ -5264,9 +5264,12 @@ async function checkSLETAccess() {
     return true;
 }
 
-        alert("🔒 Payment verify नहीं मिला। पहले ₹199 payment करें।");
-        return false;
-
+   if (data.access === true) {
+    sletAccess = true;
+    makeCards();
+    alert("✅ Payment verified! SLET 2026 का access मिल गया।");
+    return true;
+    
     } catch (error) {
         console.error(error);
         alert("⚠️ Access check नहीं हो पाया।");
