@@ -5258,9 +5258,11 @@ async function checkSLETAccess() {
         const data = await response.json();
 
         if (data.access === true) {
-            alert("✅ Payment verified! SLET 2026 का access मिल गया।");
-            return true;
-        }
+    sletAccess = true;
+    makeCards();
+    alert("✅ Payment verified! SLET 2026 का access मिल गया।");
+    return true;
+}
 
         alert("🔒 Payment verify नहीं मिला। पहले ₹199 payment करें।");
         return false;
