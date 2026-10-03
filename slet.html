@@ -5242,6 +5242,7 @@ window.scrollTo(0,0);
 }
 // 🔐 SLET Paid Access Check
 async function checkSLETAccess() {
+
     const email = prompt("अपना payment वाला email डालें:");
 
     if (!email) {
@@ -5250,6 +5251,7 @@ async function checkSLETAccess() {
     }
 
     try {
+
         const response = await fetch(
             "https://bpsc-study-hub-backend.onrender.com/check-access?email=" +
             encodeURIComponent(email)
@@ -5258,21 +5260,26 @@ async function checkSLETAccess() {
         const data = await response.json();
 
         if (data.access === true) {
-    sletAccess = true;
-    makeCards();
-    alert("✅ Payment verified! SLET 2026 का access मिल गया।");
-    return true;
-}
 
-   if (data.access === true) {
-    sletAccess = true;
-    makeCards();
-    alert("✅ Payment verified! SLET 2026 का access मिल गया।");
-    return true;
-    
+            sletAccess = true;
+
+            makeCards();
+
+            alert("✅ Payment verified! SLET 2026 का access मिल गया।");
+
+            return true;
+        }
+
+        alert("🔒 Payment verify नहीं मिला। पहले ₹199 payment करें।");
+
+        return false;
+
     } catch (error) {
+
         console.error(error);
+
         alert("⚠️ Access check नहीं हो पाया।");
+
         return false;
     }
 }
