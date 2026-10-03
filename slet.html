@@ -5277,19 +5277,29 @@ window.scrollTo(0,0);
 // 🔐 SLET Paid Access Check
 async function checkSLETAccess() {
 
-    const email = prompt("अपना payment वाला email डालें:");
+    const input = prompt(
+        "अपना payment वाला Email या Razorpay Payment ID डालें:"
+    );
 
-    if (!email) {
-        alert("⚠️ Email डालना जरूरी है।");
+    if (!input) {
+        alert("⚠️ Email या Payment ID जरूर डालें।");
         return false;
     }
 
+    const value = input.trim();
+
     try {
 
-        const response = await fetch(
-            "https://bpsc-study-hub-backend.onrender.com/check-access?email=" +
-            encodeURIComponent(email)
-        );
+        let url =
+            "https://bpsc-study-hub-backend.onrender.com/check-access?";
+
+        if (value.includes("@")) {
+            url += "email=" + encodeURIComponent(value);
+        } else {
+            url += "paymentId=" + encodeURIComponent(value);
+        }
+
+        const response = await fetch(url);
 
         const data = await response.json();
 
@@ -5304,7 +5314,7 @@ async function checkSLETAccess() {
             return true;
         }
 
-        alert("🔒 Payment verify नहीं मिला। पहले ₹199 payment करें।");
+        alert("🔒 Payment verify नहीं मिला। कृपया सही Email या Payment ID डालें।");
 
         return false;
 
