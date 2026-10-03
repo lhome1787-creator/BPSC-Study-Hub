@@ -5001,7 +5001,7 @@ let sletAccess = false;
 function makeCards(){
 
 document.getElementById("libraryCards").innerHTML=librarySets.map(x=>{
-const locked=true;
+const locked=!sletAccess;
 return `
 <div class="card">
 <h3>📚 ${x.title}</h3>
@@ -5013,7 +5013,7 @@ ${locked
 }).join("");
 
 document.getElementById("gkCards").innerHTML=gkSets.map(x=>{
-const locked=true;
+const locked=!sletAccess;
 return `
 <div class="card">
 <h3>🌍 ${x.title}</h3>
