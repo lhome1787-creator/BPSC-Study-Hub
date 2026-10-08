@@ -1,0 +1,29 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f5f8fc;color:#10245f}
+.site-header{background:linear-gradient(135deg,#075eea,#1769df);color:#fff;padding:16px 4% 10px}
+.brand{display:flex;align-items:center;gap:12px}.logo{font-size:42px}
+.brand h1{margin:0;font-size:32px}.brand p{margin:5px 0 0;font-size:16px}
+.main-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.main-nav a{color:#07328d;background:#fff;text-decoration:none;padding:9px 13px;border-radius:7px;font-weight:600}
+.main-nav a.active{background:#0b63ed;color:#fff}
+.container{max-width:1100px;margin:22px auto;padding:0 18px}
+.hero{display:flex;align-items:center;gap:18px;background:linear-gradient(100deg,#e9f7ff,#f1f7ff);border-radius:14px;padding:22px 28px;box-shadow:0 2px 8px #0000000d}
+.hero-icon{font-size:65px}.title-row{display:flex;align-items:center;gap:10px}.hero h2{font-size:40px;margin:0;color:#09266f}
+.new-badge{background:#e51e25;color:white;padding:6px 10px;border-radius:8px;font-weight:bold}
+.hero-subtitle{font-size:24px;margin:6px 0;color:#111}.hero-small{font-size:18px;margin:4px 0 14px}
+.checks{display:flex;flex-wrap:wrap;gap:12px 24px;color:#17202b}.checks span: first-letter{color:green}
+.hero-note{margin-left:auto;background:#ffe74a;color:#111;padding:13px 18px;border-radius:12px;font-weight:700;text-align:center;transform:rotate(2deg)}
+.search-box{display:flex;gap:12px;margin:25px 0}.search-box input{flex:1;padding:16px;border:1px solid #cdd6e4;border-radius:10px;font-size:17px}.search-box button,.premium-btn{border:0;background:#0766ed;color:#fff;padding:0 28px;border-radius:10px;font-size:17px;font-weight:700}
+.section-heading{display:flex;justify-content:space-between;align-items:center;margin:18px 0 12px}.section-heading h2{margin:0;font-size:25px}.section-heading a{color:#075eea;text-decoration:none;font-weight:bold}
+.exam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.exam-card{background:#fff;border:1px solid #e0e7f0;border-radius:14px;padding:20px;min-height:185px;position:relative;box-shadow:0 2px 8px #0000000a;transition:.2s}
+.exam-card:hover{transform:translateY(-3px);box-shadow:0 7px 18px #00000014}
+.exam-card h3{margin:0 0 10px;font-size:22px}.exam-card p{margin:7px 0;color:#333;line-height:1.5}.exam-card button{position:absolute;right:18px;bottom:16px;width:42px;height:42px;border:0;border-radius:50%;background:#eef5ff;color:#0766ed;font-size:23px;cursor:pointer}
+.bpsc{background:#eafaf1}.bssc{background:#edf5ff}.btsc{background:#fff4e9}.police{background:#fff0f3}.teacher{background:#f1edff}.other{background:#fff0fa}
+.premium{margin:26px 0;padding:22px 25px;border-radius:16px;background:linear-gradient(110deg,#fff7d5,#fff0a8);border:1px solid #f0d15c;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.premium h2{margin:4px 0;font-size:32px;color:#8b5800}.premium p{margin:5px 0;color:#333}.premium-label{font-weight:800;color:#8b5800}.premium-features{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.premium-btn{min-height:52px;background:#e9a900}
+.test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.test-card{background:#fff;border:1px solid #e1e7ef;border-radius:12px;padding:16px}.test-card h3{font-size:16px;min-height:48px}.test-card span{display:inline-block;background:#eef5ff;padding:5px 8px;border-radius:6px}.test-card button{width:100%;margin-top:14px;background:#0968ed;color:#fff;border:0;border-radius:7px;padding:11px;font-weight:bold}
+.why{margin:22px 0;background:#fff8dd;padding:18px 22px;border-radius:12px}.why h2{margin:0 0 14px}.why div{display:flex;flex-wrap:wrap;gap:15px}
+.study-material{background:#eaf5ff;border-radius:14px;padding:22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.study-material h2{margin:0}.study-material p{margin:8px 0}.study-material a{border:1px solid #0865e9;padding:11px 18px;border-radius:8px;text-decoration:none;color:#075eea;font-weight:bold;background:#fff}
+@media(max-width:800px){.exam-grid{grid-template-columns:1fr 1fr}.test-grid{grid-template-columns:1fr 1fr}.hero{flex-wrap:wrap}.hero-note{margin-left:0}.premium{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.brand h1{font-size:25px}.brand p{font-size:13px}.main-nav a{font-size:13px;padding:7px 9px}.hero h2{font-size:29px}.hero-subtitle{font-size:19px}.exam-grid,.test-grid{grid-template-columns:1fr}.search-box{flex-direction:column}.search-box button{padding:14px}.premium-btn{width:100%;padding:14px}}
