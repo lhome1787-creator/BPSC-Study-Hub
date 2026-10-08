@@ -1,3 +1,7 @@
 function openExam(name){
-  alert(name + "\n\nअगले चरण में यहाँ इस परीक्षा का अलग module खुलेगा:\n\n📋 Exam Pattern\n📖 Syllabus\n📚 Notes\n📕 PYQ\n📝 Practice Set\n🎯 Mock Test");
+  if(name === "BPSC CCE"){
+    window.location.href = "bpsc-cce.html";
+    return;
+  }
+  alert(name + "\n\nइस exam का detailed module अगले चरण में जोड़ा जाएगा।");
 }
