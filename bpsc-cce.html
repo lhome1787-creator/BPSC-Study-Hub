@@ -4,84 +4,473 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BPSC CCE Preparation | BPSC Study Hub</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#172554}
-header{background:linear-gradient(135deg,#075eea,#173b91);color:white;padding:24px 5%}
-header h1{margin:0 0 8px}
-nav{background:white;padding:14px 5%;display:flex;gap:10px;flex-wrap:wrap}
+body{
+  margin:0;font-family:Arial,sans-serif;
+  background:#f3f6fc;color:#172554;line-height:1.6
+}
+header{
+  background:linear-gradient(135deg,#075eea,#173b91);
+  color:white;padding:25px 5%
+}
+header h1{margin:0}
+header p{margin-bottom:0}
+nav{
+  background:white;padding:14px 5%;
+  display:flex;gap:18px;flex-wrap:wrap;
+  box-shadow:0 2px 8px #0000000c
+}
 nav a{color:#1645a0;text-decoration:none;font-weight:bold}
-main{max-width:1100px;margin:25px auto;padding:0 16px}
-.hero,.card{background:white;border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:0 3px 14px #142b5010}
+main{max-width:1100px;margin:24px auto;padding:0 15px}
+.hero,.card,.content-panel{
+  background:white;border-radius:14px;padding:22px;
+  margin-bottom:18px;box-shadow:0 3px 14px #142b5010
+}
 .hero{border-left:5px solid #0866ef}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px
+}
 .card h3{margin-top:0;color:#1553bb}
-button{background:#0866ef;color:white;border:0;border-radius:8px;padding:11px 14px;cursor:pointer}
-.details{display:none;margin-top:12px;padding:12px;background:#eef5ff;border-radius:8px;line-height:1.7}
+button,.btn{
+  display:inline-block;background:#0866ef;color:white;
+  border:0;border-radius:8px;padding:11px 15px;
+  cursor:pointer;font-size:15px;text-decoration:none
+}
+button:hover,.btn:hover{background:#064db6}
+button:disabled{opacity:.6;cursor:not-allowed}
+.content-panel{display:none;border-top:4px solid #0866ef}
+.content-panel h2{color:#1553bb}
+.note{
+  background:#eef5ff;padding:13px;border-radius:8px;
+  margin:12px 0
+}
+.question{
+  border:1px solid #dce5f5;border-radius:10px;
+  padding:15px;margin:15px 0
+}
+.option{
+  display:block;background:#f5f8ff;padding:10px;
+  margin:8px 0;border-radius:7px;cursor:pointer
+}
+.option input{margin-right:8px}
+.correct{background:#dcfce7!important}
+.wrong{background:#fee2e2!important}
+.result{
+  padding:15px;background:#eaf2ff;border-radius:8px;
+  margin-top:15px;font-weight:bold
+}
+.small{font-size:14px;color:#52617a}
+.timer{font-size:22px;font-weight:bold;color:#d12e2e}
 footer{text-align:center;padding:22px;color:#52617a}
 </style>
 </head>
+
 <body>
 <header>
-<h1>📚 BPSC Study Hub</h1>
-<p>BPSC Combined Competitive Examination (CCE)</p>
+  <h1>📚 BPSC Study Hub</h1>
+  <p>BPSC Combined Competitive Examination (CCE)</p>
 </header>
+
 <nav>
-<a href="index.html">Home</a>
-<a href="bpsc-exams.html">BPSC Exams</a>
-<a href="notes.html">Notes</a>
-<a href="mock-test.html">Mock Test</a>
+  <a href="index.html">Home</a>
+  <a href="bpsc-exams.html">BPSC Exams</a>
+  <a href="notes.html">मुख्य Notes</a>
+  <a href="mock-test.html">पुराना Mock Test</a>
 </nav>
+
 <main>
 <section class="hero">
-<h2>🏆 BPSC CCE Preparation</h2>
-<p>एक ही जगह पर परीक्षा पैटर्न, सिलेबस, नोट्स, PYQ और अभ्यास टेस्ट।</p>
-<p><b>नोट:</b> परीक्षा पैटर्न और पाठ्यक्रम संबंधित नवीनतम आधिकारिक अधिसूचना से सत्यापित करें।</p>
+  <h2>🏆 BPSC CCE Preparation</h2>
+  <p>परीक्षा की तैयारी के लिए Notes, प्रश्न अभ्यास और Mock Test एक ही जगह।</p>
+  <p class="small">
+    नोट: प्रश्न और नोट्स अध्ययन के लिए हैं। नवीनतम परीक्षा पैटर्न,
+    अंक-वितरण और आधिकारिक पाठ्यक्रम की पुष्टि BPSC की अधिसूचना से करें।
+  </p>
 </section>
+
 <div class="grid">
-<section class="card">
-<h3>📋 Exam Pattern</h3>
-<p>Prelims, Mains और Interview की जानकारी।</p>
-<button onclick="show('pattern')">जानकारी देखें</button>
-<div class="details" id="pattern">Prelims: Objective परीक्षा। Mains: लिखित परीक्षा। Interview: निर्धारित चयन प्रक्रिया के अनुसार। सटीक अंक, विषय और नियम संबंधित BPSC अधिसूचना से जाँचें।</div>
-</section>
-<section class="card">
-<h3>📖 Syllabus</h3>
-<p>विषयवार पाठ्यक्रम और तैयारी की सूची।</p>
-<button onclick="show('syllabus')">सिलेबस देखें</button>
-<div class="details" id="syllabus">इतिहास, भूगोल, भारतीय राजव्यवस्था, अर्थव्यवस्था, सामान्य विज्ञान, गणित/रीजनिंग जहाँ लागू हो, तथा बिहार से संबंधित विषय। आधिकारिक syllabus से मिलान करें।</div>
-</section>
-<section class="card">
-<h3>📚 Notes</h3>
-<p>विषयवार नोट्स और महत्वपूर्ण तथ्य।</p>
-<button onclick="show('notes')">नोट्स देखें</button>
-<div class="details" id="notes">अगले चरण में बिहार GK, इतिहास, भूगोल, राजव्यवस्था और अर्थव्यवस्था के अलग-अलग नोट्स जोड़े जाएँगे।</div>
-</section>
-<section class="card">
-<h3>📕 Previous Year Questions</h3>
-<p>पिछले वर्षों के प्रश्नों का अभ्यास।</p>
-<button onclick="show('pyq')">PYQ जानकारी</button>
-<div class="details" id="pyq">वर्षवार प्रश्नपत्र और उत्तर केवल सत्यापित स्रोतों से जोड़े जाएँगे। उपलब्धता के अनुसार PYQ सेट तैयार होंगे।</div>
-</section>
-<section class="card">
-<h3>📝 Practice Sets</h3>
-<p>विषयवार MCQ और उत्तर सहित अभ्यास।</p>
-<button onclick="show('practice')">Practice देखें</button>
-<div class="details" id="practice">अगले चरण में प्रश्न, चार विकल्प, सही उत्तर और व्याख्या वाले इंटरैक्टिव अभ्यास सेट जोड़े जाएँगे।</div>
-</section>
-<section class="card">
-<h3>🎯 Mock Tests</h3>
-<p>समयबद्ध परीक्षा अभ्यास।</p>
-<button onclick="show('mock')">Mock Test जानकारी</button>
-<div class="details" id="mock">अगले चरण में आधिकारिक पैटर्न के अनुरूप टाइमर, स्कोर और उत्तर समीक्षा वाला mock test जोड़ा जाएगा।</div>
-</section>
+  <section class="card">
+    <h3>📋 Exam Pattern</h3>
+    <p>Prelims, Mains और Interview की जानकारी।</p>
+    <button onclick="openSection('pattern')">जानकारी देखें</button>
+  </section>
+
+  <section class="card">
+    <h3>📖 Syllabus</h3>
+    <p>मुख्य विषय और तैयारी की सूची।</p>
+    <button onclick="openSection('syllabus')">सिलेबस देखें</button>
+  </section>
+
+  <section class="card">
+    <h3>📚 Study Notes</h3>
+    <p>इतिहास, भूगोल, राजव्यवस्था और विज्ञान।</p>
+    <button onclick="openSection('notes')">Notes पढ़ें</button>
+  </section>
+
+  <section class="card">
+    <h3>📕 PYQ अभ्यास</h3>
+    <p>परीक्षा शैली के नमूना प्रश्न।</p>
+    <button onclick="openSection('pyq')">प्रश्न देखें</button>
+  </section>
+
+  <section class="card">
+    <h3>📝 Practice Set</h3>
+    <p>MCQ हल करें और अपना स्कोर देखें।</p>
+    <button onclick="openSection('practice')">अभ्यास शुरू करें</button>
+  </section>
+
+  <section class="card">
+    <h3>🎯 Mock Test</h3>
+    <p>टाइमर के साथ छोटा अभ्यास टेस्ट।</p>
+    <button onclick="openSection('mock')">टेस्ट शुरू करें</button>
+  </section>
 </div>
+
+<!-- EXAM PATTERN -->
+<section class="content-panel" id="pattern">
+  <h2>📋 BPSC CCE Exam Pattern</h2>
+  <h3>1. प्रारंभिक परीक्षा (Prelims)</h3>
+  <ul>
+    <li>सामान्य अध्ययन पर आधारित वस्तुनिष्ठ प्रश्न।</li>
+    <li>इतिहास, भूगोल, राजव्यवस्था, अर्थव्यवस्था, विज्ञान और समसामयिकी की तैयारी करें।</li>
+    <li>अंक, समय, नेगेटिव मार्किंग और अन्य नियम संबंधित परीक्षा की अधिसूचना से जाँचें।</li>
+  </ul>
+  <h3>2. मुख्य परीक्षा (Mains)</h3>
+  <ul>
+    <li>विस्तृत उत्तर लिखने का नियमित अभ्यास करें।</li>
+    <li>निबंध, सामान्य अध्ययन और अधिसूचना में निर्धारित अन्य पेपर की तैयारी करें।</li>
+    <li>योग्यता, अनिवार्य पेपर और मेरिट में शामिल अंकों की पुष्टि आधिकारिक विज्ञापन से करें।</li>
+  </ul>
+  <h3>3. Interview</h3>
+  <p>व्यक्तित्व, सामान्य जागरूकता, बिहार से जुड़े मुद्दों और स्पष्ट अभिव्यक्ति का अभ्यास करें।</p>
+  <div class="note">
+    <b>महत्वपूर्ण:</b> अलग-अलग BPSC विज्ञापनों में नियम बदल सकते हैं।
+    किसी पुराने परीक्षा पैटर्न को स्वतः नवीनतम न मानें।
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section class="content-panel" id="syllabus">
+  <h2>📖 विषयवार तैयारी सूची</h2>
+  <h3>इतिहास</h3>
+  <ul>
+    <li>प्राचीन भारत: मौर्य, गुप्त और बौद्ध-जैन परंपराएँ।</li>
+    <li>मध्यकालीन भारत और आधुनिक भारत।</li>
+    <li>1857 का विद्रोह, राष्ट्रीय आंदोलन और बिहार की भूमिका।</li>
+  </ul>
+  <h3>भूगोल</h3>
+  <ul>
+    <li>भारत की भौतिक संरचना, नदियाँ, जलवायु और मिट्टी।</li>
+    <li>कृषि, प्राकृतिक संसाधन और जनसंख्या।</li>
+    <li>बिहार की नदियाँ, जिले, कृषि और भौगोलिक विशेषताएँ।</li>
+  </ul>
+  <h3>भारतीय राजव्यवस्था</h3>
+  <ul>
+    <li>संविधान की प्रस्तावना, मौलिक अधिकार और कर्तव्य।</li>
+    <li>राष्ट्रपति, प्रधानमंत्री, संसद और न्यायपालिका।</li>
+    <li>राज्य सरकार, पंचायती राज और संवैधानिक संस्थाएँ।</li>
+  </ul>
+  <h3>अर्थव्यवस्था और विज्ञान</h3>
+  <ul>
+    <li>बजट, महँगाई, बैंकिंग, GDP और सरकारी योजनाएँ।</li>
+    <li>भौतिक विज्ञान, रसायन विज्ञान, जीव विज्ञान और पर्यावरण के मूल सिद्धांत।</li>
+  </ul>
+  <h3>समसामयिकी</h3>
+  <p>राष्ट्रीय-अंतरराष्ट्रीय घटनाएँ, बिहार की महत्वपूर्ण खबरें, पुरस्कार, खेल और सरकारी योजनाएँ पढ़ें।</p>
+  <p class="small">यह तैयारी की विषय-सूची है, आधिकारिक पूर्ण syllabus नहीं। इसे अपने परीक्षा विज्ञापन से मिलाएँ।</p>
+</section>
+
+<!-- NOTES -->
+<section class="content-panel" id="notes">
+  <h2>📚 Quick Study Notes</h2>
+
+  <h3>नोट 1: भारतीय संविधान</h3>
+  <ul>
+    <li>भारतीय संविधान 26 नवंबर 1949 को अंगीकृत हुआ।</li>
+    <li>यह 26 जनवरी 1950 को लागू हुआ।</li>
+    <li>डॉ. भीमराव आंबेडकर प्रारूप समिति के अध्यक्ष थे।</li>
+    <li>मौलिक अधिकार संविधान के भाग III में हैं।</li>
+    <li>राज्य के नीति-निदेशक तत्व भाग IV में हैं।</li>
+  </ul>
+
+  <h3>नोट 2: बिहार का इतिहास</h3>
+  <ul>
+    <li>प्राचीन मगध भारतीय इतिहास का प्रमुख राजनीतिक केंद्र था।</li>
+    <li>पाटलिपुत्र प्राचीन भारत का एक महत्वपूर्ण नगर था।</li>
+    <li>गौतम बुद्ध को बोधगया में ज्ञान प्राप्ति हुई, ऐसी बौद्ध परंपरा है।</li>
+    <li>चंपारण सत्याग्रह 1917 में हुआ था।</li>
+  </ul>
+
+  <h3>नोट 3: भारत का भूगोल</h3>
+  <ul>
+    <li>गंगा बिहार की प्रमुख नदियों में से एक है।</li>
+    <li>भारत में मानसूनी जलवायु का व्यापक प्रभाव है।</li>
+    <li>कृषि पर वर्षा, मिट्टी, सिंचाई और तापमान का प्रभाव पड़ता है।</li>
+  </ul>
+
+  <h3>नोट 4: सामान्य विज्ञान</h3>
+  <ul>
+    <li>बल की SI इकाई न्यूटन है।</li>
+    <li>ऊर्जा की SI इकाई जूल है।</li>
+    <li>पानी का रासायनिक सूत्र H₂O है।</li>
+    <li>प्रकाश संश्लेषण में पौधे प्रकाश ऊर्जा का उपयोग करते हैं।</li>
+  </ul>
+
+  <h3>नोट 5: अर्थव्यवस्था</h3>
+  <ul>
+    <li>GDP एक अवधि में देश के भीतर उत्पादित अंतिम वस्तुओं और सेवाओं के मूल्य को मापता है।</li>
+    <li>महँगाई का अर्थ सामान्य मूल्य स्तर में वृद्धि है।</li>
+    <li>भारतीय रिजर्व बैंक भारत का केंद्रीय बैंक है।</li>
+  </ul>
+</section>
+
+<!-- PYQ STYLE QUESTIONS -->
+<section class="content-panel" id="pyq">
+  <h2>📕 PYQ अभ्यास</h2>
+  <div class="note">
+    ये BPSC शैली के अभ्यास प्रश्न हैं, सत्यापित पुराने प्रश्नपत्रों से लिए गए
+    प्रश्न होने का दावा नहीं है। इन्हें वास्तविक वर्षवार PYQ के रूप में न मानें।
+  </div>
+  <div id="pyqQuestions"></div>
+  <button onclick="checkAnswers('pyqQuestions','pyqResult')">उत्तर जाँचें</button>
+  <div class="result" id="pyqResult" hidden></div>
+</section>
+
+<!-- PRACTICE -->
+<section class="content-panel" id="practice">
+  <h2>📝 Practice Set – 1</h2>
+  <p>सभी प्रश्नों के उत्तर चुनें, फिर अपना परिणाम देखें।</p>
+  <div id="practiceQuestions"></div>
+  <button onclick="checkAnswers('practiceQuestions','practiceResult')">सबमिट करें</button>
+  <div class="result" id="practiceResult" hidden></div>
+  <button onclick="resetQuestions('practiceQuestions','practiceResult')">दोबारा अभ्यास करें</button>
+</section>
+
+<!-- MOCK TEST -->
+<section class="content-panel" id="mock">
+  <h2>🎯 Mini Mock Test</h2>
+  <p class="small">5 प्रश्न • समय 5 मिनट • प्रत्येक सही उत्तर 1 अंक।</p>
+  <div class="timer" id="timer">05:00</div>
+  <div id="mockQuestions"></div>
+  <button id="startMock" onclick="startMock()">टेस्ट शुरू करें</button>
+  <button id="submitMock" onclick="finishMock()" disabled>टेस्ट सबमिट करें</button>
+  <div class="result" id="mockResult" hidden></div>
+  <button onclick="resetMock()">टेस्ट दोबारा दें</button>
+</section>
+
 </main>
+
 <footer>© BPSC Study Hub | तैयारी करें, आगे बढ़ें।</footer>
+
 <script>
-function show(id){
-  const el=document.getElementById(id);
-  el.style.display=el.style.display==="block"?"none":"block";
+const questions = [
+ {
+  q:"भारतीय संविधान कब लागू हुआ?",
+  options:["15 अगस्त 1947","26 जनवरी 1950","26 नवंबर 1949","2 अक्टूबर 1950"],
+  answer:1,
+  explanation:"भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।"
+ },
+ {
+  q:"चंपारण सत्याग्रह किस वर्ष हुआ था?",
+  options:["1905","1917","1920","1930"],
+  answer:1,
+  explanation:"चंपारण सत्याग्रह 1917 में हुआ था।"
+ },
+ {
+  q:"बल की SI इकाई क्या है?",
+  options:["जूल","वाट","न्यूटन","पास्कल"],
+  answer:2,
+  explanation:"बल की SI इकाई न्यूटन है।"
+ },
+ {
+  q:"भारतीय रिजर्व बैंक का मुख्य कार्य क्या है?",
+  options:[
+   "संसद चलाना",
+   "मौद्रिक नीति और मुद्रा व्यवस्था से जुड़े कार्य करना",
+   "रेलवे चलाना",
+   "चुनाव कराना"
+  ],
+  answer:1,
+  explanation:"RBI भारत की मौद्रिक व्यवस्था और मौद्रिक नीति में प्रमुख भूमिका निभाता है।"
+ },
+ {
+  q:"बोधगया किस राज्य में स्थित है?",
+  options:["उत्तर प्रदेश","झारखंड","बिहार","मध्य प्रदेश"],
+  answer:2,
+  explanation:"बोधगया बिहार के गया जिले में स्थित है।"
+ },
+ {
+  q:"भारतीय संविधान में मौलिक अधिकार किस भाग में हैं?",
+  options:["भाग I","भाग II","भाग III","भाग IV"],
+  answer:2,
+  explanation:"मौलिक अधिकार संविधान के भाग III में दिए गए हैं।"
+ },
+ {
+  q:"पानी का रासायनिक सूत्र क्या है?",
+  options:["CO₂","H₂O","O₂","NaCl"],
+  answer:1,
+  explanation:"पानी का रासायनिक सूत्र H₂O है।"
+ },
+ {
+  q:"भारत में मानसून मुख्यतः किससे संबंधित है?",
+  options:["मौसमी पवनों के परिवर्तन से","भूकंप से","ज्वालामुखी से","समुद्री ज्वार से"],
+  answer:0,
+  explanation:"मानसून मौसमी पवनों और उनसे जुड़ी वर्षा की व्यवस्था है।"
+ },
+ {
+  q:"प्राचीन मगध का क्षेत्र मुख्यतः वर्तमान किस राज्य में था?",
+  options:["बिहार","पंजाब","केरल","गुजरात"],
+  answer:0,
+  explanation:"प्राचीन मगध का प्रमुख क्षेत्र वर्तमान बिहार में था।"
+ },
+ {
+  q:"GDP का संबंध किससे है?",
+  options:[
+   "केवल जनसंख्या से",
+   "अर्थव्यवस्था में उत्पादित अंतिम वस्तुओं और सेवाओं के मूल्य से",
+   "केवल निर्यात से",
+   "केवल सरकारी कर्मचारियों से"
+  ],
+  answer:1,
+  explanation:"GDP एक अवधि में देश के भीतर उत्पादित अंतिम वस्तुओं और सेवाओं के कुल मूल्य को मापता है।"
+ }
+];
+
+function openSection(id){
+  document.querySelectorAll(".content-panel").forEach(panel=>{
+    panel.style.display = panel.id === id ? "block" : "none";
+  });
+  const target = document.getElementById(id);
+  if(target) target.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function renderQuestions(containerId, list, prefix){
+  const container = document.getElementById(containerId);
+  container.innerHTML = list.map((item,index)=>`
+    <div class="question" id="${prefix}q${index}">
+      <b>${index+1}. ${item.q}</b>
+      ${item.options.map((option,optIndex)=>`
+        <label class="option" id="${prefix}o${index}_${optIndex}">
+          <input type="radio" name="${prefix}${index}" value="${optIndex}">
+          ${option}
+        </label>
+      `).join("")}
+      <div class="small" id="${prefix}e${index}" hidden></div>
+    </div>
+  `).join("");
+}
+
+function checkAnswers(containerId,resultId){
+  const container = document.getElementById(containerId);
+  const prefix = containerId === "pyqQuestions" ? "p" : "s";
+  let score=0, attempted=0;
+  const list = containerId === "pyqQuestions" ? questions.slice(0,5) : questions.slice(5,10);
+
+  list.forEach((item,index)=>{
+    const selected = container.querySelector(`input[name="${prefix}${index}"]:checked`);
+    const explanation = document.getElementById(`${prefix}e${index}`);
+    explanation.hidden = false;
+    container.querySelectorAll(`[id^="${prefix}o${index}_"]`).forEach(el=>{
+      el.classList.remove("correct","wrong");
+    });
+
+    if(selected){
+      attempted++;
+      if(Number(selected.value)===item.answer) score++;
+      else document.getElementById(`${prefix}o${index}_${selected.value}`).classList.add("wrong");
+    }
+    document.getElementById(`${prefix}o${index}_${item.answer}`).classList.add("correct");
+    explanation.textContent = "सही उत्तर: "+item.options[item.answer]+". "+item.explanation;
+  });
+
+  const result = document.getElementById(resultId);
+  result.hidden=false;
+  result.textContent=`आपका स्कोर: ${score}/${list.length} | प्रयास किए: ${attempted}/${list.length}`;
+}
+
+function resetQuestions(containerId,resultId){
+  const container=document.getElementById(containerId);
+  container.querySelectorAll("input").forEach(input=>input.checked=false);
+  container.querySelectorAll(".option").forEach(el=>el.classList.remove("correct","wrong"));
+  container.querySelectorAll(".small").forEach(el=>el.hidden=true);
+  document.getElementById(resultId).hidden=true;
+}
+
+renderQuestions("pyqQuestions",questions.slice(0,5),"p");
+renderQuestions("practiceQuestions",questions.slice(5,10),"s");
+renderQuestions("mockQuestions",questions.slice(0,5),"m");
+
+let remaining=300;
+let timerInterval=null;
+let mockStarted=false;
+let mockFinished=false;
+
+function startMock(){
+  if(mockStarted && !mockFinished) return;
+  remaining=300;
+  mockStarted=true;
+  mockFinished=false;
+  document.getElementById("startMock").disabled=true;
+  document.getElementById("submitMock").disabled=false;
+  resetQuestions("mockQuestions","mockResult");
+  document.getElementById("timer").textContent="05:00";
+
+  timerInterval=setInterval(()=>{
+    remaining--;
+    const minutes=String(Math.floor(remaining/60)).padStart(2,"0");
+    const seconds=String(remaining%60).padStart(2,"0");
+    document.getElementById("timer").textContent=minutes+":"+seconds;
+    if(remaining<=0) finishMock();
+  },1000);
+}
+
+function finishMock(){
+  if(!mockStarted || mockFinished) return;
+  mockFinished=true;
+  clearInterval(timerInterval);
+
+  const container=document.getElementById("mockQuestions");
+  let score=0,attempted=0;
+  const list=questions.slice(0,5);
+
+  list.forEach((item,index)=>{
+    const selected=container.querySelector(`input[name="m${index}"]:checked`);
+    if(selected){
+      attempted++;
+      if(Number(selected.value)===item.answer) score++;
+    }
+    container.querySelectorAll(`[id^="mo${index}_"]`).forEach(el=>{
+      el.classList.remove("correct","wrong");
+    });
+    if(selected && Number(selected.value)!==item.answer){
+      document.getElementById(`mo${index}_${selected.value}`).classList.add("wrong");
+    }
+    document.getElementById(`mo${index}_${item.answer}`).classList.add("correct");
+    const explanation=document.getElementById(`me${index}`);
+    explanation.hidden=false;
+    explanation.textContent="सही उत्तर: "+item.options[item.answer]+". "+item.explanation;
+  });
+
+  const result=document.getElementById("mockResult");
+  result.hidden=false;
+  result.textContent=`टेस्ट पूरा! स्कोर: ${score}/5 | प्रयास: ${attempted}/5 | गलत/छूटे प्रश्न: ${5-score}`;
+  document.getElementById("submitMock").disabled=true;
+  document.getElementById("startMock").disabled=false;
+}
+
+function resetMock(){
+  clearInterval(timerInterval);
+  mockStarted=false;
+  mockFinished=false;
+  remaining=300;
+  document.getElementById("timer").textContent="05:00";
+  document.getElementById("startMock").disabled=false;
+  document.getElementById("submitMock").disabled=true;
+  resetQuestions("mockQuestions","mockResult");
 }
 </script>
 </body>
