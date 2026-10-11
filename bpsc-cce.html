@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPSC CCE Preparation | BPSC Study Hub</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#172554}
+header{background:linear-gradient(135deg,#075eea,#173b91);color:white;padding:24px 5%}
+header h1{margin:0 0 8px}
+nav{background:white;padding:14px 5%;display:flex;gap:10px;flex-wrap:wrap}
+nav a{color:#1645a0;text-decoration:none;font-weight:bold}
+main{max-width:1100px;margin:25px auto;padding:0 16px}
+.hero,.card{background:white;border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:0 3px 14px #142b5010}
+.hero{border-left:5px solid #0866ef}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card h3{margin-top:0;color:#1553bb}
+button{background:#0866ef;color:white;border:0;border-radius:8px;padding:11px 14px;cursor:pointer}
+.details{display:none;margin-top:12px;padding:12px;background:#eef5ff;border-radius:8px;line-height:1.7}
+footer{text-align:center;padding:22px;color:#52617a}
+</style>
+</head>
+<body>
+<header>
+<h1>📚 BPSC Study Hub</h1>
+<p>BPSC Combined Competitive Examination (CCE)</p>
+</header>
+<nav>
+<a href="index.html">Home</a>
+<a href="bpsc-exams.html">BPSC Exams</a>
+<a href="notes.html">Notes</a>
+<a href="mock-test.html">Mock Test</a>
+</nav>
+<main>
+<section class="hero">
+<h2>🏆 BPSC CCE Preparation</h2>
+<p>एक ही जगह पर परीक्षा पैटर्न, सिलेबस, नोट्स, PYQ और अभ्यास टेस्ट।</p>
+<p><b>नोट:</b> परीक्षा पैटर्न और पाठ्यक्रम संबंधित नवीनतम आधिकारिक अधिसूचना से सत्यापित करें।</p>
+</section>
+<div class="grid">
+<section class="card">
+<h3>📋 Exam Pattern</h3>
+<p>Prelims, Mains और Interview की जानकारी।</p>
+<button onclick="show('pattern')">जानकारी देखें</button>
+<div class="details" id="pattern">Prelims: Objective परीक्षा। Mains: लिखित परीक्षा। Interview: निर्धारित चयन प्रक्रिया के अनुसार। सटीक अंक, विषय और नियम संबंधित BPSC अधिसूचना से जाँचें।</div>
+</section>
+<section class="card">
+<h3>📖 Syllabus</h3>
+<p>विषयवार पाठ्यक्रम और तैयारी की सूची।</p>
+<button onclick="show('syllabus')">सिलेबस देखें</button>
+<div class="details" id="syllabus">इतिहास, भूगोल, भारतीय राजव्यवस्था, अर्थव्यवस्था, सामान्य विज्ञान, गणित/रीजनिंग जहाँ लागू हो, तथा बिहार से संबंधित विषय। आधिकारिक syllabus से मिलान करें।</div>
+</section>
+<section class="card">
+<h3>📚 Notes</h3>
+<p>विषयवार नोट्स और महत्वपूर्ण तथ्य।</p>
+<button onclick="show('notes')">नोट्स देखें</button>
+<div class="details" id="notes">अगले चरण में बिहार GK, इतिहास, भूगोल, राजव्यवस्था और अर्थव्यवस्था के अलग-अलग नोट्स जोड़े जाएँगे।</div>
+</section>
+<section class="card">
+<h3>📕 Previous Year Questions</h3>
+<p>पिछले वर्षों के प्रश्नों का अभ्यास।</p>
+<button onclick="show('pyq')">PYQ जानकारी</button>
+<div class="details" id="pyq">वर्षवार प्रश्नपत्र और उत्तर केवल सत्यापित स्रोतों से जोड़े जाएँगे। उपलब्धता के अनुसार PYQ सेट तैयार होंगे।</div>
+</section>
+<section class="card">
+<h3>📝 Practice Sets</h3>
+<p>विषयवार MCQ और उत्तर सहित अभ्यास।</p>
+<button onclick="show('practice')">Practice देखें</button>
+<div class="details" id="practice">अगले चरण में प्रश्न, चार विकल्प, सही उत्तर और व्याख्या वाले इंटरैक्टिव अभ्यास सेट जोड़े जाएँगे।</div>
+</section>
+<section class="card">
+<h3>🎯 Mock Tests</h3>
+<p>समयबद्ध परीक्षा अभ्यास।</p>
+<button onclick="show('mock')">Mock Test जानकारी</button>
+<div class="details" id="mock">अगले चरण में आधिकारिक पैटर्न के अनुरूप टाइमर, स्कोर और उत्तर समीक्षा वाला mock test जोड़ा जाएगा।</div>
+</section>
+</div>
+</main>
+<footer>© BPSC Study Hub | तैयारी करें, आगे बढ़ें।</footer>
+<script>
+function show(id){
+  const el=document.getElementById(id);
+  el.style.display=el.style.display==="block"?"none":"block";
+}
+</script>
+</body>
+</html>
