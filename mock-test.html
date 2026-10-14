@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BPSC Study Hub | 100 Questions Mock Test</title>
+<title>BPSC Study Hub | 150 Questions Mock Test</title>
 <style>
 :root{--primary:#0b63ce;--primary2:#084b9a;--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#667085;--green:#138a4b;--red:#d92d20;--border:#e4e7ec}
 *{box-sizing:border-box}
@@ -209,14 +209,14 @@ footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:3
     <div style="background:#f8fafc;border:1px solid #e4e7ec;border-radius:10px;padding:12px;margin-bottom:14px;text-align:center;">
     <b>परीक्षा:</b> BPSC Preliminary Examination
     &nbsp; | &nbsp;
-    <b>कुल प्रश्न:</b> 100
+    <b>कुल प्रश्न:</b> 150
     &nbsp; | &nbsp;
     <b>समय:</b> 2 घंटे
     &nbsp; | &nbsp;
-    <b>कुल अंक:</b> 100
+    <b>कुल अंक:</b> 150
 </div>
 <div class="instructions">
-<div class="stat">📝 <b>100</b><br><span class="small">कुल प्रश्न</span></div>
+<div class="stat">📝 <b>150</b><br><span class="small">कुल प्रश्न</span></div>
 <div class="stat">✅ <b>+1</b><br><span class="small">सही उत्तर</span></div>
 <div class="stat">❌ <b>-1/3</b><br><span class="small">गलत उत्तर</span></div>
 <div class="stat">⭕ <b>0</b><br><span class="small">Not Attempted</span></div>
@@ -445,8 +445,8 @@ const questions = [
   ["240 का 25% कितना है?", ["40", "50", "60", "80"], "C"],
   ["श्रृंखला पूरी कीजिए: 5, 10, 20, 40, ?", ["45", "60", "80", "100"], "C"],
   ["यदि 12 मजदूर किसी काम को 6 दिनों में करते हैं, तो समान दक्षता पर 6 मजदूर कितने दिनों में करेंगे?", ["3 दिन", "6 दिन", "9 दिन", "12 दिन"], "D"],
-  ["एक संख्या का 20% = 50 है। वह संख्या क्या है?", ["100", "200", "250", "300"], "C"];
-    
+  ["एक संख्या का 20% = 50 है। वह संख्या क्या है?", ["100", "200", "250", "300"], "C"]
+];
 
 const questions150=questions.slice(0,150);
 
@@ -644,17 +644,17 @@ function calculateScore(){
 
   const result=document.getElementById("result");
 
-  const percentage=Math.max(0,Math.min(100,score));
+  const percentage=Math.max(0,Math.min(100,(score/150)*100));
 const attempted=correct+wrong;
 const markedCount=markedQuestions.size;
 
 result.innerHTML=`<h2>🎯 Test Result</h2>
-<h3>प्राप्त Score: ${score.toFixed(2)} / 100</h3>
+<h3>प्राप्त Score: ${score.toFixed(2)} / 150</h3>
 
 <p style="text-align:center">
 📈 Percentage: <b>${percentage.toFixed(2)}%</b>
 &nbsp; | &nbsp;
-📝 Attempted: <b>${attempted}</b>/100
+📝 Attempted: <b>${attempted}</b>/150
 &nbsp; | &nbsp;
 ⭐ Marked: <b>${markedCount}</b>
 </p>
