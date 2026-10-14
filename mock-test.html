@@ -615,8 +615,54 @@ function calculateScore(){
 
     const markText=marked ? " ⭐ Marked for Review" : "";
 
-    if(!selected || selected.value==="E"){
-      skip++;
+    if (!selected) {
+  // कोई भी विकल्प नहीं चुना: -1/3 अंक
+  score -= 1 / 3;
+  wrong++;
+
+  review += `<div class="review-item wrong">
+    <b>Q${n}. ${item[0]}</b>${markText}<br>
+    ⚠️ कोई विकल्प नहीं चुना गया।<br>
+    ❌ कटौती: -1/3 अंक<br>
+    ✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b>
+  </div>`;
+
+} else if (selected.value === "E") {
+  // E चुना: प्रश्न छोड़ने पर 0 अंक
+  skip++;
+
+  review += `<div class="review-item skip">
+    <b>Q${n}. ${item[0]}</b>${markText}<br>
+    ⭕ Not Attempted — E चुना<br>
+    ✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b>
+  </div>`;
+
+} else if (selected.value === correctAnswer) {
+  score++;
+  correct++;
+
+  const selectedText =
+    item[1][selected.value.charCodeAt(0) - 65];
+
+  review += `<div class="review-item correct">
+    <b>Q${n}. ${item[0]}</b>${markText}<br>
+    🟢 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — सही
+  </div>`;
+
+} else {
+  score -= 1 / 3;
+  wrong++;
+
+  const selectedText =
+    item[1][selected.value.charCodeAt(0) - 65];
+
+  review += `<div class="review-item wrong">
+    <b>Q${n}. ${item[0]}</b>${markText}<br>
+    🔴 आपका उत्तर: <b>${selected.value}. ${selectedText}</b> — गलत<br>
+    ❌ कटौती: -1/3 अंक<br>
+    ✅ सही उत्तर: <b>${correctAnswer}. ${correctText}</b>
+  </div>`;
+}
       review+=`<div class="review-item skip">
         <b>Q${n}. ${item[0]}</b>${markText}<br>
         ⭕ Not Attempted<br>
